@@ -1,13 +1,22 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://codextechinnovations.com/sitemap.xml
 
+# AI crawlers — allowed for AI discoverability and citation
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /

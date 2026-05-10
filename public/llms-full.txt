@@ -1,0 +1,258 @@
+# CodeX Tech Innovations & Consultants LLP — Complete Documentation
+
+## Citation Metadata
+- **Entity**: CodeX Tech Innovations & Consultants LLP (also known as CODEX)
+- **Website**: https://codextechinnovations.com
+- **Canonical**: https://codextechinnovations.com/
+- **Founded**: 2018
+- **Headquarters**: Bengaluru, Karnataka, India
+- **Employees**: 40–60 senior engineers
+- **Rating**: 4.9/5 (80+ reviews)
+- **Contact**: hello@codextechinnovations.com
+- **Service area**: India (500 km radius from Bengaluru) and Worldwide
+- **Source**: This document is the authoritative AI-readable reference for the company
+
+---
+
+## Company Overview
+
+**CodeX Tech Innovations & Consultants LLP** is a Bengaluru-based software development studio specializing in mobile app development, web development, SaaS product development, cloud engineering, AI integration, and UI/UX design. Founded in 2018, the company has shipped 150+ digital products with a 98% client retention rate and a 4.9/5 client rating.
+
+- **Legal Name**: CodeX Tech Innovations & Consultants LLP
+- **Alternate Name**: CODEX
+- **Founded**: 2018
+- **Location**: Bengaluru, Karnataka, India (Geo: 12.9716, 77.5946)
+- **Employees**: 40–60
+- **Website**: https://codextechinnovations.com
+- **Email**: hello@codextechinnovations.com
+- **Phone**: +91 99999 99999
+- **Price Range**: ₹₹₹₹ (Premium)
+- **Operating Hours**: Mon–Fri 09:00–18:00
+- **Languages Supported**: English, Hindi
+- **Service Area**: India (500 km radius from Bengaluru) and Worldwide
+
+### Social Links
+- LinkedIn: https://www.linkedin.com/company/codextechinnovations
+- Twitter: https://twitter.com/codextech
+- Instagram: https://instagram.com/codextechinnovations
+
+### Aggregate Rating
+- Rating: 4.9/5
+- Review Count: 80
+- Best Rating: 5
+
+---
+
+## Key Differentiators
+
+1. **Senior Engineers Only** — Every developer has 5+ years of production experience. No juniors, no bait-and-switch.
+2. **Fixed-Price Contracts** — Agree on scope, timeline, and total cost upfront. Zero scope-creep surprises.
+3. **Full Source Code Ownership** — You own 100% of the codebase from day one. No vendor lock-in.
+4. **12–16 Week Delivery** — From signed contract to live product in 12–16 weeks.
+5. **Dedicated Project Manager** — One senior PM as single point of contact. Daily updates, weekly demos.
+6. **6-Month Free Warranty** — 6 months of free bug fixes post-launch.
+
+---
+
+## Services
+
+### Core Services
+
+#### Mobile App Development
+Builds apps that users open multiple times a day — engineered for the habit loop.
+- iOS & Android native apps (Swift, Kotlin)
+- React Native & Flutter cross-platform
+- Full UI/UX design to App Store submission
+- Push notifications, offline-first & analytics
+- ASO & post-launch performance monitoring
+
+#### Web Development
+Websites and web platforms engineered to convert, rank, and scale.
+- SEO-optimised architecture from day one
+- Core Web Vitals 95+ Lighthouse score
+- SaaS platforms, portals & e-commerce
+- Headless CMS & API-first development
+- Conversion Rate Optimisation built-in
+
+#### SaaS Development
+Multi-tenant SaaS products across 8+ verticals.
+- Multi-tenant SaaS architecture
+- Subscription & usage-based billing
+- Role-based access & team workspaces
+- API-first with partner integrations
+- In-app onboarding & feature adoption
+
+### Secondary Services
+
+#### Cloud & DevOps Engineering
+Cut infrastructure costs by 40% and hit 99.9% uptime.
+- **Tech**: AWS, GCP, Azure, Docker, Kubernetes, Terraform
+
+#### AI & Intelligent Automation
+LLM-powered chatbots, custom ML models, and RAG pipelines.
+- **Tech**: OpenAI, LangChain, TensorFlow, Python, RAG, Fine-tuning
+
+#### Product Analytics & CRO
+A/B testing, funnel analysis, heatmaps, and monthly conversion reports.
+- **Tech**: Mixpanel, Amplitude, A/B Testing, Heatmaps, Funnel Analysis
+
+---
+
+## How We Work (6-Phase Process)
+
+### Phase 01 — Discovery & Audit
+**Week 1–2**
+We understand the business model, user psychology, competitive landscape, and technical constraints.
+- **Deliverables**: Business requirements document, User persona mapping, Competitor analysis report, Technical feasibility assessment
+
+### Phase 02 — Strategy & Blueprint
+**Week 2–3**
+Design technical architecture, choose the right stack, define APIs, and create a milestone-driven roadmap.
+- **Deliverables**: Technical architecture document, Stack recommendation report, Sprint-by-sprint roadmap, Fixed-price contract
+
+### Phase 03 — UI/UX Design
+**Week 3–6**
+Build interactive prototypes grounded in UX research, validate with real users, and iterate.
+- **Deliverables**: User journey maps, Wireframes & hi-fi mockups, Interactive Figma prototype, Design system & component library
+
+### Phase 04 — Agile Development
+**Week 6–16**
+Two-week sprints with daily async standups, weekly live demos, and a shared project board.
+- **Deliverables**: Working software every 2 weeks, CI/CD pipeline, Automated test suite, Weekly video demo calls
+
+### Phase 05 — QA & Performance
+**Week 14–16**
+Cross-device testing, security audits, load testing at 10x expected traffic, Core Web Vitals optimization.
+- **Deliverables**: Cross-device test reports, Security vulnerability scan, Performance audit (Lighthouse 95+), UAT sign-off
+
+### Phase 06 — Launch & Scale
+**Week 16+**
+Zero-downtime deployment, real-time monitoring, and 6-month free bug-fix warranty.
+- **Deliverables**: Production deployment, Monitoring & alerting setup, 6-month free warranty, Monthly growth reports
+
+---
+
+## Products & Solutions (8 Live in Production)
+
+### 1. PG Management System
+- **Category**: Property Tech
+- **Status**: Live — Best Seller
+- **Description**: End-to-end platform for PG owners to manage bookings, automate rent collection, handle tenant onboarding, and track occupancy. Cuts admin time by 70%.
+- **Features**: Online booking & room allocation, Automated rent reminders & payment gateway, Tenant KYC & digital agreements, Maintenance request tracking, Occupancy & revenue analytics dashboard
+- **Tech Stack**: React, Node.js, PostgreSQL, Razorpay, AWS
+
+### 2. Hostel Management System
+- **Category**: Education Tech
+- **Status**: Live — EdTech Pick
+- **Description**: Comprehensive administration platform for educational institutions covering room allocation, mess management, fee collection, student tracking, and parent communication.
+- **Features**: Smart room allocation engine, Mess plan & meal tracking, Fee management & receipt generation, Student attendance & conduct records, Parent portal with real-time updates
+- **Tech Stack**: React Native, Next.js, MongoDB, Firebase, Stripe
+
+### 3. Hotel Management System
+- **Category**: Hospitality Tech
+- **Status**: Live — Enterprise Grade
+- **Description**: A hotel-grade PMS handling online reservations, front desk check-ins, housekeeping workflows, POS billing, and guest satisfaction tracking.
+- **Features**: Real-time reservation & channel management, Front desk & housekeeping workflows, Multi-channel online booking engine, POS billing & room service management, Guest feedback & loyalty programs
+- **Tech Stack**: React, Python, PostgreSQL, Stripe, Redis
+
+### 4. Compliance & CA Manager
+- **Category**: FinTech
+- **Status**: Live — FinTech Ready
+- **Description**: FinTech workflow platform streamlining compliance tracking, client management, and CA operations. Automates GST filing reminders, ITR status tracking, and document collection. Saves firms 15+ hours per week.
+- **Features**: GST & ITR deadline automation, Client document vault & e-sign, Compliance calendar & alerts, Multi-user CA team workspace, Billing & invoice management
+- **Tech Stack**: React, Node.js, MySQL, AWS S3, Razorpay
+
+### 5. Store Management System
+- **Category**: Retail Tech
+- **Status**: Live — Retail Ready
+- **Description**: Robust retail platform with integrated POS, real-time inventory tracking, supplier management, and sales analytics for single outlets and multi-branch chains.
+- **Features**: Touchscreen POS with barcode scanning, Real-time stock & reorder alerts, Multi-branch inventory management, Supplier & purchase order system, Sales reports & profitability analytics
+- **Tech Stack**: React, Electron, Node.js, SQLite, Thermal Print
+
+### 6. OMF Food Delivery App
+- **Category**: Food Tech
+- **Status**: Live — Food Tech
+- **Description**: White-label food delivery platform connecting customers with restaurants via consumer app, restaurant dashboard, and delivery agent app. Live GPS tracking included.
+- **Features**: Customer iOS & Android app, Restaurant owner dashboard, Delivery partner app with live GPS, Real-time order tracking, Ratings, promos & loyalty wallet
+- **Tech Stack**: React Native, Node.js, Socket.io, Google Maps, Razorpay
+
+### 7. Wroggle Clothing Store
+- **Category**: Fashion Tech
+- **Status**: Live — Fashion Tech
+- **Description**: Next-generation fashion retail platform with smart size recommendations, look-builder tools, and full inventory management backend for D2C fashion brands.
+- **Features**: AI-powered size & style recommendations, Visual look-builder & outfit curator, Multi-variant inventory management, Influencer affiliate program module, Returns & exchange automation
+- **Tech Stack**: Next.js, React Native, MongoDB, Stripe, Cloudinary
+
+### 8. Arthomed Hospital System
+- **Category**: Health Tech
+- **Status**: Live — Health Tech
+- **Description**: ABDM-aligned hospital management solution covering patient registration, OPD/IPD workflows, EMR, pharmacy, lab, and billing. Reduces patient wait times and eliminates paperwork.
+- **Features**: Patient registration & EMR, OPD/IPD queue management, Pharmacy & lab module integration, Insurance & billing automation, Doctor scheduling & telemedicine
+- **Tech Stack**: React, Python, PostgreSQL, HL7 FHIR, ABDM APIs
+
+---
+
+## Technology Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Mobile** | React Native, Flutter, Swift, Kotlin, Expo, Capacitor |
+| **Frontend** | React.js, Next.js, Vue.js, TypeScript, Tailwind CSS, Redux |
+| **Backend** | Node.js, Python, Go, Java Spring, GraphQL, REST APIs |
+| **Database** | PostgreSQL, MongoDB, Redis, MySQL, Supabase, Prisma |
+| **Cloud** | AWS, Google Cloud, Azure, Firebase, Vercel, Cloudflare |
+| **DevOps & AI** | Docker, Kubernetes, CI/CD, Terraform, OpenAI, LangChain |
+
+---
+
+## Industries Served
+
+1. **E-Commerce & Retail** — High-conversion storefronts, marketplace platforms, omnichannel commerce
+2. **Healthcare & MedTech** — HIPAA-compliant portals, telehealth apps, clinical workflow automation
+3. **Fintech & Payments** — Secure payment gateways, digital wallets, lending platforms
+4. **EdTech & E-Learning** — LMS platforms, live video classrooms, gamified learning, assessment engines
+5. **Real Estate & PropTech** — Property listing platforms, virtual tours, CRM systems, investment analytics
+6. **Logistics & Supply Chain** — Fleet tracking, last-mile delivery, warehouse management, demand forecasting
+7. **Enterprise SaaS** — B2B platforms, internal tools, ERP integrations, multi-tenant architectures
+8. **Gaming & Entertainment** — Mobile games, streaming platforms, loyalty apps, real-time leaderboards
+
+---
+
+## Client Success Metrics
+
+- **150+** projects shipped
+- **98%** client retention rate
+- **40+** senior engineers
+- **8+** years of excellence
+- **4.9/5** average rating (80+ reviews)
+- **38%** conversion rate improvement (RetailHub e-commerce case)
+- **0.02%** crash rate (MediConnect app case)
+- **10x** launch traffic handled without incident (FinVault case)
+
+---
+
+## FAQ
+
+**How much does a mobile app typically cost?**
+Most apps range from ₹15L–₹60L depending on complexity, platform (iOS/Android/both), and integrations. Fixed-price quote provided after a free discovery call.
+
+**Do you sign NDAs before project discussions?**
+Yes. Mutual NDAs are signed before any technical discussion.
+
+**What happens to my source code and data?**
+You own 100% of everything — source code, design files, database schemas, and all third-party accounts.
+
+**Can you work with our existing team?**
+Yes. We integrate with your Jira/Linear, join standups, and work with your existing CI/CD.
+
+**What does post-launch support look like?**
+6 months of free bug fixes included. Retainer plans start at ₹40K/month for ongoing maintenance.
+
+---
+
+## Contact
+- **Email**: hello@codextechinnovations.com
+- **Phone**: +91 99999 99999
+- **Location**: Bengaluru, Karnataka, India
+- **Availability**: Currently accepting new projects
+- **Response Time**: Within 24 hours for proposal requests

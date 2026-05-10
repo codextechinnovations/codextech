@@ -7,100 +7,7 @@ import {
   ChevronRight, Phone, MapPin, ChevronDown, ChevronUp
 } from "lucide-react";
 
-/* ─────────────────────────────────────────────────────────────
-   CSS — injected once into <head>
-───────────────────────────────────────────────────────────── */
-const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
 
-  :root {
-    --ink:#0b1929; --inkM:#1a2e45; --inkL:#243d58;
-    --teal:#0e7f72; --tealB:#12a896; --tealG:#1dcfba;
-    --muted:#6b8199; --bdr:rgba(14,127,114,0.18);
-  }
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Josefin Sans',system-ui,sans-serif;background:#0b1929;color:#fff;overflow-x:hidden;line-height:1.65;}
-  a{text-decoration:none;color:inherit;}
-
-  .sy{font-family:'Josefin Sans',system-ui,sans-serif;font-weight:700;}
-  .gt{background:linear-gradient(135deg,#1dcfba,#5de8d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-
-  /* ── KEYFRAMES ── */
-  @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
-  @keyframes float2{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(2deg);}}
-  @keyframes float3{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-7px) rotate(-1.5deg);}}
-  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
-  @keyframes glow{0%,100%{box-shadow:0 0 20px rgba(29,207,186,0.25);}50%{box-shadow:0 0 50px rgba(29,207,186,0.6),0 0 90px rgba(14,127,114,0.25);}}
-  @keyframes progressBar{from{transform:scaleX(0);}to{transform:scaleX(1);}}
-  @keyframes stepPop{from{opacity:0;transform:scale(0.4);}to{opacity:1;transform:scale(1);}}
-  @keyframes lineGrow{from{height:0;}to{height:100%;}}
-  @keyframes hlineGrow{from{width:0;}to{width:100%;}}
-  @keyframes orbit{from{transform:rotate(0deg) translateX(85px) rotate(0deg);}to{transform:rotate(360deg) translateX(85px) rotate(-360deg);}}
-  @keyframes orbitRev{from{transform:rotate(0deg) translateX(55px) rotate(0deg);}to{transform:rotate(-360deg) translateX(55px) rotate(360deg);}}
-  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-  @keyframes countUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-  @keyframes ripple{0%{transform:scale(0.8);opacity:0.8;}100%{transform:scale(2.2);opacity:0;}}
-  @keyframes scanline{0%{top:-2px;}100%{top:100%;}}
-  @keyframes textCycle{0%,20%{opacity:1;transform:translateY(0);}25%,95%{opacity:0;transform:translateY(-20px);}100%{opacity:0;}}
-  @keyframes gradShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-  @keyframes hexPulse{0%,100%{filter:drop-shadow(0 0 8px rgba(0,255,185,0.4));}50%{filter:drop-shadow(0 0 20px rgba(0,255,185,0.9));}}
-  @keyframes scan{0%{transform:translateY(-18px);opacity:0;}20%{opacity:1;}80%{opacity:1;}100%{transform:translateY(18px);opacity:0;}}
-
-  /* ── REVEAL ── */
-  .rv{opacity:0;transform:translateY(28px);transition:opacity 0.8s cubic-bezier(.4,0,.2,1),transform 0.8s cubic-bezier(.4,0,.2,1);}
-  .rv.v{opacity:1;transform:translateY(0);}
-  .rl{opacity:0;transform:translateX(-38px);transition:opacity 0.85s ease,transform 0.85s ease;}
-  .rl.v{opacity:1;transform:translateX(0);}
-  .rr{opacity:0;transform:translateX(38px);transition:opacity 0.85s ease,transform 0.85s ease;}
-  .rr.v{opacity:1;transform:translateX(0);}
-
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:#060f1a;}::-webkit-scrollbar-thumb{background:#0e7f72;border-radius:3px;}
-
-  /* ── HERO GRID ── */
-  .hgrid{background-image:linear-gradient(rgba(14,127,114,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(14,127,114,0.07) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 68% 50%,black 20%,transparent 100%);mask-image:radial-gradient(ellipse 80% 80% at 68% 50%,black 20%,transparent 100%);}
-
-  /* ── HOVER TRANSITIONS ── */
-  .scard{transition:all 0.3s ease;}
-  .scard:hover{transform:translateY(-6px);background:rgba(14,127,114,0.08)!important;border-color:rgba(29,207,186,0.35)!important;}
-  .tpill{transition:all 0.22s ease;}
-  .tpill:hover{border-color:rgba(29,207,186,0.5)!important;background:rgba(14,127,114,0.12)!important;color:#fff!important;}
-  .icard{transition:all 0.3s ease;}
-  .icard:hover{transform:translateY(-6px);border-color:rgba(29,207,186,0.4)!important;background:rgba(14,127,114,0.08)!important;}
-  .fcard{transition:transform 0.35s ease;}
-  .fcard:hover{transform:translateY(-8px);}
-  .tcard{transition:all 0.3s ease;}
-  .tcard:hover{transform:translateY(-3px);border-color:rgba(29,207,186,0.35)!important;}
-  .nl:hover{color:#1dcfba!important;}
-  .bp{transition:all 0.25s ease;} .bp:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(14,127,114,0.55)!important;}
-  .bs{transition:all 0.25s ease;} .bs:hover{border-color:#1dcfba!important;color:#1dcfba!important;background:rgba(14,127,114,0.08)!important;}
-  .bw{transition:all 0.25s ease;} .bw:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,0.3)!important;}
-  .sb{transition:all 0.2s ease;} .sb:hover{border-color:#1dcfba!important;color:#1dcfba!important;background:rgba(14,127,114,0.1)!important;}
-  .fl:hover{color:#1dcfba!important;}
-  .wstep{cursor:pointer;transition:all 0.25s ease;}
-  .diff-card{transition:all 0.3s ease;} .diff-card:hover{background:rgba(14,127,114,0.1)!important;border-color:rgba(29,207,186,0.3)!important;transform:translateX(4px);}
-  .faq-item{transition:all 0.25s ease;} .faq-item:hover{border-color:rgba(29,207,186,0.25)!important;}
-  .nav-cta:hover{opacity:0.88;transform:translateY(-1px);}
-  .nav-cta{transition:all 0.2s ease;}
-  .pcard{transition:all 0.35s cubic-bezier(.4,0,.2,1);cursor:pointer;}
-  .pcard:hover{transform:translateY(-10px);border-color:rgba(29,207,186,0.45)!important;box-shadow:0 20px 60px rgba(14,127,114,0.2)!important;}
-  .pcat-btn{transition:all 0.22s ease;cursor:pointer;}
-  .pcat-btn:hover{border-color:rgba(29,207,186,0.4)!important;color:#fff!important;}
-  .saas-card{transition:transform 0.35s ease;}
-  .saas-card:hover{transform:translateY(-6px);}
-  @keyframes shimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
-  @keyframes cardEntrance{from{opacity:0;transform:translateY(24px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
-  .pen{animation:cardEntrance 0.45s cubic-bezier(.4,0,.2,1) both;}
-  @keyframes tagPulse{0%,100%{opacity:1;}50%{opacity:0.6;}}
-
-  /* ── RESPONSIVE ── */
-  @media(max-width:1024px){.hv{display:none!important;}.g2{grid-template-columns:1fr!important;}.g21{grid-template-columns:1fr!important;}.ig4{grid-template-columns:repeat(2,1fr)!important;}.f2{grid-template-columns:1fr 1fr!important;}}
-  @media(max-width:768px){.nm{display:none!important;}.hb{display:flex!important;}.f2{grid-template-columns:1fr!important;}.sg{grid-template-columns:1fr!important;}.ig{grid-template-columns:1fr 1fr!important;}.ig4{grid-template-columns:1fr 1fr!important;}.fg{grid-template-columns:1fr 1fr!important;}.cff{flex-direction:column!important;align-items:flex-start!important;}.wfh{display:none!important;}.wfv{display:flex!important;}.ha{flex-direction:column!important;}.why3{grid-template-columns:1fr 1fr!important;}}
-  @media(max-width:480px){.ig{grid-template-columns:1fr 1fr!important;}.ig4{grid-template-columns:1fr!important;}.fg{grid-template-columns:1fr!important;}.snum{font-size:36px!important;}}
-`;
 
 /* ─────────────────────────────────────────────────────────────
    CUSTOM HOOKS
@@ -385,8 +292,8 @@ function Navbar() {
   return (
     <>
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, height: 70, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 5%", background: scrolled ? "rgba(11,25,41,0.97)" : "rgba(11,25,41,0.8)", backdropFilter: "blur(18px)", borderBottom: `1px solid rgba(14,127,114,${scrolled ? 0.25 : 0.15})`, transition: "all 0.3s ease" }}>
-        <a href="#" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <svg width="42" height="42" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible" }}>
+        <a href="#" aria-label="CODEX Tech Innovations logo" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <svg width="42" height="42" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible" }} role="img"><title>CODEX Tech Innovations logo</title>
             <defs>
               <linearGradient id="hexGradN" x1="0" y1="0" x2="110" y2="110" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#0d1f2d" />
@@ -983,7 +890,7 @@ function OurProducts() {
                 {/* Badge + CTA */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.45)" }}>{p.badge}</span>
-                  <a href="#contact" style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: p.accent, fontWeight: 600 }}>
+                  <a href={`/?product=${p.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: p.accent, fontWeight: 600 }}>
                     Learn more <ChevronRight size={13} />
                   </a>
                 </div>
@@ -1215,6 +1122,17 @@ function CTABand() {
 }
 
 function Footer() {
+  const hrefFor = (link) => {
+    const map = {
+      "Contact": "#contact", "Free Consultation": "#contact",
+      "Sitemap": "/sitemap.xml",
+      "Mobile App Development": "#services", "Website Development": "#services", "SaaS Product Development": "#services",
+      "Cloud & DevOps": "#services", "AI & Automation": "#services", "UI/UX Design": "#services",
+      "PG Management System": "#products", "Hotel Management System": "#products", "Hostel Management System": "#products",
+      "OMF Food Delivery App": "#products", "Compliance & CA Manager": "#products", "Arthomed Hospital System": "#products",
+    };
+    return map[link] || "#";
+  };
   const cols = [
     { title: "Services", links: ["Mobile App Development", "Website Development", "SaaS Product Development", "Cloud & DevOps", "AI & Automation", "UI/UX Design"] },
     { title: "Our Products", links: ["PG Management System", "Hotel Management System", "Hostel Management System", "OMF Food Delivery App", "Compliance & CA Manager", "Arthomed Hospital System"] },
@@ -1242,7 +1160,7 @@ function Footer() {
               <div className="sy" style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 18 }}>{col.title}</div>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
                 {col.links.map((link, li) => (
-                  <li key={li}><a href="#" className="fl" style={{ fontSize: 14, color: "#6b8199", transition: "color 0.2s" }}>{link}</a></li>
+                  <li key={li}><a href={hrefFor(link)} className="fl" style={{ fontSize: 14, color: "#6b8199", transition: "color 0.2s" }}>{link}</a></li>
                 ))}
               </ul>
             </div>
@@ -1254,8 +1172,8 @@ function Footer() {
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.28)" }}>© 2026 CODEX Tech Innovations & Consultants LLP · All rights reserved · Bengaluru, India</p>
           </div>
           <div style={{ display: "flex", gap: 20 }}>
-            {["Privacy Policy", "Terms", "Sitemap"].map((l, i) => (
-              <a key={i} href="#" className="fl" style={{ fontSize: 12, color: "rgba(255,255,255,0.28)", transition: "color 0.2s" }}>{l}</a>
+            {["Privacy Policy", "Terms", "Sitemap", "AI Info"].map((l, i) => (
+              <a key={i} href={l === "AI Info" ? "/llms.txt" : l === "Sitemap" ? "/sitemap.xml" : "#"} className="fl" style={{ fontSize: 12, color: "rgba(255,255,255,0.28)", transition: "color 0.2s" }}>{l}</a>
             ))}
           </div>
         </div>
@@ -1265,48 +1183,397 @@ function Footer() {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   PRODUCT DETAIL
+───────────────────────────────────────────────────────────── */
+const PRODUCT_EXTRA = {
+  "pg-management": {
+    longDesc: "The PG Management System is a comprehensive digital solution designed specifically for paying guest accommodation owners and managers. It replaces manual ledgers, scattered WhatsApp conversations, and messy spreadsheets with a unified platform that handles every aspect of PG operations — from tenant onboarding to monthly rent collection.",
+    audience: "PG owners, hostel operators, rental property managers, real estate investors managing multiple properties",
+    liveSites: [
+      { url: "https://www.manageyourpg.com", label: "manageyourpg.com", desc: "Main product website — learn more, sign up, and access the platform" },
+      { url: "https://www.getyourstay.in", label: "getyourstay.in", desc: "Tenant-facing portal — browse PGs, check availability, and book online" },
+    ],
+    benefits: [
+      { icon: "⏱️", title: "70% Less Admin Work", desc: "Automate rent reminders, receipt generation, and occupancy tracking so you focus on growing your business instead of chasing paperwork." },
+      { icon: "💰", title: "Faster Payments", desc: "Integrated Razorpay payment gateway with automated reminders reduces late payments by 80%. Tenants can pay via UPI, cards, or net banking." },
+      { icon: "📊", title: "Real-Time Visibility", desc: "Dashboard shows occupancy rates, revenue trends, pending maintenance requests, and tenant status — all updated in real time." },
+      { icon: "🔐", title: "Digital KYC & Agreements", desc: "Tenants upload ID proofs, sign digital rental agreements, and complete onboarding without a single paper document." },
+    ],
+    modules: ["Room & Inventory Management", "Tenant Onboarding & KYC", "Rent Collection & Payment Gateway", "Maintenance Ticketing", "Analytics & Revenue Reports", "Document Vault"],
+    integrations: ["Razorpay", "AWS S3", "WhatsApp API", "SMS Gateway", "Email Automation"],
+  },
+  "hostel-management": {
+    longDesc: "The Hostel Management System is a full-featured administration platform built for educational institutions — colleges, universities, and residential schools. It digitizes the entire hostel lifecycle from student admission and room allocation to mess management, fee collection, and alumni tracking.",
+    audience: "College hostel wardens, university accommodation offices, school administrators, private hostel chains",
+    benefits: [
+      { icon: "🎯", title: "Smart Room Allocation", desc: "Algorithm-based room assignment considering preferences, course, year, and roommate compatibility. Eliminates manual shuffling." },
+      { icon: "🍽️", title: "Mess Plan Automation", desc: "Students choose meal plans digitally. Mess managers track inventory, generate menus, and control costs based on live subscription data." },
+      { icon: "👨‍👩‍👧", title: "Parent Peace of Mind", desc: "Dedicated parent portal for attendance updates, fee payments, conduct reports, and direct communication with wardens." },
+      { icon: "📈", title: "Institute-Wide Analytics", desc: "Cross-hostel occupancy reports, fee collection status, incident tracking, and compliance documentation for accreditation." },
+    ],
+    modules: ["Room Allocation Engine", "Mess & Meal Plan Management", "Fee Collection & Receipts", "Attendance & Conduct Records", "Parent Communication Portal", "Alumni Network Module"],
+    integrations: ["Firebase", "Stripe", "SMS Gateway", "Email Service", "Biometric API"],
+  },
+  "hotel-management": {
+    longDesc: "The Hotel Management System is an enterprise-grade Property Management System (PMS) designed for hotels, resorts, and serviced apartments of all sizes. It streamlines every operation — from multi-channel reservation management and front desk check-ins to housekeeping workflows, POS billing, and guest satisfaction programs.",
+    audience: "Hotel owners, resort managers, boutique property operators, hotel chains, serviced apartment managers",
+    benefits: [
+      { icon: "🛏️", title: "Centralized Reservations", desc: "Manage bookings from OTAs (Booking.com, Expedia), direct website, and walk-ins in a single dashboard. Real-time availability across all channels." },
+      { icon: "🧹", title: "Housekeeping Automation", desc: "Room status tracking, cleaning schedules, maintenance alerts, and inventory management for linens and amenities." },
+      { icon: "💳", title: "Integrated POS & Billing", desc: "Restaurant, spa, and mini-bar charges automatically post to guest folios. One-click checkout with split billing and tax compliance." },
+      { icon: "⭐", title: "Guest Experience Platform", desc: "Pre-arrival preferences, contactless check-in, in-room service requests, feedback collection, and loyalty program management." },
+    ],
+    modules: ["Channel Manager & Reservation System", "Front Desk & Housekeeping", "POS Billing & Folio Management", "Guest Portal & Mobile App", "Revenue & Yield Analytics", "Maintenance & Inventory"],
+    integrations: ["Booking.com API", "Expedia API", "Stripe", "Redis Cache", "SMS/Email Engine"],
+  },
+  "ca-compliance": {
+    longDesc: "Compliance & CA Manager is a FinTech workflow platform purpose-built for Chartered Accountants, tax firms, and compliance teams. It automates the most time-consuming aspects of compliance management — GST filing reminders, ITR status tracking, client document collection, and regulatory deadline monitoring — saving firms 15+ hours per week.",
+    audience: "Chartered accountants, tax consultants, CA firms, compliance teams, financial advisors",
+    benefits: [
+      { icon: "📅", title: "Never Miss a Deadline", desc: "Automated compliance calendar with GST, ITR, TDS, and ROC deadlines. Email and SMS reminders sent to clients 7, 3, and 1 day before due dates." },
+      { icon: "📁", title: "Centralized Document Vault", desc: "Clients upload documents directly to a secure portal. Automatic OCR classification, version tracking, and e-sign integration for approvals." },
+      { icon: "👥", title: "Multi-User Team Workspace", desc: "Partner, manager, and associate roles with task assignment, review workflows, and time tracking. Client communication history in one place." },
+      { icon: "💵", title: "Billing & Invoice Management", desc: "Generate professional invoices, track payments, and manage retainer agreements. Integration with major accounting software for seamless reconciliation." },
+    ],
+    modules: ["Compliance Calendar & Alerts", "Client Document Vault & E-Sign", "Task & Workflow Management", "GST/ITR Status Tracker", "Billing & Invoice Engine", "Team Collaboration Dashboard"],
+    integrations: ["Razorpay", "AWS S3", "GST Portal API", "ITR Filing APIs", "Email/SMS Gateway"],
+  },
+  "store-management": {
+    longDesc: "The Store Management System is a robust retail platform that unifies Point of Sale (POS), inventory management, supplier relationships, and sales analytics into a single, easy-to-use interface. Built for both single retail outlets and multi-branch chains, it runs on touchscreen terminals and handheld devices alike.",
+    audience: "Retail store owners, supermarket chains, boutique operators, wholesale distributors, franchise networks",
+    benefits: [
+      { icon: "🛒", title: "Blazing-Fast POS", desc: "Touchscreen-optimized POS with barcode scanning, support for multiple payment modes, and instant receipt printing on thermal printers." },
+      { icon: "📦", title: "Real-Time Inventory", desc: "Stock levels update instantly with every sale and purchase. Low-stock alerts, expiry tracking, and automated purchase order generation." },
+      { icon: "🏪", title: "Multi-Branch Management", desc: "Centralized dashboard for all branches. Transfer stock between locations, compare branch performance, and consolidate reports." },
+      { icon: "📈", title: "Profitability Analytics", desc: "Sales by product, category, staff, and time period. Margin analysis, best-seller reports, and demand forecasting to optimize stock." },
+    ],
+    modules: ["Touchscreen POS Terminal", "Inventory & Stock Control", "Supplier & Purchase Orders", "Multi-Branch Management", "Sales Analytics & Reports", "Customer Loyalty Program"],
+    integrations: ["Thermal Printers", "Barcode Scanners", "UPI/ Card Terminals", "SMS Gateway", "Cloud Backup"],
+  },
+  "omf-food-delivery": {
+    longDesc: "OMF Food Delivery App is a white-label, multi-app food delivery ecosystem that lets restaurants and food brands launch their own delivery service — just like Swiggy or Zomato — without paying hefty commissions. The platform includes three integrated applications: a consumer app for ordering, a restaurant dashboard for managing orders, and a delivery partner app for real-time dispatch.",
+    audience: "Restaurant chains, food brands, cloud kitchens, food delivery startups, hospitality groups",
+    benefits: [
+      { icon: "📱", title: "Three Apps, One Ecosystem", desc: "Consumer app (iOS & Android) for ordering, restaurant dashboard for order management, and delivery partner app with live GPS tracking." },
+      { icon: "📍", title: "Real-Time GPS Tracking", desc: "Customers see delivery partner location in real time. Estimated arrival times update dynamically based on actual GPS data." },
+      { icon: "🎁", title: "Built-In Marketing Tools", desc: "Push notifications, promo code engine, loyalty points, referral rewards, and rating systems — everything you need to retain customers." },
+      { icon: "⚡", title: "Instant Order Processing", desc: "Socket.io-powered real-time order flow from customer → restaurant → delivery partner. Average acceptance-to-pickup time: under 3 minutes." },
+    ],
+    modules: ["Customer Mobile App", "Restaurant Owner Dashboard", "Delivery Partner App", "Order Management System", "Payment & Wallet Engine", "Analytics & Growth Tools"],
+    integrations: ["Razorpay", "Google Maps API", "Socket.io", "Firebase Cloud Messaging", "SMS Gateway"],
+  },
+  "wroggle": {
+    longDesc: "Wroggle is a next-generation fashion e-commerce platform designed for D2C fashion brands ready to scale online. It combines AI-powered personalization with a complete commerce backend — inventory management, order processing, returns automation, and influencer marketing — all in one platform.",
+    audience: "D2C fashion brands, clothing retailers, boutique owners, fashion designers, lifestyle brands",
+    benefits: [
+      { icon: "🤖", title: "AI Size & Style Recommendations", desc: "Machine learning models analyze customer preferences, past purchases, and body measurements to recommend the perfect size and style — reducing returns by up to 35%." },
+      { icon: "🎨", title: "Visual Look-Builder", desc: "Customers mix and match outfits using an interactive look-builder interface. Share looks on social media and save favorites for later." },
+      { icon: "👥", title: "Influencer Affiliate Program", desc: "Built-in influencer management module with unique referral links, commission tracking, and performance analytics for influencer campaigns." },
+      { icon: "🔄", title: "Automated Returns & Exchange", desc: "Self-service returns portal with automated label generation, quality check workflows, and exchange processing — handled end-to-end." },
+    ],
+    modules: ["AI Recommendation Engine", "Visual Look-Builder", "Multi-Variant Inventory", "Influencer Affiliate Module", "Returns & Exchange Automation", "Order & Fulfillment Dashboard"],
+    integrations: ["Stripe", "Cloudinary", "Shiprocket", "Google Analytics 4", "Meta Pixel"],
+  },
+  "arthomed": {
+    longDesc: "Arthomed Hospital System is an ABDM-aligned (Ayushman Bharat Digital Mission) healthcare management platform designed for modern hospitals and clinics. It digitizes the complete patient journey — from registration and OPD/IPD management to EMR, pharmacy, lab integration, and billing — reducing wait times and virtually eliminating paper-based workflows.",
+    audience: "Hospital administrators, clinic managers, healthcare chains, nursing homes, diagnostic centers",
+    benefits: [
+      { icon: "👨‍⚕️", title: "End-to-End Patient Journey", desc: "From online appointment booking and registration to consultation, pharmacy, and discharge — every step is digitized and tracked in real time." },
+      { icon: "📋", title: "ABDM-Aligned EMR", desc: "Electronic Medical Records compliant with Indian healthcare standards. Interoperable with other ABDM-compliant systems via HL7 FHIR APIs." },
+      { icon: "🧪", title: "Integrated Lab & Pharmacy", desc: "Lab orders auto-populate from prescriptions. Results flow back to EMR automatically. Pharmacy tracks stock, expiry, and dispensing." },
+      { icon: "💳", title: "Smart Billing & Insurance", desc: "Automated billing with insurance claim processing, package management, TPA integration, and digital payment collection at every touchpoint." },
+    ],
+    modules: ["Patient Registration & EMR", "OPD/IPD Queue Management", "Pharmacy & Lab Integration", "Insurance & Billing Engine", "Doctor Scheduling & Telemedicine", "ABDM Compliance Gateway"],
+    integrations: ["ABDM APIs", "HL7 FHIR", "IRDA Insurance APIs", "SMS Gateway", "Cloud Backup"],
+  },
+};
+
+function ProductDetail() {
+  const params = new URLSearchParams(window.location.search);
+  const product = PRODUCTS.find((p) => p.id === params.get("product")) || null;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const extras = product ? PRODUCT_EXTRA[product.id] : null;
+
+  if (!product) {
+    return (
+      <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "120px 5%" }}>
+        <div style={{ fontSize: 64, marginBottom: 20 }}>🔍</div>
+        <h2 className="sy" style={{ fontSize: 32, fontWeight: 800, marginBottom: 12 }}>Product Not Found</h2>
+        <p style={{ color: "rgba(255,255,255,0.5)", marginBottom: 28 }}>The product you're looking for doesn't exist.</p>
+        <a href="/" style={{ background: "linear-gradient(135deg,#0e7f72,#12a896)", color: "#fff", padding: "12px 28px", borderRadius: 9, fontSize: 14, fontWeight: 500 }}>Back to Home</a>
+      </section>
+    );
+  }
+
+  const p = product;
+  const e = extras;
+  const related = PRODUCTS.filter((x) => x.id !== p.id && x.category === p.category).slice(0, 3);
+
+  return (
+    <div style={{ background: "#0b1929", minHeight: "100vh" }}>
+      <NavbarOnDetail />
+
+      {/* Hero */}
+      <section style={{ padding: "120px 5% 80px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(${hexToRgb(p.color)},0.25) 0%,transparent 70%)` }} />
+        <div className="hgrid" style={{ position: "absolute", inset: 0 }} />
+        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <a href="/?section=products" className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 6, border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)", padding: "8px 16px", borderRadius: 7, fontSize: 13, marginBottom: 32 }}>
+            ← Back to All Products
+          </a>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: 32, flexWrap: "wrap" }}>
+            <div style={{ fontSize: 80, lineHeight: 1, flexShrink: 0 }}>{p.emoji}</div>
+            <div style={{ flex: 1, minWidth: 280 }}>
+              <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 12, flexWrap: "wrap" }}>
+                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: p.accent, background: `rgba(${hexToRgb(p.accent)},0.1)`, border: `1px solid rgba(${hexToRgb(p.accent)},0.25)`, padding: "4px 12px", borderRadius: 100 }}>{p.category}</span>
+                <span style={{ fontSize: 11, padding: "4px 10px", background: "rgba(29,207,186,0.1)", color: "#1dcfba", borderRadius: 6, fontWeight: 600 }}>● {p.status}</span>
+                <span style={{ fontSize: 11, padding: "4px 10px", background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.4)", borderRadius: 6 }}>{p.badge}</span>
+              </div>
+              <h1 className="sy" style={{ fontSize: "clamp(36px,5vw,64px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: 12 }}>{p.name}</h1>
+              <p style={{ fontSize: 20, color: p.accent, fontWeight: 500, marginBottom: 20 }}>{p.tagline}</p>
+              <p style={{ fontSize: 17, color: "rgba(255,255,255,0.58)", lineHeight: 1.8, fontWeight: 300, maxWidth: 680 }}>{e ? e.longDesc : p.desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Info Strip */}
+      <div style={{ background: "#1a2e45", borderTop: "1px solid rgba(14,127,114,0.18)", borderBottom: "1px solid rgba(14,127,114,0.18)", padding: "20px 5%" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", gap: 32, flexWrap: "wrap" }}>
+          <div><span style={{ fontSize: 12, color: "#6b8199" }}>Tech Stack</span><div style={{ display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }}>{p.tags.map((t, i) => <span key={i} style={{ fontSize: 12, padding: "3px 10px", borderRadius: 5, background: "rgba(14,127,114,0.1)", color: "#1dcfba", border: "1px solid rgba(29,207,186,0.15)" }}>{t}</span>)}</div></div>
+          <div><span style={{ fontSize: 12, color: "#6b8199" }}>Category</span><p style={{ fontSize: 14, fontWeight: 600, marginTop: 4 }}>{p.category}</p></div>
+          <div><span style={{ fontSize: 12, color: "#6b8199" }}>Status</span><p style={{ fontSize: 14, fontWeight: 600, marginTop: 4, color: "#1dcfba" }}>● {p.status}</p></div>
+        </div>
+      </div>
+
+      {/* Live Sites */}
+      {e && e.liveSites && (
+        <section style={{ padding: "80px 5%" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div className="rv" style={{ marginBottom: 36 }}>
+              <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Live Websites</span>
+              <h2 className="sy" style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>Visit the Platform Live</h2>
+              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", fontWeight: 300, marginTop: 8 }}>Explore the product in action on these live websites.</p>
+            </div>
+            <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }}>
+              {e.liveSites.map((site, i) => (
+                <a key={i} href={site.url} target="_blank" rel="noopener noreferrer" className="scard" style={{ display: "flex", alignItems: "flex-start", gap: 16, background: "#1a2e45", border: "1px solid rgba(14,127,114,0.2)", borderRadius: 16, padding: "28px 24px", textDecoration: "none" }}>
+                  <div style={{ width: 48, height: 48, background: "rgba(29,207,186,0.12)", borderRadius: 12, display: "grid", placeItems: "center", flexShrink: 0, fontSize: 22 }}>🌐</div>
+                  <div style={{ flex: 1 }}>
+                    <div className="sy" style={{ fontSize: 17, fontWeight: 700, color: "#1dcfba", marginBottom: 4 }}>{site.label}</div>
+                    <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.6, marginBottom: 10 }}>{site.desc}</p>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 13, color: "#1dcfba", fontWeight: 500 }}>
+                      Visit site <ArrowRight size={14} />
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Key Benefits */}
+      {e && e.benefits && (
+        <section style={{ padding: "80px 5%" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div className="rv" style={{ marginBottom: 44 }}>
+              <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Why Choose This Product</span>
+              <h2 className="sy" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>Key Benefits</h2>
+            </div>
+            <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }} className="g2">
+              {e.benefits.map((b, i) => (
+                <div key={i} className="scard" style={{ background: "#1a2e45", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "28px 24px", display: "flex", gap: 16 }}>
+                  <div style={{ fontSize: 36, flexShrink: 0, lineHeight: 1 }}>{b.icon}</div>
+                  <div>
+                    <h3 className="sy" style={{ fontSize: 17, fontWeight: 700, marginBottom: 6 }}>{b.title}</h3>
+                    <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>{b.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* All Features */}
+      <section style={{ background: "#1a2e45", padding: "80px 5%" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="rv" style={{ marginBottom: 44 }}>
+            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Everything Included</span>
+            <h2 className="sy" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em", marginBottom: 12 }}>Complete Feature Set</h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", fontWeight: 300 }}>Every tool and capability you need to run your operations efficiently.</p>
+          </div>
+          <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 14 }} className="g2">
+            {p.features.map((f, i) => (
+              <div key={i} className="icard" style={{ display: "flex", alignItems: "center", gap: 14, padding: "18px 20px", background: "#0b1929", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 12 }}>
+                <div style={{ width: 32, height: 32, background: `rgba(${hexToRgb(p.accent)},0.12)`, borderRadius: 8, display: "grid", placeItems: "center", flexShrink: 0 }}>
+                  <Check size={16} color={p.accent} />
+                </div>
+                <span style={{ fontSize: 15, color: "rgba(255,255,255,0.78)" }}>{f}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Modules */}
+      {e && e.modules && (
+        <section style={{ padding: "80px 5%" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div className="rv" style={{ marginBottom: 44 }}>
+              <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Core Modules</span>
+              <h2 className="sy" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>What's Under the Hood</h2>
+            </div>
+            <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }} className="ig4">
+              {e.modules.map((m, i) => (
+                <div key={i} className="tcard" style={{ background: "#1a2e45", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 14, padding: "28px 22px", textAlign: "center" }}>
+                  <div style={{ width: 48, height: 48, background: `rgba(${hexToRgb(p.color)},0.15)`, borderRadius: 12, display: "grid", placeItems: "center", margin: "0 auto 16px", fontSize: 22 }}>{p.emoji}</div>
+                  <div className="sy" style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.3 }}>{m}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Integrations */}
+      {e && e.integrations && (
+        <section style={{ background: "#1a2e45", padding: "80px 5%" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div className="rv" style={{ marginBottom: 36 }}>
+              <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Integrations</span>
+              <h2 className="sy" style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>Seamlessly Connects With</h2>
+            </div>
+            <div className="rv" style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+              {e.integrations.map((int, i) => (
+                <span key={i} className="tpill" style={{ padding: "10px 20px", borderRadius: 8, border: "1px solid rgba(14,127,114,0.2)", background: "rgba(14,127,114,0.04)", fontSize: 14, fontWeight: 500, color: "rgba(255,255,255,0.75)", display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#0e7f72", flexShrink: 0 }} />{int}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Audience */}
+      {e && e.audience && (
+        <section style={{ padding: "80px 5%" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div className="rv" style={{ marginBottom: 28 }}>
+              <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Who It's For</span>
+              <h2 className="sy" style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>Built For</h2>
+            </div>
+            <div className="rv" style={{ padding: "24px 28px", background: "rgba(14,127,114,0.07)", border: "1px solid rgba(29,207,186,0.18)", borderRadius: 14, borderLeft: "3px solid #1dcfba" }}>
+              <p style={{ fontSize: 16, color: "rgba(255,255,255,0.72)", lineHeight: 1.8, fontWeight: 300 }}>{e.audience}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Products */}
+      {related.length > 0 && (
+        <section style={{ background: "#1a2e45", padding: "80px 5%" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div className="rv" style={{ marginBottom: 36 }}>
+              <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Related</span>
+              <h2 className="sy" style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>More in {p.category}</h2>
+            </div>
+            <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }} className="ig">
+              {related.map((r) => (
+                <a key={r.id} href={`/?product=${r.id}`} className="pcard" style={{ display: "block", background: "#0b1929", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "24px 20px" }}>
+                  <div style={{ fontSize: 36, marginBottom: 10, lineHeight: 1 }}>{r.emoji}</div>
+                  <div className="sy" style={{ fontSize: 15, fontWeight: 700, marginBottom: 4 }}>{r.name}</div>
+                  <p style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>{r.tagline}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA */}
+      <section style={{ background: "linear-gradient(135deg,#0e7f72 0%,#0a5c55 50%,#1a2e45 100%)", padding: "80px 5%", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle,rgba(29,207,186,0.15) 0%,transparent 70%)" }} />
+        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1, textAlign: "center" }}>
+          <h2 className="sy" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, lineHeight: 1.1, marginBottom: 14 }}>Interested in {p.name}?</h2>
+          <p style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", fontWeight: 300, maxWidth: 520, margin: "0 auto 28px" }}>Let's discuss how we can tailor this solution for your specific business needs. Free consultation within 24 hours.</p>
+          <a href="/?section=contact" className="bw" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#fff", color: "#0e7f72", padding: "15px 32px", borderRadius: 9, fontSize: 15, fontWeight: 700, boxShadow: "0 4px 20px rgba(0,0,0,0.2)" }}>
+            Get Started <ArrowRight size={16} />
+          </a>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
+
+function NavbarOnDetail() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+  return (
+    <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, height: 70, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 5%", background: scrolled ? "rgba(11,25,41,0.97)" : "rgba(11,25,41,0.8)", backdropFilter: "blur(18px)", borderBottom: `1px solid rgba(14,127,114,${scrolled ? 0.25 : 0.15})`, transition: "all 0.3s ease" }}>
+      <a href="/" aria-label="CODEX Tech Innovations logo" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <svg width="36" height="36" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible" }} role="img"><title>CODEX Tech Innovations logo</title>
+          <defs>
+            <linearGradient id="hexGradD" x1="0" y1="0" x2="110" y2="110" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#0d1f2d"/><stop offset="100%" stopColor="#061018"/></linearGradient>
+            <linearGradient id="xGradD" x1="25" y1="25" x2="85" y2="85" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#00ffb9"/><stop offset="100%" stopColor="#00b4ff"/></linearGradient>
+          </defs>
+          <polygon points="55,10 95,32 95,74 55,96 15,74 15,32" fill="url(#hexGradD)" stroke="rgba(0,255,185,0.6)" strokeWidth="1.5"/>
+          <g filter="url(#glowD)">
+            <line x1="33" y1="35" x2="77" y2="75" stroke="url(#xGradD)" strokeWidth="8" strokeLinecap="round"/>
+            <line x1="77" y1="35" x2="33" y2="75" stroke="url(#xGradD)" strokeWidth="8" strokeLinecap="round"/>
+            <circle cx="55" cy="55" r="4.5" fill="#0a1820" stroke="url(#xGradD)" strokeWidth="1.5"/>
+            <circle cx="55" cy="55" r="2" fill="url(#xGradD)"/>
+          </g>
+        </svg>
+        <span className="sy" style={{ fontWeight: 700, fontSize: 15, letterSpacing: 0.5, textTransform: "uppercase" }}>CODEX</span>
+      </a>
+      <a href="/?section=products" className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 6, border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)", padding: "8px 16px", borderRadius: 7, fontSize: 13 }}>
+        ← All Products
+      </a>
+    </nav>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
    ROOT APP
 ───────────────────────────────────────────────────────────── */
 export default function App() {
-  // Inject CSS
-  useEffect(() => {
-    // Styles
-    const style = document.createElement("style");
-    style.innerHTML = GLOBAL_CSS;
-    document.head.appendChild(style);
-    // Schema.org JSON-LD
-    const schema = document.createElement("script");
-    schema.type = "application/ld+json";
-    schema.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "CODEX Tech Innovations & Consultants LLP",
-      "url": "https://codextechinnovations.com",
-      "logo": "https://codextechinnovations.com/logo.png",
-      "description": "India's leading mobile app and web development company. We build scalable iOS, Android & web applications that drive business growth.",
-      "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN" },
-      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "hello@codextechinnovations.com" },
-      "sameAs": ["https://www.linkedin.com/company/codextechinnovations"],
-      "areaServed": "Worldwide",
-      "serviceType": ["Mobile App Development", "Web Development", "SaaS Product Development", "Cloud Computing", "AI Development", "UI/UX Design"],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "SaaS Products",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "PG Management System", "description": "Comprehensive solution for managing paying guest accommodations" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Hotel Management System", "description": "Full-featured hotel operations system" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Hostel Management System", "description": "Complete hostel administration platform" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "OMF Food Delivery App", "description": "Modern food delivery platform" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Arthomed Hospital System", "description": "Healthcare management solution" } }
-        ]
-      },
-    });
-    document.head.appendChild(schema);
-    return () => { document.head.removeChild(style); };
-  }, []);
-
   // Scroll reveal
   useReveal();
+
+  // Product detail routing — ?product=ID
+  const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
+  useEffect(() => {
+    const onPop = () => setParams(new URLSearchParams(window.location.search));
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  // Crawlable section routing — ?section=services, ?section=products, etc.
+  useEffect(() => {
+    const section = params.get("section");
+    if (section) {
+      setTimeout(() => {
+        const el = document.getElementById(section);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+    }
+  }, [params]);
+
+  if (params.get("product")) {
+    return <ProductDetail key={params.get("product")} />;
+  }
 
   return (
     <div style={{ background: "#0b1929", minHeight: "100vh" }}>
