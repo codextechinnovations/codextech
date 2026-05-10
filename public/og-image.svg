@@ -16,6 +16,6 @@
     <line x1="45" y1="-28" x2="-45" y2="28" stroke="url(#glow)" stroke-width="12" stroke-linecap="round"/>
   </g>
   <text x="600" y="450" font-family="system-ui, sans-serif" font-size="42" font-weight="700" fill="#fff" text-anchor="middle">CODEX</text>
-  <text x="600" y="500" font-family="system-ui, sans-serif" font-size="24" fill="#00ffb9" text-anchor="middle">Tech Innovations & Consultants LLP</text>
+  <text x="600" y="500" font-family="system-ui, sans-serif" font-size="24" fill="#00ffb9" text-anchor="middle">Tech Innovations &amp; Consultants LLP</text>
   <text x="600" y="550" font-family="system-ui, sans-serif" font-size="18" fill="#6b8199" text-anchor="middle">Mobile App Development | Web Development | SaaS</text>
 </svg>
