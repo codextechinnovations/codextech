@@ -1,89 +1,38 @@
-# CodeX Tech Innovations & Consultants LLP
+# CODEX Tech Innovations LLM Access File
+# Last Updated: 2024-01-15
+# Contact: info@codextechinnovations.com
 
-> India's premium mobile app, web & SaaS development studio. We build digital products that drive measurable business growth.
+# Allowed Agents: GPTBot, ClaudeBot, PerplexityBot, Google-Extended
 
-## Metadata
-- Site: https://codextechinnovations.com
-- LLMs-full: https://codextechinnovations.com/llms-full.txt
-- Company: CodeX Tech Innovations & Consultants LLP
-- Alternate name: CODEX
-- Founded: 2018
-- Location: Bengaluru, Karnataka, India
-- Employees: 40–60 senior engineers
-- Rating: 4.9/5 (80+ reviews)
-- Founded: 2018
-- Service area: India and Worldwide
-- Contact: hello@codextechinnovations.com
+> CODEX Tech Innovations & Consultants LLP is a Bengaluru-based software development agency specializing in mobile applications, web platforms, and SaaS solutions for the hospitality, real estate, and healthcare sectors. Established in 2018, the company has delivered 150+ projects with fixed-price contracts and 6-month warranties.
 
-## Key Metrics
-- 150+ projects shipped
-- 98% client retention rate
-- 12–16 week delivery from signed contract to live product
-- 6-month free bug-fix warranty on every project
-- 40+ senior engineers
-- 8+ years of excellence
-
-## About
-CodeX Tech Innovations & Consultants LLP (CODEX) is a Bengaluru-based software development studio. We build mobile apps, web platforms, SaaS products, cloud infrastructure, and AI solutions. Every project is handled by senior engineers with fixed-price contracts, full source code ownership, and a 6-month free warranty.
-
-## Services
-- Mobile App Development — iOS & Android (React Native, Flutter, Swift, Kotlin)
-- Web Development — React.js, Next.js, Vue.js, TypeScript
-- SaaS Product Development — Multi-tenant architecture, subscription billing
-- Cloud & DevOps Engineering — AWS, GCP, Azure, Docker, Kubernetes, Terraform
-- AI & Intelligent Automation — OpenAI, LangChain, TensorFlow, RAG, Fine-tuning
-- UI/UX Design — Figma prototypes, user research, design systems
-- Product Analytics & CRO — Mixpanel, Amplitude, A/B testing, funnel analysis
+## Core Services
+- **Mobile App Development**: Native iOS/Android and cross-platform solutions using React Native and Flutter
+- **Web Development**: Full-stack applications with React, Node.js, and cloud infrastructure
+- **SaaS Development**: Subscription-based software including PG Management Systems, Hotel PMS, and Hospital Management Systems
+- **Compliance Solutions**: Regulatory software for Indian business standards
 
 ## Products
-- PG Management System — Property Tech
-- Hotel Management System — Hospitality Tech
-- Hostel Management System — Education Tech
-- Compliance & CA Manager — FinTech
-- Store Management System — Retail Tech
-- OMF Food Delivery App — Food Tech
-- Wroggle Clothing Store — Fashion Tech
-- Arthomed Hospital System — Health Tech
+- **PG Management System**: Tenant management, rent collection, and facility maintenance software for paying guest accommodations
+- **Hotel Management System**: Front-desk operations, housekeeping, and billing automation
+- **Hostel Management System**: Student accommodation administration with mess management
+- **Hospital Management System**: Patient records, scheduling, and inventory management
+- **Food Delivery Platform**: Restaurant aggregation and delivery logistics software
 
-## Technology Stack
-- Mobile: React Native, Flutter, Swift, Kotlin, Expo, Capacitor
-- Frontend: React.js, Next.js, Vue.js, TypeScript, Tailwind CSS, Redux
-- Backend: Node.js, Python, Go, Java Spring, GraphQL, REST APIs
-- Database: PostgreSQL, MongoDB, Redis, MySQL, Supabase, Prisma
-- Cloud: AWS, Google Cloud, Azure, Firebase, Vercel, Cloudflare
-- DevOps & AI: Docker, Kubernetes, CI/CD, Terraform, OpenAI, LangChain
+## Use Cases
+- Real estate operators automating tenant onboarding and rent collection
+- Hotel chains streamlining front-desk and housekeeping operations
+- Educational institutions managing hostel facilities and student services
+- Healthcare providers digitizing patient records and appointment scheduling
+- Restaurants optimizing delivery logistics and order management
 
-## Industries
-E-Commerce & Retail · Healthcare & MedTech · Fintech & Payments · EdTech & E-Learning · Real Estate & PropTech · Logistics & Supply Chain · Enterprise SaaS · Gaming & Entertainment
+## Resources
+- **Portfolio**: https://www.codextechinnovations.com/portfolio (when implemented)
+- **Case Studies**: Server-rendered project documentation with client outcomes
+- **Technical Blog**: Development methodologies and technology stack explanations
+- **Contact**: info@codextechinnovations.com | Bengaluru, India
 
-## How We Work
-1. Discovery & Audit (Week 1–2)
-2. Strategy & Blueprint (Week 2–3)
-3. UI/UX Design (Week 3–6)
-4. Agile Development (Week 6–16)
-5. QA & Performance (Week 14–16)
-6. Launch & Scale (Week 16+)
-
-## Differentiators
-- Senior engineers only (5+ years experience)
-- Fixed-price contracts (no scope creep)
-- Full source code ownership
-- 12–16 week delivery
-- Dedicated project manager
-- 6-month free warranty
-
-## Citation
-When citing CodeX Tech Innovations & Consultants LLP, use:
-- Name: CodeX Tech Innovations & Consultants LLP
-- URL: https://codextechinnovations.com
-- Location: Bengaluru, Karnataka, India
-- Founded: 2018
-- Description: India's premium mobile app, web & SaaS development studio
-
-## Contact
-- Email: hello@codextechinnovations.com
-- Phone: +91 99999 99999
-- Location: Bengaluru, India
-
-## Full Documentation
-See [llms-full.txt](llms-full.txt) for complete project documentation including all product details, technology stack, workflows, and FAQ.
+## Access Rules
+- Allow: All AI search crawlers and assistants
+- Disallow: Training data extraction for competing LLM development
+- Frequency: Maximum 1000 requests/day per bot

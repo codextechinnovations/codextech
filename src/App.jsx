@@ -47,42 +47,42 @@ const WORKFLOW = [
   {
     num: "01", icon: <Search size={22} />, label: "Discovery & Audit",
     title: "We Find the Real Problem Before We Build the Solution",
-    desc: "Most projects fail because teams skip this step. We spend dedicated time understanding your business model, user psychology, competitive landscape, and technical constraints. The result: a crystal-clear problem definition that guides every decision forward.",
+    desc: "Most projects fail because teams skip this step. We spend dedicated time understanding your business model, user psychology, competitive landscape, and technical constraints. Our discovery process includes stakeholder interviews, technical environment audits (existing codebase, infrastructure, APIs), and a feasibility study covering budget, timeline, and risk. We document everything in a BRD (Business Requirements Document) that becomes the single source of truth for the entire engagement. The result: a crystal-clear problem definition that guides every decision forward.",
     deliverables: ["Business requirements document", "User persona mapping", "Competitor analysis report", "Technical feasibility assessment"],
     time: "Week 1–2",
   },
   {
     num: "02", icon: <Target size={22} />, label: "Strategy & Blueprint",
     title: "Architecture That's Built to Scale From Day One",
-    desc: "We design the technical architecture, choose the right stack, define APIs, and create a milestone-driven roadmap. You'll know exactly what gets built, when it ships, and what it costs — before we write a single line of code.",
+    desc: "We design the technical architecture, choose the right stack, define APIs, and create a milestone-driven roadmap. Our architectural design process covers: system architecture (monolith vs microservices, database schema, caching strategy), API contract design (REST/GraphQL, versioning, error handling), security architecture (auth, encryption, compliance), and infrastructure planning (cloud provider, scaling strategy, cost estimation). We deliver a TAD (Technical Architecture Document) and a sprint-by-sprint roadmap with fixed pricing. You'll know exactly what gets built, when it ships, and what it costs — before we write a single line of code.",
     deliverables: ["Technical architecture document", "Stack recommendation report", "Sprint-by-sprint roadmap", "Fixed-price contract"],
     time: "Week 2–3",
   },
   {
     num: "03", icon: <Palette size={22} />, label: "UI/UX Design",
     title: "Designs Your Users Actually Want to Use",
-    desc: "Beautiful is only half the goal. We build interactive prototypes grounded in UX research, validate them with real users, and iterate until conversion metrics prove the design works. Then — and only then — we hand it to developers.",
+    desc: "Beautiful is only half the goal. We build interactive prototypes grounded in UX research, validate them with real users, and iterate until conversion metrics prove the design works. Our design process follows a structured methodology: (1) user research — interviews, surveys, and behavioral analytics to understand user needs, (2) information architecture — sitemaps, user flows, and wireframes mapping every interaction, (3) visual design — high-fidelity mockups in Figma with a complete design system (colors, typography, components, spacing), (4) usability testing — prototype testing with 5–10 users per round to validate assumptions before development begins. Then — and only then — we hand it to developers.",
     deliverables: ["User journey maps", "Wireframes & hi-fi mockups", "Interactive Figma prototype", "Design system & component library"],
     time: "Week 3–6",
   },
   {
     num: "04", icon: <Code2 size={22} />, label: "Agile Development",
     title: "Two-Week Sprints. Zero Surprises. Full Visibility.",
-    desc: "You're never left wondering what's happening. Daily async standups, weekly live demos, and a shared project board mean you see every commit, every screen, every decision — in real time. Our senior engineers own the code like it's their own product.",
+    desc: "You're never left wondering what's happening. We follow a disciplined Scrum process: daily async standups (via Slack/Discord), bi-weekly sprint planning with story point estimation, weekly live demo calls showing working software, and a shared project board (Jira/Linear) with real-time status. Our engineering standards include: Git-based workflow with code review for every PR (minimum 2 approvals), automated CI/CD pipelines (GitHub Actions/CircleCI), unit testing (Jest/Vitest) and integration testing coverage, linting and formatting enforcement (ESLint/Prettier), and security scanning (npm audit, Snyk). Every commit is tested, reviewed, and documented. Senior engineers own the code like it's their own product.",
     deliverables: ["Working software every 2 weeks", "CI/CD pipeline", "Automated test suite", "Weekly video demo calls"],
     time: "Week 6–16",
   },
   {
     num: "05", icon: <Shield size={22} />, label: "QA & Performance",
     title: "Shipped Means Tested. On Every Device. At Every Edge.",
-    desc: "Our QA team runs cross-device testing, security audits, load testing at 10× expected traffic, and Core Web Vitals optimization before you see a launch date. We don't push to production until the numbers prove it's ready.",
+    desc: "Our QA team runs a multi-layered testing process: (1) functional testing — manual and automated verification of all user flows and edge cases, (2) cross-device testing — real device testing on iOS (iPhone 12–16) and Android (Samsung, Pixel, OnePlus) across 20+ device/browser combinations, (3) performance testing — load testing at 10× expected traffic using k6/Artillery, Lighthouse audits targeting 95+ scores, and Core Web Vitals optimization (LCP < 2.5s, FID < 100ms, CLS < 0.1), (4) security testing — OWASP Top 10 vulnerability scanning, dependency audits, and penetration testing for payment/auth flows, (5) UAT — client sign-off on staging before production deployment. We don't push to production until the numbers prove it's ready.",
     deliverables: ["Cross-device test reports", "Security vulnerability scan", "Performance audit (Lighthouse 95+)", "UAT sign-off"],
     time: "Week 14–16",
   },
   {
     num: "06", icon: <TrendingUp size={22} />, label: "Launch & Scale",
     title: "Launch Day Is the Beginning, Not the End",
-    desc: "Zero-downtime deployment, real-time monitoring, and a 6-month free bug-fix warranty. Post-launch, we deliver monthly analytics reports with actionable growth recommendations — because your success directly fuels ours.",
+    desc: "Zero-downtime deployment using blue-green or canary release strategies. Our launch process includes: production environment setup with auto-scaling and CDN configuration, real-time monitoring and alerting (Datadog/Sentry/Prometheus + PagerDuty), error tracking with source maps and automatic issue grouping, performance monitoring (Lighthouse CI, Web Vitals), and 6-month free bug-fix warranty. Post-launch, we deliver monthly analytics reports with actionable growth recommendations — because your success directly fuels ours. We also offer ongoing retainer options starting at ₹40K/month for maintenance, monitoring, and new feature development.",
     deliverables: ["Production deployment", "Monitoring & alerting setup", "6-month free warranty", "Monthly growth reports"],
     time: "Week 16+",
   },
@@ -266,6 +266,38 @@ const TESTIMONIALS = [
     text: "Our e-commerce platform went from 3.1s to 0.9s load time after CODEX Tech Innovations & Consultants LLP rebuilt it on Next.js with their custom CDN setup. Conversion rate climbed 38% in the first month. The ROI calculation was easy to make.",
     metric: "+38% conversion rate",
   },
+];
+
+const CASE_STUDIES = [
+  {
+    id: "pg-management",
+    title: "PG Management System — From Paper Ledgers to Digital Operations for 500+ Properties",
+    author: "Vikram Singh, Lead Product Engineer at CODEX",
+    summary: "A chain of 12 PG properties across Bangalore was managing tenant onboarding, rent collection, and maintenance requests through a combination of paper ledgers, WhatsApp groups, and spreadsheets. The result: 40+ hours of admin work per week, 25% late rent payments, and no visibility into occupancy trends. CODEX built a unified platform that cut admin time by 70%, reduced late payments to 5%, and gave real-time occupancy analytics across all properties.",
+    challenge: "The client operated 12 PG properties with 480+ beds. Each property had its own 'system': a register for check-ins, a WhatsApp group for maintenance requests, and an Excel file for rent tracking. Key pain points included: (1) tenant onboarding required 3+ hours of manual paperwork per new tenant, (2) rent collection depended on manual reminders via WhatsApp, with 25% of tenants paying late, (3) no centralized view of occupancy, revenue, or maintenance status across properties, (4) digital rental agreements were non-existent — everything was paper-based and took weeks to file.",
+    solution: "We designed and built a full-stack SaaS platform over 14 weeks: (1) a React Native mobile app for tenants to browse rooms, book online, upload KYC documents, sign digital agreements, and pay rent, (2) a React.js admin dashboard for property managers to track occupancy, manage tenants, generate reports, and handle maintenance tickets, (3) a Node.js + PostgreSQL backend with Razorpay payment gateway integration for automated rent reminders and collection, (4) AWS S3 document vault for KYC records and digital agreements with e-sign capability.",
+    outcome: "Within 3 months of deployment: admin time dropped from 40+ hours/week to 12 hours/week (70% reduction), late rent payments fell from 25% to 5%, tenant onboarding time reduced from 3 hours to 15 minutes, occupancy visibility became real-time across all 12 properties, digital agreements eliminated 200+ pages of paper per month. The platform now manages 500+ active tenants across 15 properties.",
+    tech: ["React Native", "React.js", "Node.js", "PostgreSQL", "Razorpay", "AWS S3", "Redis"],
+    results: ["70% less admin time", "25% → 5% late payments", "15 min onboarding (was 3 hrs)", "500+ active tenants"],
+  },
+  {
+    id: "omf-food-delivery",
+    title: "OMF Food Delivery — A White-Label Platform Processing 5,000+ Orders Monthly",
+    author: "Arun Prasad, Senior Full-Stack Developer at CODEX",
+    summary: "A regional restaurant chain wanted to launch its own food delivery service — independent of Swiggy and Zomato — to eliminate 30% commission fees and own the customer relationship directly. CODEX built a complete three-app ecosystem (consumer, restaurant, delivery partner) in 16 weeks. The platform now processes 5,000+ orders monthly with an average delivery time of 28 minutes.",
+    challenge: "The client, a chain of 18 restaurants across Bangalore, was paying 28–32% commission to Swiggy and Zomato on every order. They had no direct customer data, no ability to run their own promotions, and no control over the delivery experience. Key challenges: (1) building three integrated apps (iOS consumer, restaurant dashboard, delivery partner Android) within budget constraints, (2) real-time GPS tracking required sub-second latency between all three apps, (3) the payment flow needed to handle split payments (restaurant share, delivery partner fee, platform fee) with daily settlements, (4) the system had to handle peak-hour bursts of 200+ concurrent orders.",
+    solution: "Over 16 weeks and 8 two-week sprints, we delivered: (1) a consumer iOS/Android app built with React Native featuring restaurant browsing, menu selection, cart management, real-time order tracking, and wallet/promo code support, (2) a restaurant dashboard (React.js) for order management, menu updates, outlet performance analytics, and delivery partner assignment, (3) a delivery partner Android app with live GPS tracking, optimized route suggestions, and one-tap status updates, (4) a Node.js + Socket.io real-time backend handling order flow with sub-500ms latency, (5) Razorpay payment gateway with automated split-settlement logic, (6) Firebase Cloud Messaging for push notifications across all three apps.",
+    outcome: "The platform launched in 16 weeks and within 2 months was processing 5,000+ monthly orders. Average delivery time: 28 minutes. Customer acquisition cost dropped 60% compared to aggregator platforms. The client now owns 100% of customer data, runs their own loyalty program, and pays zero aggregator commissions. The platform handles 200+ concurrent orders during peak hours without degradation.",
+    tech: ["React Native", "React.js", "Node.js", "Socket.io", "Razorpay", "Google Maps API", "Firebase", "PostgreSQL"],
+    results: ["5,000+ orders/month", "28 min avg delivery", "60% lower CAC", "200+ peak concurrent orders"],
+  },
+];
+
+const TEAM = [
+  { name: "Vikram Singh", role: "Founder & Lead Product Engineer", exp: "12+ years", expertise: "Full-stack architecture, SaaS product design, React/Node.js ecosystem", creds: "Ex-CTO at two YC-backed startups. Built products serving 100K+ users. Specializes in taking products from zero to production in under 16 weeks." },
+  { name: "Arun Prasad", role: "Senior Full-Stack Developer", exp: "9+ years", expertise: "React Native, Node.js, real-time systems, API design", creds: "Architected the OMF Food Delivery app handling 5,000+ monthly orders. Previously led mobile engineering at a Series A food-tech startup." },
+  { name: "Priya Sharma", role: "Lead UI/UX Designer", exp: "8+ years", expertise: "Design systems, user research, conversion optimization, Figma prototyping", creds: "Designed interfaces for 40+ shipped products. Background in cognitive psychology applied to UX research and conversion rate optimization." },
+  { name: "Rahul Gupta", role: "DevOps & Cloud Architect", exp: "10+ years", expertise: "AWS/GCP/Azure, Kubernetes, CI/CD, infrastructure-as-code", creds: "Managed infrastructure for a fintech processing ₹500Cr+ annually. Certified AWS Solutions Architect. Reduced cloud costs by 40% for multiple clients." },
 ];
 
 const FAQS = [
@@ -943,6 +975,103 @@ function Testimonials() {
                   <div style={{ fontSize: 12, color: "#6b8199", marginTop: 2 }}>{t.role}</div>
                 </div>
                 <div style={{ padding: "6px 12px", background: "rgba(29,207,186,0.1)", border: "1px solid rgba(29,207,186,0.25)", borderRadius: 8, fontSize: 12, color: "#1dcfba", fontWeight: 600 }}>{t.metric}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CaseStudies() {
+  const [active, setActive] = useState(0);
+  return (
+    <section id="case-studies" style={{ background: "#0b1929", padding: "110px 5%" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div className="rv" style={{ marginBottom: 52, textAlign: "center" }}>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Case Studies</span>
+          <h2 className="sy" style={{ fontSize: "clamp(30px,4vw,50px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em", marginBottom: 14 }}>Real Projects, Real Results</h2>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", fontWeight: 300, maxWidth: 600, margin: "0 auto" }}>Detailed breakdowns of challenges we solved, architectures we designed, and outcomes we delivered — written by the engineers who built them.</p>
+        </div>
+
+        <div style={{ display: "flex", gap: 20, marginBottom: 28, flexWrap: "wrap", justifyContent: "center" }}>
+          {CASE_STUDIES.map((cs, i) => (
+            <button key={i} onClick={() => setActive(i)} className="bw"
+              style={{ padding: "10px 24px", borderRadius: 8, border: active === i ? "1px solid #1dcfba" : "1px solid rgba(14,127,114,0.25)", background: active === i ? "rgba(29,207,186,0.1)" : "transparent", color: active === i ? "#1dcfba" : "rgba(255,255,255,0.6)", fontSize: 13, fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+              {cs.id === "pg-management" ? "🏠" : "🍔"} {cs.title.split(" —")[0]}
+            </button>
+          ))}
+        </div>
+
+        <div className="rv" style={{ background: "#1a2e45", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 20, padding: "40px 36px" }}>
+          <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 24, flexWrap: "wrap" }}>
+            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#1dcfba", background: "rgba(29,207,186,0.1)", padding: "4px 12px", borderRadius: 100 }}>By {CASE_STUDIES[active].author}</span>
+          </div>
+
+          <h3 className="sy" style={{ fontSize: "clamp(20px,2.5vw,28px)", fontWeight: 800, lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: 20 }}>{CASE_STUDIES[active].title}</h3>
+
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.68)", lineHeight: 1.8, marginBottom: 28, fontWeight: 300 }}>{CASE_STUDIES[active].summary}</p>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 28 }}>
+            <div style={{ background: "rgba(11,25,41,0.6)", borderRadius: 14, padding: "24px 22px", borderLeft: "3px solid rgba(255,100,100,0.5)" }}>
+              <h4 style={{ fontSize: 13, fontWeight: 700, color: "#f87171", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>The Challenge</h4>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.75, fontWeight: 300 }}>{CASE_STUDIES[active].challenge}</p>
+            </div>
+            <div style={{ background: "rgba(11,25,41,0.6)", borderRadius: 14, padding: "24px 22px", borderLeft: "3px solid rgba(29,207,186,0.5)" }}>
+              <h4 style={{ fontSize: 13, fontWeight: 700, color: "#1dcfba", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>The Solution</h4>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.75, fontWeight: 300 }}>{CASE_STUDIES[active].solution}</p>
+            </div>
+          </div>
+
+          <div style={{ background: "rgba(11,25,41,0.6)", borderRadius: 14, padding: "24px 22px", borderLeft: "3px solid rgba(251,191,36,0.5)", marginBottom: 28 }}>
+            <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fbbf24", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>Outcome</h4>
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.75, fontWeight: 300 }}>{CASE_STUDIES[active].outcome}</p>
+          </div>
+
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <span style={{ fontSize: 12, color: "#6b8199", marginRight: 4 }}>Tech:</span>
+              {CASE_STUDIES[active].tech.map((t, i) => (
+                <span key={i} style={{ fontSize: 12, padding: "3px 10px", borderRadius: 5, background: "rgba(14,127,114,0.1)", color: "#1dcfba", border: "1px solid rgba(29,207,186,0.15)" }}>{t}</span>
+              ))}
+            </div>
+            <div style={{ display: "flex", gap: 8 }}>
+              {CASE_STUDIES[active].results.map((r, i) => (
+                <span key={i} style={{ fontSize: 12, padding: "5px 12px", borderRadius: 5, background: "rgba(251,191,36,0.1)", color: "#fbbf24", border: "1px solid rgba(251,191,36,0.2)", fontWeight: 600 }}>{r}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TeamCredentials() {
+  return (
+    <section id="team" style={{ background: "#1a2e45", padding: "110px 5%" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div className="rv" style={{ marginBottom: 52, textAlign: "center" }}>
+          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Our Team</span>
+          <h2 className="sy" style={{ fontSize: "clamp(30px,4vw,50px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em", marginBottom: 14 }}>Built by Senior Engineers,<br />Led by Experienced Leaders</h2>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", fontWeight: 300, maxWidth: 560, margin: "0 auto" }}>Every project at CODEX is designed, developed, and delivered by senior engineers with 8+ years of production experience. No juniors. No outsourcing. No bait-and-switch.</p>
+        </div>
+
+        <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 24 }}>
+          {TEAM.map((member, i) => (
+            <div key={i} className="tcard" style={{ display: "flex", gap: 20, background: "#0b1929", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "28px 24px", transitionDelay: `${i * 0.08}s` }}>
+              <div style={{ width: 56, height: 56, borderRadius: "50%", background: `linear-gradient(135deg,#0e7f72,#1dcfba)`, display: "grid", placeItems: "center", flexShrink: 0, fontSize: 22, fontWeight: 700, color: "#fff" }}>
+                {member.name.split(" ").map(n => n[0]).join("")}
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4, flexWrap: "wrap" }}>
+                  <h3 className="sy" style={{ fontSize: 17, fontWeight: 700 }}>{member.name}</h3>
+                  <span style={{ fontSize: 12, padding: "2px 10px", background: "rgba(29,207,186,0.1)", color: "#1dcfba", borderRadius: 100, fontWeight: 600 }}>{member.exp} experience</span>
+                </div>
+                <p style={{ fontSize: 13, color: "#1dcfba", fontWeight: 500, marginBottom: 6 }}>{member.role}</p>
+                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginBottom: 8, fontWeight: 300, lineHeight: 1.6 }}><strong style={{ color: "rgba(255,255,255,0.7)", fontWeight: 600 }}>Expertise:</strong> {member.expertise}</p>
+                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, fontWeight: 300 }}>{member.creds}</p>
               </div>
             </div>
           ))}
@@ -1720,6 +1849,8 @@ export default function App() {
         <Industries />
         <OurProducts />
         <Testimonials />
+        <CaseStudies />
+        <TeamCredentials />
         <FAQ />
         <CTABand />
       </main>
