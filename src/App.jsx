@@ -1125,7 +1125,7 @@ function Footer() {
   const hrefFor = (link) => {
     const map = {
       "Contact": "#contact", "Free Consultation": "#contact",
-      "Sitemap": "/sitemap.xml",
+      "Sitemap": "/?page=sitemap",
       "Mobile App Development": "#services", "Website Development": "#services", "SaaS Product Development": "#services",
       "Cloud & DevOps": "#services", "AI & Automation": "#services", "UI/UX Design": "#services",
       "PG Management System": "#products", "Hotel Management System": "#products", "Hostel Management System": "#products",
@@ -1173,7 +1173,7 @@ function Footer() {
           </div>
           <div style={{ display: "flex", gap: 20 }}>
             {["Privacy Policy", "Terms", "Sitemap", "AI Info"].map((l, i) => (
-              <a key={i} href={l === "AI Info" ? "/llms.txt" : l === "Sitemap" ? "/sitemap.xml" : "#"} className="fl" style={{ fontSize: 12, color: "rgba(255,255,255,0.28)", transition: "color 0.2s" }}>{l}</a>
+              <a key={i} href={l === "AI Info" ? "/llms.txt" : l === "Sitemap" ? "/?page=sitemap" : "#"} className="fl" style={{ fontSize: 12, color: "rgba(255,255,255,0.28)", transition: "color 0.2s" }}>{l}</a>
             ))}
           </div>
         </div>
@@ -1292,6 +1292,27 @@ function ProductDetail() {
   const params = new URLSearchParams(window.location.search);
   const product = PRODUCTS.find((p) => p.id === params.get("product")) || null;
 
+  // BreadcrumbList JSON-LD (must be before early return)
+  const prodId = product ? product.id : null;
+  const prodName = product ? product.name : null;
+  useEffect(() => {
+    if (!prodId || !prodName) return;
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "breadcrumb-jsonld";
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codextechinnovations.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://codextechinnovations.com/?section=products" },
+        { "@type": "ListItem", "position": 3, "name": prodName, "item": `https://codextechinnovations.com/?product=${prodId}` },
+      ],
+    });
+    document.head.appendChild(script);
+    return () => { const s = document.getElementById("breadcrumb-jsonld"); if (s) s.remove(); };
+  }, [prodId, prodName]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -1317,14 +1338,25 @@ function ProductDetail() {
     <div style={{ background: "#0b1929", minHeight: "100vh" }}>
       <NavbarOnDetail />
 
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" style={{ position: "fixed", top: 70, left: 0, right: 0, zIndex: 99, padding: "10px 5%", background: "rgba(11,25,41,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(14,127,114,0.12)", fontSize: 12 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", gap: 8 }}>
+          <a href="/" className="fl" style={{ color: "rgba(255,255,255,0.45)", display: "flex", alignItems: "center", gap: 4 }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Home
+          </a>
+          <span style={{ color: "rgba(255,255,255,0.2)" }}>/</span>
+          <a href="/?section=products" className="fl" style={{ color: "rgba(255,255,255,0.45)" }}>Products</a>
+          <span style={{ color: "rgba(255,255,255,0.2)" }}>/</span>
+          <span style={{ color: p.accent, fontWeight: 600 }}>{p.name}</span>
+        </div>
+      </nav>
+
       {/* Hero */}
       <section style={{ padding: "120px 5% 80px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(${hexToRgb(p.color)},0.25) 0%,transparent 70%)` }} />
         <div className="hgrid" style={{ position: "absolute", inset: 0 }} />
         <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <a href="/?section=products" className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 6, border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)", padding: "8px 16px", borderRadius: 7, fontSize: 13, marginBottom: 32 }}>
-            ← Back to All Products
-          </a>
           <div style={{ display: "flex", alignItems: "flex-start", gap: 32, flexWrap: "wrap" }}>
             <div style={{ fontSize: 80, lineHeight: 1, flexShrink: 0 }}>{p.emoji}</div>
             <div style={{ flex: 1, minWidth: 280 }}>
@@ -1546,13 +1578,109 @@ function NavbarOnDetail() {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   SITEMAP PAGE
+───────────────────────────────────────────────────────────── */
+function SitemapPage() {
+  const grouped = {};
+  PRODUCTS.forEach((p) => {
+    if (!grouped[p.category]) grouped[p.category] = [];
+    grouped[p.category].push(p);
+  });
+
+  return (
+    <div style={{ background: "#0b1929", minHeight: "100vh" }}>
+      <NavbarOnDetail />
+      <section style={{ padding: "120px 5% 80px", position: "relative", overflow: "hidden" }}>
+        <div className="hgrid" style={{ position: "absolute", inset: 0 }} />
+        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, marginBottom: 36, color: "rgba(255,255,255,0.45)" }}>
+            <a href="/" className="fl" style={{ color: "rgba(255,255,255,0.45)" }}>Home</a>
+            <span style={{ color: "rgba(255,255,255,0.2)" }}>/</span>
+            <span style={{ color: "#1dcfba", fontWeight: 600 }}>Sitemap</span>
+          </nav>
+
+          <h1 className="sy" style={{ fontSize: "clamp(36px,5vw,56px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: 12 }}>Sitemap</h1>
+          <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", fontWeight: 300, maxWidth: 560, marginBottom: 52 }}>Browse all pages and sections available on CODEX Tech Innovations & Consultants LLP.</p>
+
+          {/* Main Sections */}
+          <div className="rv" style={{ marginBottom: 48 }}>
+            <h2 className="sy" style={{ fontSize: 20, fontWeight: 800, marginBottom: 18, color: "#1dcfba" }}>Main Pages</h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {[
+                { label: "Home", href: "/", desc: "Hero, stats, and overview" },
+                { label: "Services", href: "/?section=services", desc: "Mobile, Web & SaaS development services" },
+                { label: "Products", href: "/?section=products", desc: "All 8 SaaS products we've built" },
+                { label: "How We Work", href: "/?section=workflow", desc: "Our 6-phase development process" },
+                { label: "Why Us", href: "/?section=why", desc: "Key differentiators and client proof" },
+                { label: "Tech Stack", href: "/?section=tech", desc: "Technologies we use" },
+                { label: "Industries", href: "/?section=industries", desc: "8 industries we serve" },
+                { label: "Contact", href: "/?section=contact", desc: "Get in touch for a free estimate" },
+              ].map((page, i) => (
+                <a key={i} href={page.href} className="diff-card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 20px", background: "#1a2e45", border: "1px solid rgba(14,127,114,0.15)", borderRadius: 10, textDecoration: "none" }}>
+                  <div>
+                    <span className="sy" style={{ fontSize: 15, fontWeight: 700 }}>{page.label}</span>
+                    <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>{page.desc}</p>
+                  </div>
+                  <ChevronRight size={16} color="#1dcfba" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Products by Category */}
+          <div className="rv">
+            <h2 className="sy" style={{ fontSize: 20, fontWeight: 800, marginBottom: 18, color: "#1dcfba" }}>Our Products</h2>
+            {Object.entries(grouped).map(([category, prods]) => (
+              <div key={category} style={{ marginBottom: 28 }}>
+                <h3 className="sy" style={{ fontSize: 15, fontWeight: 700, marginBottom: 12, color: "rgba(255,255,255,0.6)" }}>{category}</h3>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 10 }}>
+                  {prods.map((prod) => (
+                    <a key={prod.id} href={`/?product=${prod.id}`} className="diff-card" style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: "#1a2e45", border: "1px solid rgba(14,127,114,0.15)", borderRadius: 10, textDecoration: "none" }}>
+                      <span style={{ fontSize: 28, lineHeight: 1 }}>{prod.emoji}</span>
+                      <div style={{ flex: 1 }}>
+                        <span className="sy" style={{ fontSize: 14, fontWeight: 700 }}>{prod.name}</span>
+                        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>{prod.tagline}</p>
+                      </div>
+                      <ChevronRight size={14} color="#1dcfba" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Resources */}
+          <div className="rv" style={{ marginTop: 48 }}>
+            <h2 className="sy" style={{ fontSize: 20, fontWeight: 800, marginBottom: 18, color: "#1dcfba" }}>Resources</h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {[
+                { label: "XML Sitemap", href: "/sitemap.xml" },
+                { label: "AI Information (llms.txt)", href: "/llms.txt" },
+                { label: "Full AI Documentation (llms-full.txt)", href: "/llms-full.txt" },
+                { label: "robots.txt", href: "/robots.txt" },
+              ].map((res, i) => (
+                <a key={i} href={res.href} className="diff-card" style={{ display: "flex", alignItems: "center", gap: 10, padding: "14px 20px", background: "#1a2e45", border: "1px solid rgba(14,127,114,0.15)", borderRadius: 10, textDecoration: "none" }}>
+                  <span style={{ fontSize: 14, color: "#1dcfba" }}>📄</span>
+                  <span className="sy" style={{ fontSize: 14, fontWeight: 700 }}>{res.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
    ROOT APP
 ───────────────────────────────────────────────────────────── */
 export default function App() {
   // Scroll reveal
   useReveal();
 
-  // Product detail routing — ?product=ID
+  // Routing
   const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
   useEffect(() => {
     const onPop = () => setParams(new URLSearchParams(window.location.search));
@@ -1573,6 +1701,10 @@ export default function App() {
 
   if (params.get("product")) {
     return <ProductDetail key={params.get("product")} />;
+  }
+
+  if (params.get("page") === "sitemap") {
+    return <SitemapPage />;
   }
 
   return (
