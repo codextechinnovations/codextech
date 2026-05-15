@@ -77,6 +77,12 @@ a{text-decoration:none;color:inherit;}
 .saas-card{transition:transform 0.35s ease;}
 .saas-card:hover{transform:translateY(-6px);}
 @keyframes shimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+
+/* Select dropdown dark theme */
+select option{background:#0b1929;color:#fff;}
+select option:checked{background:#0e7f72;color:#fff;}
+select:focus option:hover{background:#1a2e45;}
+
 @keyframes cardEntrance{from{opacity:0;transform:translateY(24px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
 .pen{animation:cardEntrance 0.45s cubic-bezier(.4,0,.2,1) both;}
 @keyframes tagPulse{0%,100%{opacity:1;}50%{opacity:0.6;}}

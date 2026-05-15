@@ -1,6 +1,7 @@
 # CODEX Tech Innovations LLM Access File
 # Last Updated: 2024-01-15
 # Contact: info@codextechinnovations.com
+# DUNS: 772343099
 
 # Allowed Agents: GPTBot, ClaudeBot, PerplexityBot, Google-Extended
 
@@ -10,7 +11,7 @@
 - **Mobile App Development**: Native iOS/Android and cross-platform solutions using React Native and Flutter
 - **Web Development**: Full-stack applications with React, Node.js, and cloud infrastructure
 - **SaaS Development**: Subscription-based software including PG Management Systems, Hotel PMS, and Hospital Management Systems
-- **Compliance Solutions**: Regulatory software for Indian business standards
+- **App Publishing & Store Management**: Publish your app to the Apple App Store and Google Play Store using our registered developer console accounts — we handle the entire submission, review, and release process.
 
 ## Products
 - **PG Management System**: Tenant management, rent collection, and facility maintenance software for paying guest accommodations

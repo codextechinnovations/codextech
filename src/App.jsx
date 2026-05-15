@@ -104,6 +104,11 @@ const SERVICES_GRID = [
     desc: "We instrument your product with the right analytics, run A/B tests, and deliver monthly conversion optimization reports. Data-driven decisions, not gut feelings.",
     tags: ["Mixpanel", "Amplitude", "A/B Testing", "Heatmaps", "Funnel Analysis"],
   },
+  {
+    icon: <Smartphone size={24} />, title: "App Publishing & Store Management",
+    desc: "We publish your app on the Apple App Store and Google Play Store using our registered developer console accounts. No account setup delays, no secret sharing — we handle the entire submission, review, and release process end-to-end.",
+    tags: ["Apple Developer", "Google Play Console", "App Store Review", "TestFlight", "Beta Testing"],
+  },
 ];
 
 const DIFFERENTIATORS = [
@@ -1117,6 +1122,7 @@ function CTABand() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    mobile: "",
     projectName: "",
     service: ""
   });
@@ -1127,7 +1133,7 @@ function CTABand() {
   };
 
   const handleSubmit = async () => {
-    if (!form.name || !form.email) {
+    if (!form.name || !form.email || !form.mobile) {
       alert("Please fill required fields");
       return;
     }
@@ -1150,6 +1156,7 @@ function CTABand() {
         setForm({
           name: "",
           email: "",
+          mobile: "",
           projectName: "",
           service: ""
         });
@@ -1205,6 +1212,14 @@ function CTABand() {
               placeholder="Work Email"
               value={form.email}
               onChange={(e) => handleChange("email", e.target.value)}
+              style={{ width: "100%", padding: "12px 16px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 9, color: "#fff", fontSize: 14, marginBottom: 12, outline: "none" }}
+            />
+
+            {/* Mobile */}
+            <input
+              placeholder="Phone Number"
+              value={form.mobile}
+              onChange={(e) => handleChange("mobile", e.target.value)}
               style={{ width: "100%", padding: "12px 16px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 9, color: "#fff", fontSize: 14, marginBottom: 12, outline: "none" }}
             />
 
@@ -1303,6 +1318,7 @@ function Footer() {
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.28)" }}>© 2026 CODEX Tech Innovations & Consultants LLP · All rights reserved · Bengaluru, India</p>
           </div>
           <div style={{ display: "flex", gap: 20 }}>
+            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.18)" }}>D&B D-U-N-S® 772343099</span>
             {["Privacy Policy", "Terms", "Sitemap", "AI Info"].map((l, i) => (
               <a key={i} href={l === "AI Info" ? "/llms.txt" : l === "Sitemap" ? "/?page=sitemap" : "#"} className="fl" style={{ fontSize: 12, color: "rgba(255,255,255,0.28)", transition: "color 0.2s" }}>{l}</a>
             ))}

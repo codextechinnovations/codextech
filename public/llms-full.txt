@@ -9,6 +9,7 @@
 - **Employees**: 40–60 senior engineers
 - **Rating**: 4.9/5 (80+ reviews)
 - **Contact**: hello@codextechinnovations.com
+- **DUNS**: 772343099
 - **Service area**: India (500 km radius from Bengaluru) and Worldwide
 - **Source**: This document is the authoritative AI-readable reference for the company
 
@@ -95,6 +96,10 @@ LLM-powered chatbots, custom ML models, and RAG pipelines.
 #### Product Analytics & CRO
 A/B testing, funnel analysis, heatmaps, and monthly conversion reports.
 - **Tech**: Mixpanel, Amplitude, A/B Testing, Heatmaps, Funnel Analysis
+
+#### App Publishing & Store Management
+Publish your app to the Apple App Store and Google Play Store using our registered developer console accounts. We handle the entire submission, App Store review process, TestFlight beta testing, and production release — end-to-end.
+- **Tech**: Apple Developer Program, Google Play Console, TestFlight, App Store Connect, Beta Testing
 
 ---
 
