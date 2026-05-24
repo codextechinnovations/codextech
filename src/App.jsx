@@ -245,15 +245,102 @@ const PRODUCTS = [
 ];
 
 const INDUSTRIES = [
-  { icon: "🛒", title: "E-Commerce & Retail", desc: "High-conversion storefronts, marketplace platforms, and omnichannel commerce solutions" },
-  { icon: "🏥", title: "Healthcare & MedTech", desc: "HIPAA-compliant patient portals, telehealth apps, and clinical workflow automation" },
-  { icon: "💰", title: "Fintech & Payments", desc: "Secure payment gateways, digital wallets, lending platforms, and regulatory compliance" },
-  { icon: "📚", title: "EdTech & E-Learning", desc: "LMS platforms, live video classrooms, gamified learning, and assessment engines" },
-  { icon: "🏗️", title: "Real Estate & PropTech", desc: "Property listing platforms, virtual tours, CRM systems, and investment analytics" },
-  { icon: "🚚", title: "Logistics & Supply Chain", desc: "Fleet tracking, last-mile delivery, warehouse management, and demand forecasting" },
-  { icon: "🏢", title: "Enterprise SaaS", desc: "B2B platforms, internal tools, ERP integrations, and multi-tenant architectures" },
-  { icon: "🎮", title: "Gaming & Entertainment", desc: "Mobile games, streaming platforms, loyalty apps, and real-time leaderboards" },
+  { id: "retail", icon: "🛒", title: "E-Commerce & Retail", desc: "High-conversion storefronts, marketplace platforms, and omnichannel commerce solutions" },
+  { id: "healthcare", icon: "🏥", title: "Healthcare & MedTech", desc: "HIPAA-compliant patient portals, telehealth apps, and clinical workflow automation" },
+  { id: "fintech", icon: "💰", title: "Fintech & Payments", desc: "Secure payment gateways, digital wallets, lending platforms, and regulatory compliance" },
+  { id: "edtech", icon: "📚", title: "EdTech & E-Learning", desc: "LMS platforms, live video classrooms, gamified learning, and assessment engines" },
+  { id: "real-estate", icon: "🏗️", title: "Real Estate & PropTech", desc: "Property listing platforms, virtual tours, CRM systems, and investment analytics" },
+  { id: "foodtech", icon: "🚚", title: "Logistics & Supply Chain", desc: "Fleet tracking, last-mile delivery, warehouse management, and demand forecasting" },
+  { id: "enterprise", icon: "🏢", title: "Enterprise SaaS", desc: "B2B platforms, internal tools, ERP integrations, and multi-tenant architectures" },
+  { id: "gaming", icon: "🎮", title: "Gaming & Entertainment", desc: "Mobile games, streaming platforms, loyalty apps, and real-time leaderboards" },
 ];
+
+const INDUSTRY_PAGE_DATA = {
+  "healthcare": {
+    id: "healthcare", name: "Healthcare & MedTech", icon: "🏥", color: "#0e4f6b", accent: "#38bdf8",
+    heroTitle: "Healthcare Technology Solutions for Modern India",
+    heroDesc: "ABDM-aligned hospital management systems, telemedicine platforms, patient portals, and clinical workflow automation — purpose-built for hospitals, clinics, labs, and health-tech startups.",
+    stats: [{ value: "15+", label: "Healthcare solutions" }, { value: "20K+", label: "Daily patients managed" }, { value: "99.9%", label: "System uptime" }],
+    benefits: [
+      { icon: "🩺", title: "ABDM-Aligned", desc: "All products meet Ayushman Bharat Digital Mandate standards for interoperability." },
+      { icon: "🔒", title: "HIPAA-Compliant Security", desc: "Enterprise data protection, role-based access, and full audit trails built-in." },
+      { icon: "⚡", title: "60% Faster OPD", desc: "Queue management and digital registration cuts patient wait times dramatically." },
+      { icon: "📱", title: "Multi-Platform", desc: "Web dashboards, patient mobile apps, and tablet-optimized clinic interfaces." },
+    ],
+    productIds: ["arthomed"],
+    audience: "Multi-speciality hospitals, diagnostic chains, pharmacy networks, telemedicine platforms, and health-tech enterprises across India.",
+  },
+  "fintech": {
+    id: "fintech", name: "FinTech & Payments", icon: "💰", color: "#b45309", accent: "#fbbf24",
+    heroTitle: "FinTech Software That Handles Compliance & Growth",
+    heroDesc: "Secure payment gateways, GST/ITR automation platforms, lending systems, and regulatory compliance tools — engineered for trust at scale.",
+    stats: [{ value: "10+", label: "FinTech products" }, { value: "₹50Cr+", label: "Transactions processed" }, { value: "99.97%", label: "Uptime SLA" }],
+    benefits: [
+      { icon: "🔐", title: "Bank-Grade Security", desc: "End-to-end encryption, PCI-DSS level compliance, and multi-factor auth." },
+      { icon: "📊", title: "Regulatory Automation", desc: "Automated GST filing, ITR tracking, and compliance calendar — saves 15+ hrs/week." },
+      { icon: "🚀", title: "Scalable Architecture", desc: "Built to handle 10× traffic spikes during tax season without degradation." },
+      { icon: "📱", title: "Mobile-First Design", desc: "Client apps, partner dashboards, and admin panels all mobile-optimized." },
+    ],
+    productIds: ["ca-compliance"],
+    audience: "CA firms, tax consultancies, fintech startups, NBFCs, payment aggregators, and BFSI enterprises.",
+  },
+  "real-estate": {
+    id: "real-estate", name: "Real Estate & PropTech", icon: "🏗️", color: "#0e7f72", accent: "#1dcfba",
+    heroTitle: "Property Technology That Drives Revenue",
+    heroDesc: "PG management, hotel PMS, property listing platforms, and investment analytics — built for property owners, managers, and real estate businesses of every size.",
+    stats: [{ value: "50+", label: "Properties managed" }, { value: "500+", label: "Active tenants" }, { value: "70%", label: "Admin time saved" }],
+    benefits: [
+      { icon: "🏠", title: "Unified Dashboard", desc: "Manage all properties — PG, hotel, hostel — from a single control panel." },
+      { icon: "💳", title: "Automated Collections", desc: "Rent reminders, auto-pay via UPI/cards, and late fee automation." },
+      { icon: "📈", title: "Revenue Analytics", desc: "Occupancy trends, RevPAR, average daily rate — real-time and historical." },
+      { icon: "🔗", title: "Channel Management", desc: "Sync inventory across Booking.com, Expedia, and direct booking engine." },
+    ],
+    productIds: ["pg-management", "hotel-management", "hostel-management"],
+    audience: "PG owners, hoteliers, hostel operators, real estate investors, property managers, and hospitality chains.",
+  },
+  "foodtech": {
+    id: "foodtech", name: "Food Tech & Delivery", icon: "🍔", color: "#b91c1c", accent: "#f87171",
+    heroTitle: "White-Label Food Delivery & Restaurant Tech",
+    heroDesc: "Your own food delivery ecosystem — consumer app, restaurant dashboard, and delivery partner app — all under your brand. Live GPS tracking, real-time order management, and loyalty rewards.",
+    stats: [{ value: "3", label: "Apps in ecosystem" }, { value: "18+", label: "Restaurant partners" }, { value: "28%", label: "Commission saved vs Swiggy/Zomato" }],
+    benefits: [
+      { icon: "🏷️", title: "Your Brand, Your Rules", desc: "No commission to third parties. Keep 100% of revenue and own your customer data." },
+      { icon: "📍", title: "Live GPS Tracking", desc: "Real-time delivery tracking with ETAs, route optimization, and geofencing." },
+      { icon: "📊", title: "Restaurant Dashboard", desc: "Menu management, real-time order alerts, sales analytics, and rating insights." },
+      { icon: "❤️", title: "Loyalty Engine", desc: "Wallet, referral rewards, promo codes, and repeat customer analytics built-in." },
+    ],
+    productIds: ["omf-food-delivery"],
+    audience: "Restaurant chains, cloud kitchens, food delivery startups, and hospitality brands looking to own their delivery channel.",
+  },
+  "edtech": {
+    id: "edtech", name: "EdTech & E-Learning", icon: "📚", color: "#1565c0", accent: "#42a5f5",
+    heroTitle: "Education Technology for Schools & Beyond",
+    heroDesc: "Hostel management, LMS platforms, live video classrooms, gamified learning, and assessment engines — purpose-built for educational institutions and edtech startups.",
+    stats: [{ value: "25+", label: "Institutions served" }, { value: "10K+", label: "Students on platform" }, { value: "40%", label: "Admin efficiency gain" }],
+    benefits: [
+      { icon: "🏫", title: "Institution-First Design", desc: "Room allocation, mess management, fee collection — everything in one system." },
+      { icon: "👨‍👩‍👧", title: "Parent Portal", desc: "Real-time updates on student attendance, fees, meals, and conduct reports." },
+      { icon: "📱", title: "Multi-Platform Access", desc: "Admin web dashboard, student mobile app, and parent communication portal." },
+      { icon: "📈", title: "Analytics Dashboard", desc: "Enrollment trends, fee default tracking, and performance metrics at a glance." },
+    ],
+    productIds: ["hostel-management"],
+    audience: "Schools, colleges, universities, hostel wardens, edtech startups, and training institutions across India.",
+  },
+  "retail": {
+    id: "retail", name: "E-Commerce & Retail", icon: "🛒", color: "#155e2e", accent: "#4ade80",
+    heroTitle: "Retail & E-Commerce Technology for Modern Commerce",
+    heroDesc: "POS systems, inventory management, D2C e-commerce platforms, and omnichannel retail solutions — built for single stores and multi-branch chains alike.",
+    stats: [{ value: "30+", label: "Retail deployments" }, { value: "15K+", label: "Daily transactions" }, { value: "99.5%", label: "POS uptime" }],
+    benefits: [
+      { icon: "🛍️", title: "Omnichannel Ready", desc: "Sell in-store, online, and via mobile — with unified inventory across channels." },
+      { icon: "📦", title: "Smart Inventory", desc: "Real-time stock tracking, auto reorder alerts, and supplier management." },
+      { icon: "📊", title: "Sales Intelligence", desc: "Profitability reports, top-selling SKUs, and customer purchase patterns." },
+      { icon: "🧠", title: "AI Recommendations", desc: "AI-powered size/style suggestions and look-builder tools for fashion retail." },
+    ],
+    productIds: ["store-management", "wroggle"],
+    audience: "Retail chains, D2C brands, fashion boutiques, general stores, and e-commerce startups scaling their operations.",
+  },
+};
 
 const TESTIMONIALS = [
   {
@@ -417,7 +504,7 @@ function Hero() {
       <div style={{ position: "relative", zIndex: 1, maxWidth: 680 }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(14,127,114,0.15)", border: "1px solid rgba(29,207,186,0.3)", padding: "6px 16px", borderRadius: 100, fontSize: 12, fontWeight: 600, color: "#1dcfba", letterSpacing: "0.09em", textTransform: "uppercase", marginBottom: 28, animation: "fadeUp 0.8s ease both" }}>
           <span style={{ width: 7, height: 7, background: "#1dcfba", borderRadius: "50%", animation: "blink 1.8s infinite" }} />
-          India's Premium Software Development Studio
+          Premium Software Studio — Serving Clients Worldwide
         </div>
 
         <h1 className="sy" style={{ fontSize: "clamp(44px,6.5vw,82px)", fontWeight: 800, lineHeight: 1.04, letterSpacing: "-0.03em", marginBottom: 24, animation: "fadeUp 0.8s ease 0.1s both" }}>
@@ -425,7 +512,7 @@ function Hero() {
         </h1>
 
         <p style={{ fontSize: 18, color: "rgba(255,255,255,0.62)", lineHeight: 1.75, maxWidth: 530, marginBottom: 16, fontWeight: 300, animation: "fadeUp 0.8s ease 0.2s both" }}>
-          150+ apps and platforms shipped. Zero missed deadlines. Senior engineers who treat your product like it's their own — because your growth is the only KPI that matters.
+          150+ apps and platforms shipped — from startups in Bengaluru to enterprises in New York, London, and Dubai. Zero missed deadlines. Senior engineers who treat your product like it's their own.
         </p>
         <p style={{ fontSize: 14, color: "rgba(255,255,255,0.38)", marginBottom: 38, animation: "fadeUp 0.8s ease 0.25s both" }}>
           Mobile App Development · Web Development · AI & Cloud
@@ -831,13 +918,21 @@ function Industries() {
           <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", fontWeight: 300, maxWidth: 520, lineHeight: 1.75 }}>Deep domain expertise means we speak your industry's language — regulatory requirements, user expectations, and all.</p>
         </div>
         <div className="ig rv" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14 }}>
-          {INDUSTRIES.map((ind, i) => (
-            <div key={i} className="icard" style={{ background: "#1a2e45", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "28px 22px", textAlign: "center", transitionDelay: `${i * 0.05}s` }}>
-              <div style={{ fontSize: 34, marginBottom: 14 }}>{ind.icon}</div>
-              <div className="sy" style={{ fontSize: 15, fontWeight: 700, marginBottom: 8 }}>{ind.title}</div>
-              <div style={{ fontSize: 12, color: "#6b8199", lineHeight: 1.65 }}>{ind.desc}</div>
-            </div>
-          ))}
+          {INDUSTRIES.map((ind, i) => {
+            const hasPage = !!INDUSTRY_PAGE_DATA[ind.id];
+            const content = (
+              <>
+                <div style={{ fontSize: 34, marginBottom: 14 }}>{ind.icon}</div>
+                <div className="sy" style={{ fontSize: 15, fontWeight: 700, marginBottom: 8 }}>{ind.title}</div>
+                <div style={{ fontSize: 12, color: "#6b8199", lineHeight: 1.65 }}>{ind.desc}</div>
+              </>
+            );
+            return hasPage ? (
+              <a key={i} href={`/?industry=${ind.id}`} className="icard" style={{ display: "block", background: "#1a2e45", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "28px 22px", textAlign: "center", transitionDelay: `${i * 0.05}s`, textDecoration: "none" }}>{content}</a>
+            ) : (
+              <div key={i} className="icard" style={{ background: "#1a2e45", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "28px 22px", textAlign: "center", transitionDelay: `${i * 0.05}s` }}>{content}</div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -1183,8 +1278,8 @@ function CTABand() {
               <div style={{ width: 7, height: 7, background: "#fff", borderRadius: "50%", animation: "blink 1.8s infinite" }} />
               Currently Accepting New Projects
             </div>
-            <h2 className="sy" style={{ fontSize: "clamp(28px,4vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em", marginBottom: 14 }}>Ready to Build<br />Something Remarkable?</h2>
-            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.72)", fontWeight: 300, maxWidth: 480, lineHeight: 1.75 }}>Tell us about your project. We'll get back with a detailed proposal — scope, timeline, and fixed cost — within 24 hours. Zero obligation.</p>
+            <h2 className="sy" style={{ fontSize: "clamp(28px,4vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em", marginBottom: 14 }}>Building for Clients<br />Worldwide?</h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.72)", fontWeight: 300, maxWidth: 480, lineHeight: 1.75 }}>We work with clients across India, US, UK, UAE, Singapore, Australia, and Europe. Tell us about your project — we'll respond with scope, timeline, and fixed cost within 24 hours. Zero obligation.</p>
             <div style={{ display: "flex", gap: 24, marginTop: 24, flexWrap: "wrap" }}>
               {[["📧", "hello@codextechinnovations.com"], ["📞", "+91 9741821179"], ["📍", "Bengaluru, India"]].map(([icon, val], i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "rgba(255,255,255,0.7)" }}>
@@ -1281,12 +1376,16 @@ function Footer() {
       "About Us": "/?section=why", "Our Work": "/?section=products",
       "Case Studies": "#case-studies", "Tech Blog": "/?section=tech",
       "Project Estimator": "#contact", "Privacy Policy": "#", "Terms of Service": "#",
+      "Healthcare & MedTech": "/?industry=healthcare", "FinTech & Payments": "/?industry=fintech",
+      "Real Estate & PropTech": "/?industry=real-estate", "Food Tech & Delivery": "/?industry=foodtech",
+      "EdTech & E-Learning": "/?industry=edtech", "E-Commerce & Retail": "/?industry=retail",
     };
     return map[link] || "#";
   };
   const cols = [
     { title: "Services", links: ["Mobile App Development", "Website Development", "SaaS Product Development", "Cloud & DevOps", "AI & Automation", "UI/UX Design"] },
     { title: "Our Products", links: ["PG Management System", "Hotel Management System", "Hostel Management System", "Store Management System", "OMF Food Delivery App", "Compliance & CA Manager", "Wroggle Clothing Store", "Arthomed Hospital System"] },
+    { title: "Industries", links: ["Healthcare & MedTech", "FinTech & Payments", "Real Estate & PropTech", "Food Tech & Delivery", "EdTech & E-Learning", "E-Commerce & Retail"] },
     { title: "Company", links: ["About Us", "Our Work", "Careers", "Blog", "Press Kit", "Contact"] },
     { title: "Resources", links: ["Case Studies", "Tech Blog", "Free Consultation", "Project Estimator", "Privacy Policy", "Terms of Service"] },
   ];
@@ -1439,6 +1538,186 @@ const PRODUCT_EXTRA = {
     integrations: ["ABDM APIs", "HL7 FHIR", "IRDA Insurance APIs", "SMS Gateway", "Cloud Backup"],
   },
 };
+
+/* ─────────────────────────────────────────────────────────────
+   INDUSTRY PAGE
+───────────────────────────────────────────────────────────── */
+function IndustryPage() {
+  const params = new URLSearchParams(window.location.search);
+  const ind = INDUSTRY_PAGE_DATA[params.get("industry")];
+
+  // Breadcrumb & meta JSON-LD
+  const indId = ind ? ind.id : null;
+  const indName = ind ? ind.name : null;
+  useEffect(() => {
+    if (!indId || !indName) return;
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "ind-breadcrumb-jsonld";
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codextechinnovations.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://codextechinnovations.com/?section=industries" },
+        { "@type": "ListItem", "position": 3, "name": indName, "item": `https://codextechinnovations.com/?industry=${indId}` },
+      ],
+    });
+    document.head.appendChild(script);
+    return () => { const s = document.getElementById("ind-breadcrumb-jsonld"); if (s) s.remove(); };
+  }, [indId, indName]);
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  if (!ind) {
+    return (
+      <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "120px 5%" }}>
+        <div style={{ fontSize: 64, marginBottom: 20 }}>🔍</div>
+        <h2 className="sy" style={{ fontSize: 32, fontWeight: 800, marginBottom: 12 }}>Industry Not Found</h2>
+        <p style={{ color: "rgba(255,255,255,0.5)", marginBottom: 28 }}>The industry page you're looking for doesn't exist.</p>
+        <a href="/" style={{ background: "linear-gradient(135deg,#0e7f72,#12a896)", color: "#fff", padding: "12px 28px", borderRadius: 9, fontSize: 14, fontWeight: 500 }}>Back to Home</a>
+      </section>
+    );
+  }
+
+  const indProducts = PRODUCTS.filter((p) => ind.productIds.includes(p.id));
+  const relatedInds = Object.values(INDUSTRY_PAGE_DATA).filter((x) => x.id !== ind.id).slice(0, 4);
+
+  return (
+    <div style={{ background: "#0b1929", minHeight: "100vh" }}>
+      <NavbarInIndustry />
+
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" style={{ position: "fixed", top: 70, left: 0, right: 0, zIndex: 99, padding: "10px 5%", background: "rgba(11,25,41,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(14,127,114,0.12)", fontSize: 12 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", gap: 8 }}>
+          <a href="/" className="fl" style={{ color: "rgba(255,255,255,0.45)", display: "flex", alignItems: "center", gap: 4 }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Home
+          </a>
+          <span style={{ color: "rgba(255,255,255,0.2)" }}>/</span>
+          <a href="/?section=industries" className="fl" style={{ color: "rgba(255,255,255,0.45)" }}>Industries</a>
+          <span style={{ color: "rgba(255,255,255,0.2)" }}>/</span>
+          <span style={{ color: ind.accent, fontWeight: 600 }}>{ind.name}</span>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section style={{ padding: "120px 5% 80px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(${hexToRgb(ind.color)},0.25) 0%,transparent 70%)` }} />
+        <div className="hgrid" style={{ position: "absolute", inset: 0 }} />
+        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: 32, flexWrap: "wrap" }}>
+            <div style={{ fontSize: 80, lineHeight: 1, flexShrink: 0 }}>{ind.icon}</div>
+            <div style={{ flex: 1, minWidth: 280 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: ind.accent, background: `rgba(${hexToRgb(ind.accent)},0.1)`, border: `1px solid rgba(${hexToRgb(ind.accent)},0.25)`, padding: "4px 12px", borderRadius: 100, marginBottom: 14, display: "inline-block" }}>Industry</span>
+              <h1 className="sy" style={{ fontSize: "clamp(36px,5vw,64px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: 12 }}>{ind.heroTitle}</h1>
+              <p style={{ fontSize: 17, color: "rgba(255,255,255,0.58)", lineHeight: 1.8, fontWeight: 300, maxWidth: 680 }}>{ind.heroDesc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <div style={{ background: "#1a2e45", borderTop: "1px solid rgba(14,127,114,0.18)", borderBottom: "1px solid rgba(14,127,114,0.18)", padding: "24px 5%" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", gap: 32, justifyContent: "space-around", flexWrap: "wrap" }}>
+          {ind.stats.map((s, i) => (
+            <div key={i} style={{ textAlign: "center" }}>
+              <div className="sy" style={{ fontSize: 28, fontWeight: 800, color: ind.accent }}>{s.value}</div>
+              <div style={{ fontSize: 13, color: "#6b8199", marginTop: 2 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Benefits */}
+      <section style={{ padding: "80px 5%" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="rv" style={{ marginBottom: 44 }}>
+            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Why CODEX for {ind.name}</span>
+            <h2 className="sy" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>Key Benefits</h2>
+          </div>
+          <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }}>
+            {ind.benefits.map((b, i) => (
+              <div key={i} className="scard" style={{ background: "#1a2e45", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "28px 24px", display: "flex", gap: 16 }}>
+                <div style={{ fontSize: 36, flexShrink: 0, lineHeight: 1 }}>{b.icon}</div>
+                <div>
+                  <h3 className="sy" style={{ fontSize: 17, fontWeight: 700, marginBottom: 6 }}>{b.title}</h3>
+                  <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>{b.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Products */}
+      <section style={{ background: "#1a2e45", padding: "80px 5%" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="rv" style={{ marginBottom: 36 }}>
+            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Relevant Products</span>
+            <h2 className="sy" style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>{ind.name} Solutions We've Built</h2>
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", fontWeight: 300, marginTop: 8 }}>Live, production-tested products purpose-built for this industry.</p>
+          </div>
+          <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }}>
+            {indProducts.map((p) => (
+              <a key={p.id} href={`/?product=${p.id}`} className="pcard" style={{ display: "block", background: "#0b1929", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "24px 20px", textDecoration: "none" }}>
+                <div style={{ fontSize: 36, marginBottom: 10, lineHeight: 1 }}>{p.emoji}</div>
+                <div className="sy" style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: "#fff" }}>{p.name}</div>
+                <p style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>{p.tagline}</p>
+                <div style={{ display: "flex", gap: 4, marginTop: 10, flexWrap: "wrap" }}>{p.tags.slice(0, 3).map((t, j) => <span key={j} style={{ fontSize: 10, padding: "2px 8px", borderRadius: 4, background: "rgba(14,127,114,0.1)", color: "#1dcfba", border: "1px solid rgba(29,207,186,0.15)" }}>{t}</span>)}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Audience */}
+      <section style={{ padding: "80px 5%" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="rv" style={{ marginBottom: 28 }}>
+            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Who We Serve</span>
+            <h2 className="sy" style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>Built For</h2>
+          </div>
+          <div className="rv" style={{ padding: "24px 28px", background: "rgba(14,127,114,0.07)", border: "1px solid rgba(29,207,186,0.18)", borderRadius: 14, borderLeft: "3px solid #1dcfba" }}>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.72)", lineHeight: 1.8, fontWeight: 300 }}>{ind.audience}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Industries */}
+      <section style={{ background: "#1a2e45", padding: "80px 5%" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="rv" style={{ marginBottom: 36 }}>
+            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1dcfba", marginBottom: 14 }}>Explore More</span>
+            <h2 className="sy" style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em" }}>Other Industries We Serve</h2>
+          </div>
+          <div className="rv" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }}>
+            {relatedInds.map((x) => (
+              <a key={x.id} href={`/?industry=${x.id}`} className="pcard" style={{ display: "block", background: "#0b1929", border: "1px solid rgba(14,127,114,0.18)", borderRadius: 16, padding: "24px 16px", textAlign: "center", textDecoration: "none" }}>
+                <div style={{ fontSize: 36, marginBottom: 8, lineHeight: 1 }}>{x.icon}</div>
+                <div className="sy" style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>{x.name}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ background: "linear-gradient(135deg,#0e7f72 0%,#0a5c55 50%,#1a2e45 100%)", padding: "80px 5%", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle,rgba(29,207,186,0.15) 0%,transparent 70%)" }} />
+        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1, textAlign: "center" }}>
+          <h2 className="sy" style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, lineHeight: 1.1, marginBottom: 14 }}>Build for {ind.name}?</h2>
+          <p style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", fontWeight: 300, maxWidth: 520, margin: "0 auto 28px" }}>Let's discuss your project. Free consultation within 24 hours. Fixed-price contracts with 6-month warranty.</p>
+          <a href="/?section=contact" className="bw" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#fff", color: "#0e7f72", padding: "15px 32px", borderRadius: 9, fontSize: 15, fontWeight: 700, boxShadow: "0 4px 20px rgba(0,0,0,0.2)" }}>
+            Get Started <ArrowRight size={16} />
+          </a>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
 
 function ProductDetail() {
   const params = new URLSearchParams(window.location.search);
@@ -1697,6 +1976,41 @@ function ProductDetail() {
   );
 }
 
+/* ─────────────────────────────────────────────────────────────
+   INDUSTRY PAGE NAVBAR
+───────────────────────────────────────────────────────────── */
+function NavbarInIndustry() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+  return (
+    <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, height: 70, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 5%", background: scrolled ? "rgba(11,25,41,0.97)" : "rgba(11,25,41,0.8)", backdropFilter: "blur(18px)", borderBottom: `1px solid rgba(14,127,114,${scrolled ? 0.25 : 0.15})`, transition: "all 0.3s ease" }}>
+      <a href="/" aria-label="CODEX Tech Innovations logo" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <svg width="36" height="36" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible" }} role="img"><title>CODEX Tech Innovations logo</title>
+          <defs>
+            <linearGradient id="hexGradI" x1="0" y1="0" x2="110" y2="110" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#0d1f2d"/><stop offset="100%" stopColor="#061018"/></linearGradient>
+            <linearGradient id="xGradI" x1="25" y1="25" x2="85" y2="85" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#00ffb9"/><stop offset="100%" stopColor="#00b4ff"/></linearGradient>
+          </defs>
+          <polygon points="55,10 95,32 95,74 55,96 15,74 15,32" fill="url(#hexGradI)" stroke="rgba(0,255,185,0.6)" strokeWidth="1.5"/>
+          <g filter="url(#glowI)">
+            <line x1="33" y1="35" x2="77" y2="75" stroke="url(#xGradI)" strokeWidth="8" strokeLinecap="round"/>
+            <line x1="77" y1="35" x2="33" y2="75" stroke="url(#xGradI)" strokeWidth="8" strokeLinecap="round"/>
+            <circle cx="55" cy="55" r="4.5" fill="#0a1820" stroke="url(#xGradI)" strokeWidth="1.5"/>
+            <circle cx="55" cy="55" r="2" fill="url(#xGradI)"/>
+          </g>
+        </svg>
+        <span className="sy" style={{ fontWeight: 700, fontSize: 15, letterSpacing: 0.5, textTransform: "uppercase" }}>CODEX</span>
+      </a>
+      <a href="/?section=industries" className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 6, border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)", padding: "8px 16px", borderRadius: 7, fontSize: 13 }}>
+        ← All Industries
+      </a>
+    </nav>
+  );
+}
+
 function NavbarOnDetail() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -1779,6 +2093,23 @@ function SitemapPage() {
             </div>
           </div>
 
+          {/* Industries */}
+          <div className="rv" style={{ marginBottom: 48 }}>
+            <h2 className="sy" style={{ fontSize: 20, fontWeight: 800, marginBottom: 18, color: "#1dcfba" }}>Industries We Serve</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 10 }}>
+              {Object.values(INDUSTRY_PAGE_DATA).map((ind) => (
+                <a key={ind.id} href={`/?industry=${ind.id}`} className="diff-card" style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: "#1a2e45", border: "1px solid rgba(14,127,114,0.15)", borderRadius: 10, textDecoration: "none" }}>
+                  <span style={{ fontSize: 28, lineHeight: 1 }}>{ind.icon}</span>
+                  <div style={{ flex: 1 }}>
+                    <span className="sy" style={{ fontSize: 14, fontWeight: 700 }}>{ind.name}</span>
+                    <p style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>{ind.heroTitle}</p>
+                  </div>
+                  <ChevronRight size={14} color="#1dcfba" />
+                </a>
+              ))}
+            </div>
+          </div>
+
           {/* Products by Category */}
           <div className="rv">
             <h2 className="sy" style={{ fontSize: 20, fontWeight: 800, marginBottom: 18, color: "#1dcfba" }}>Our Products</h2>
@@ -1850,6 +2181,10 @@ export default function App() {
       }, 300);
     }
   }, [params]);
+
+  if (params.get("industry")) {
+    return <IndustryPage key={params.get("industry")} />;
+  }
 
   if (params.get("product")) {
     return <ProductDetail key={params.get("product")} />;
