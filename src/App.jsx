@@ -1274,14 +1274,19 @@ function Footer() {
       "Sitemap": "/?page=sitemap",
       "Mobile App Development": "#services", "Website Development": "#services", "SaaS Product Development": "#services",
       "Cloud & DevOps": "#services", "AI & Automation": "#services", "UI/UX Design": "#services",
-      "PG Management System": "#products", "Hotel Management System": "#products", "Hostel Management System": "#products",
-      "OMF Food Delivery App": "#products", "Compliance & CA Manager": "#products", "Arthomed Hospital System": "#products",
+      "PG Management System": "/?product=pg-management", "Hotel Management System": "/?product=hotel-management",
+      "Hostel Management System": "/?product=hostel-management", "Store Management System": "/?product=store-management",
+      "Compliance & CA Manager": "/?product=ca-compliance", "OMF Food Delivery App": "/?product=omf-food-delivery",
+      "Arthomed Hospital System": "/?product=arthomed", "Wroggle Clothing Store": "/?product=wroggle",
+      "About Us": "/?section=why", "Our Work": "/?section=products",
+      "Case Studies": "#case-studies", "Tech Blog": "/?section=tech",
+      "Project Estimator": "#contact", "Privacy Policy": "#", "Terms of Service": "#",
     };
     return map[link] || "#";
   };
   const cols = [
     { title: "Services", links: ["Mobile App Development", "Website Development", "SaaS Product Development", "Cloud & DevOps", "AI & Automation", "UI/UX Design"] },
-    { title: "Our Products", links: ["PG Management System", "Hotel Management System", "Hostel Management System", "OMF Food Delivery App", "Compliance & CA Manager", "Arthomed Hospital System"] },
+    { title: "Our Products", links: ["PG Management System", "Hotel Management System", "Hostel Management System", "Store Management System", "OMF Food Delivery App", "Compliance & CA Manager", "Wroggle Clothing Store", "Arthomed Hospital System"] },
     { title: "Company", links: ["About Us", "Our Work", "Careers", "Blog", "Press Kit", "Contact"] },
     { title: "Resources", links: ["Case Studies", "Tech Blog", "Free Consultation", "Project Estimator", "Privacy Policy", "Terms of Service"] },
   ];
