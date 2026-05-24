@@ -5,10 +5,10 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Josefin Sans',system-ui,sans-serif;background:#0b1929;color:#fff;overflow-x:hidden;line-height:1.65;}
+body{font-family:'Lato',system-ui,sans-serif;background:#0b1929;color:#fff;overflow-x:hidden;line-height:1.65;}
 a{text-decoration:none;color:inherit;}
 
-.sy{font-family:'Josefin Sans',system-ui,sans-serif;font-weight:700;}
+.sy{font-family:'Lato',system-ui,sans-serif;font-weight:700;}
 .gt{background:linear-gradient(135deg,#1dcfba,#5de8d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
 /* KEYFRAMES */
