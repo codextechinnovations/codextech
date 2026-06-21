@@ -40,7 +40,7 @@ export function CaseStudies() {
                 gap: 8,
               }}
             >
-              {cs.id === "pg-management" ? "🏠" : "🍔"} {cs.title.split(" —")[0]}
+              <span aria-hidden="true">{cs.emoji}</span> {cs.title.split(" —")[0]}
             </button>
           ))}
         </div>

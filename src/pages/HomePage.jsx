@@ -43,7 +43,7 @@ export default function HomePage() {
         canonical="/"
       />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <StatsBar />
         <TrustBar />

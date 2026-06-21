@@ -65,6 +65,20 @@ export function Navbar() {
 
   return (
     <>
+      {/* Skip to content */}
+      <a
+        href="#main-content"
+        style={{
+          position: "absolute", top: -100, left: 8, zIndex: 999,
+          background: "var(--color-accent)", color: "#fff",
+          padding: "12px 20px", borderRadius: 8, fontSize: 14, fontWeight: 600,
+          transition: "top 0.2s ease",
+        }}
+        onFocus={(e) => e.currentTarget.style.top = "8px"}
+        onBlur={(e) => e.currentTarget.style.top = "-100px"}
+      >
+        Skip to main content
+      </a>
       <nav
         style={{
           position: "fixed",
@@ -96,7 +110,7 @@ export function Navbar() {
               <a
                 href={href}
                 className="nl"
-                aria-current={isHashActive(href) ? "true" : undefined}
+                aria-current={isHashActive(href) ? "page" : undefined}
                 style={{
                   fontSize: 14,
                   color: isHashActive(href) ? "var(--color-accent)" : "var(--color-text-secondary)",
@@ -167,7 +181,7 @@ export function Navbar() {
             key={label}
             href={href}
             onClick={() => setOpen(false)}
-            aria-current={isHashActive(href) ? "true" : undefined}
+            aria-current={isHashActive(href) ? "page" : undefined}
             style={{
               color: isHashActive(href) ? "var(--color-accent)" : "var(--color-text-secondary)",
               padding: "14px 0",

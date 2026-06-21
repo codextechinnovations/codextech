@@ -77,7 +77,7 @@ export function ProductDetail({ productId }) {
                 <span style={{ fontSize: 11, padding: "5px 12px", background: "var(--color-glass-bg)", color: "var(--color-text-subtle)", borderRadius: 6, border: "1px solid var(--color-border)" }}>{p.badge}</span>
               </div>
               <h1 className="sy rv" style={{ fontSize: "clamp(40px,5.5vw,68px)", fontWeight: 800, lineHeight: 1.04, letterSpacing: "-0.03em", marginBottom: 16 }}>
-                {p.emoji} {p.name}
+                <span aria-hidden="true">{p.emoji}</span> {p.name}
               </h1>
               <p className="rv" style={{ fontSize: 21, color: p.accent, fontWeight: 500, marginBottom: 20 }}>{p.tagline}</p>
               <p className="rv" style={{ fontSize: 17, color: "var(--color-text-secondary)", lineHeight: 1.85, fontWeight: 300, maxWidth: 680 }}>{e ? e.longDesc : p.desc}</p>
@@ -91,7 +91,7 @@ export function ProductDetail({ productId }) {
               </div>
             </div>
             <div className="rv hv" style={{ fontSize: 120, lineHeight: 1, opacity: 0.9, textAlign: "center", alignSelf: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
-              <div style={{ fontSize: 100 }}>{p.emoji}</div>
+              <div aria-hidden="true" style={{ fontSize: 100 }}>{p.emoji}</div>
               <div style={{ width: 120, height: 3, background: `linear-gradient(90deg,${p.color},${p.accent})`, borderRadius: 2 }} />
             </div>
           </div>
@@ -182,7 +182,7 @@ export function ProductDetail({ productId }) {
             <div className="rv g2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 24 }}>
               {e.benefits.map((b, i) => (
                 <div key={i} className="scard" style={{ background: `linear-gradient(135deg,var(--color-surface-elevated),var(--color-bg))`, border: "1px solid var(--color-border)", borderRadius: 18, padding: "32px 28px", display: "flex", gap: 18 }}>
-                  <div style={{ fontSize: 40, flexShrink: 0, lineHeight: 1 }}>{b.icon}</div>
+                  <div aria-hidden="true" style={{ fontSize: 40, flexShrink: 0, lineHeight: 1 }}>{b.icon}</div>
                   <div>
                     <h3 className="sy" style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>{b.title}</h3>
                     <p style={{ fontSize: 14, color: "var(--color-text-muted)", lineHeight: 1.75 }}>{b.desc}</p>
@@ -206,7 +206,7 @@ export function ProductDetail({ productId }) {
             <div className="rv ig4" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }}>
               {e.modules.map((m, i) => (
                 <div key={i} className="tcard" style={{ background: "var(--color-bg)", border: "1px solid var(--color-border)", borderRadius: 16, padding: "30px 24px", textAlign: "center", transition: "all 0.3s ease" }}>
-                  <div style={{ width: 52, height: 52, background: `linear-gradient(135deg,rgba(${accentRgb},0.18),rgba(${accentRgb},0.06))`, borderRadius: 14, display: "grid", placeItems: "center", margin: "0 auto 18px", fontSize: 24 }}>{p.emoji}</div>
+                  <div aria-hidden="true" style={{ width: 52, height: 52, background: `linear-gradient(135deg,rgba(${accentRgb},0.18),rgba(${accentRgb},0.06))`, borderRadius: 14, display: "grid", placeItems: "center", margin: "0 auto 18px", fontSize: 24 }}>{p.emoji}</div>
                   <div className="sy" style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.3, color: "var(--color-text)" }}>{m}</div>
                 </div>
               ))}
@@ -289,7 +289,7 @@ export function ProductDetail({ productId }) {
             <div className="rv" style={{ display: "flex", gap: 18, overflowX: "auto", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", paddingBottom: 8 }}>
               {related.map((r) => (
                 <Link key={r.id} to={`/product/${r.id}`} className="pcard" style={{ flex: "0 0 280px", scrollSnapAlign: "start", display: "block", background: "var(--color-bg)", border: "1px solid var(--color-border)", borderRadius: 18, padding: "28px 24px", textDecoration: "none", transition: "all 0.3s ease" }}>
-                  <div style={{ fontSize: 44, marginBottom: 14, lineHeight: 1 }}>{r.emoji}</div>
+                  <div aria-hidden="true" style={{ fontSize: 44, marginBottom: 14, lineHeight: 1 }}>{r.emoji}</div>
                   <div className="sy" style={{ fontSize: 17, fontWeight: 700, color: "var(--color-text)", marginBottom: 6 }}>{r.name}</div>
                   <p style={{ fontSize: 12, color: "var(--color-text-subtle)", lineHeight: 1.6, marginBottom: 12 }}>{r.tagline}</p>
                   <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
@@ -329,7 +329,7 @@ export function ProductDetail({ productId }) {
         }}
       >
         <div className="sticky-info" style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
-          <span style={{ fontSize: 28, flexShrink: 0 }}>{p.emoji}</span>
+          <span aria-hidden="true" style={{ fontSize: 28, flexShrink: 0 }}>{p.emoji}</span>
           <div style={{ minWidth: 0 }}>
             <div className="sy" style={{ fontSize: 14, fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{p.name}</div>
             <div className="sticky-tagline" style={{ fontSize: 11, color: "var(--color-text-muted)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{p.tagline}</div>

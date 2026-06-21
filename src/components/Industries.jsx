@@ -16,7 +16,7 @@ export function Industries() {
             const hasPage = !!INDUSTRY_PAGE_DATA[ind.id];
             const content = (
               <>
-                <div style={{ fontSize: 34, marginBottom: 14 }}>{ind.icon}</div>
+                <div aria-hidden="true" style={{ fontSize: 34, marginBottom: 14 }}>{ind.icon}</div>
                 <div className="sy" style={{ fontSize: 15, fontWeight: 700, marginBottom: 8 }}>{ind.title}</div>
                 <div style={{ fontSize: 12, color: "var(--color-text-muted)", lineHeight: 1.65, marginBottom: hasPage ? 0 : 12 }}>{ind.desc}</div>
                 {!hasPage && (

@@ -53,8 +53,8 @@ export function Footer() {
       title: "Industries",
       links: ["Healthcare & MedTech", "FinTech & Payments", "Real Estate & PropTech", "Food Tech & Delivery", "EdTech & E-Learning", "E-Commerce & Retail"],
     },
-    { title: "Company", links: ["About Us", "Our Work", "Careers", "Blog", "Press Kit", "Contact"] },
-    { title: "Resources", links: ["Case Studies", "Tech Blog", "Free Consultation", "Project Estimator", "Privacy Policy", "Terms of Service"] },
+    { title: "Company", links: ["About Us", "Our Work", "Contact"] },
+    { title: "Resources", links: ["Case Studies", "Free Consultation", "Project Estimator"] },
   ];
 
   return (
@@ -71,11 +71,21 @@ export function Footer() {
             </div>
             <p style={{ fontSize: 14, color: "var(--color-text-muted)", lineHeight: 1.75, maxWidth: 280 }}>India's premium mobile app and web development studio. We build digital products that drive measurable business growth.</p>
             <div style={{ marginTop: 20, display: "flex", gap: 8 }}>
-              {["in", "𝕏", "gh", "yt"].map((s, i) => (
-                <a key={i} href="#" className="sb" style={{ width: 34, height: 34, borderRadius: 8, border: "1px solid var(--color-border)", display: "grid", placeItems: "center", color: "var(--color-text-muted)", fontSize: 13 }}>
-                  {s}
-                </a>
-              ))}
+              <a href="https://www.linkedin.com/company/codex-tech-innovations" target="_blank" rel="noopener noreferrer" className="sb" style={{ width: 34, height: 34, borderRadius: 8, border: "1px solid var(--color-border)", display: "grid", placeItems: "center", color: "var(--color-text-muted)", fontSize: 13 }}>
+                in
+              </a>
+              <a href="https://twitter.com/codextech" target="_blank" rel="noopener noreferrer" className="sb" style={{ width: 34, height: 34, borderRadius: 8, border: "1px solid var(--color-border)", display: "grid", placeItems: "center", color: "var(--color-text-muted)", fontSize: 13 }}>
+                𝕏
+              </a>
+              <a href="https://github.com/codex-tech" target="_blank" rel="noopener noreferrer" className="sb" style={{ width: 34, height: 34, borderRadius: 8, border: "1px solid var(--color-border)", display: "grid", placeItems: "center", color: "var(--color-text-muted)", fontSize: 13 }}>
+                gh
+              </a>
+              <a href="https://www.youtube.com/@codextech" target="_blank" rel="noopener noreferrer" className="sb" style={{ width: 34, height: 34, borderRadius: 8, border: "1px solid var(--color-border)", display: "grid", placeItems: "center", color: "var(--color-text-muted)", fontSize: 13 }}>
+                yt
+              </a>
+              <a href="https://www.instagram.com/codextechinnovations" target="_blank" rel="noopener noreferrer" className="sb" style={{ width: 34, height: 34, borderRadius: 8, border: "1px solid var(--color-border)", display: "grid", placeItems: "center", color: "var(--color-text-muted)", fontSize: 13 }}>
+                ig
+              </a>
             </div>
           </div>
           {cols.map((col, ci) => (

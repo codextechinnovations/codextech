@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import { MessageCircle, Phone, Mail, X, ChevronUp } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MessageCircle, Phone, Mail, X } from "lucide-react";
 
 const actions = [
   { label: "Call Us", href: "tel:+919741821179", icon: <Phone size={18} />, color: "#4ade80" },
@@ -10,7 +10,6 @@ const actions = [
 export function FloatingContact() {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
-  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,12 +23,6 @@ export function FloatingContact() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    timeoutRef.current = setTimeout(() => setOpen(false), 8000);
-    return () => clearTimeout(timeoutRef.current);
-  }, [open]);
 
   const toggle = () => setOpen((o) => !o);
 

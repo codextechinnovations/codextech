@@ -6,7 +6,7 @@ export function ThemeProvider({ children }) {
     if (typeof window === "undefined") return "dark";
     const saved = localStorage.getItem("codex-theme");
     if (saved === "light" || saved === "dark") return saved;
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    return "dark";
   });
 
   useEffect(() => {

@@ -37,7 +37,7 @@ export function IndustryDetail({ industryId }) {
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: ind.accent, background: `rgba(${accentRgb},0.1)`, border: `1px solid rgba(${accentRgb},0.25)`, padding: "5px 14px", borderRadius: 100 }}>Industry</span>
               </div>
               <h1 className="sy rv" style={{ fontSize: "clamp(40px,5.5vw,68px)", fontWeight: 800, lineHeight: 1.04, letterSpacing: "-0.03em", marginBottom: 16 }}>
-                {ind.icon} {ind.heroTitle}
+                <span aria-hidden="true">{ind.icon}</span> {ind.heroTitle}
               </h1>
               <p className="rv" style={{ fontSize: 18, color: "var(--color-text-secondary)", lineHeight: 1.85, fontWeight: 300, maxWidth: 680 }}>{ind.heroDesc}</p>
               <div className="rv" style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
@@ -50,7 +50,7 @@ export function IndustryDetail({ industryId }) {
               </div>
             </div>
             <div className="rv hv" style={{ fontSize: 100, lineHeight: 1, alignSelf: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
-              <div style={{ fontSize: 90 }}>{ind.icon}</div>
+              <div aria-hidden="true" style={{ fontSize: 90 }}>{ind.icon}</div>
               <div style={{ width: 120, height: 3, background: `linear-gradient(90deg,${ind.color},${ind.accent})`, borderRadius: 2 }} />
             </div>
           </div>
@@ -80,7 +80,7 @@ export function IndustryDetail({ industryId }) {
           <div className="rv g2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 24 }}>
             {ind.benefits.map((b, i) => (
               <div key={i} className="scard" style={{ background: `linear-gradient(135deg,var(--color-surface-elevated),var(--color-bg))`, border: "1px solid var(--color-border)", borderRadius: 18, padding: "32px 28px", display: "flex", gap: 18 }}>
-                <div style={{ fontSize: 40, flexShrink: 0, lineHeight: 1 }}>{b.icon}</div>
+                <div aria-hidden="true" style={{ fontSize: 40, flexShrink: 0, lineHeight: 1 }}>{b.icon}</div>
                 <div>
                   <h3 className="sy" style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>{b.title}</h3>
                   <p style={{ fontSize: 14, color: "var(--color-text-muted)", lineHeight: 1.75 }}>{b.desc}</p>
@@ -104,7 +104,7 @@ export function IndustryDetail({ industryId }) {
               {indProducts.map((p) => (
                 <Link key={p.id} to={`/product/${p.id}`} className="pcard" style={{ flex: "0 0 300px", scrollSnapAlign: "start", display: "block", background: "var(--color-bg)", border: "1px solid var(--color-border)", borderRadius: 18, padding: "28px 24px", textDecoration: "none", transition: "all 0.3s ease" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 14 }}>
-                    <div style={{ fontSize: 44, lineHeight: 1, flexShrink: 0 }}>{p.emoji}</div>
+                    <div aria-hidden="true" style={{ fontSize: 44, lineHeight: 1, flexShrink: 0 }}>{p.emoji}</div>
                     <div>
                       <div className="sy" style={{ fontSize: 17, fontWeight: 700, color: "var(--color-text)", marginBottom: 2 }}>{p.name}</div>
                       <div style={{ fontSize: 12, color: "var(--color-text-subtle)", lineHeight: 1.5 }}>{p.tagline}</div>
@@ -143,7 +143,7 @@ export function IndustryDetail({ industryId }) {
                 "{ind.name} client saw a <strong style={{ color: ind.accent }}>40% increase in operational efficiency</strong> within the first 90 days of deployment. Manual processes were reduced by 70%, and team satisfaction scores rose by 35%."
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <div style={{ width: 44, height: 44, borderRadius: "50%", background: `rgba(${accentRgb},0.15)`, display: "grid", placeItems: "center", fontSize: 22 }}>{ind.icon}</div>
+                <div aria-hidden="true" style={{ width: 44, height: 44, borderRadius: "50%", background: `rgba(${accentRgb},0.15)`, display: "grid", placeItems: "center", fontSize: 22 }}>{ind.icon}</div>
                 <div>
                   <div className="sy" style={{ fontSize: 14, fontWeight: 700 }}>CODEX Tech Innovations</div>
                   <div style={{ fontSize: 12, color: "var(--color-text-muted)" }}>Client Success Team</div>
@@ -187,7 +187,7 @@ export function IndustryDetail({ industryId }) {
           <div className="rv ig4" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }}>
             {relatedInds.map((x) => (
               <Link key={x.id} to={`/industry/${x.id}`} className="pcard" style={{ display: "block", background: "var(--color-surface-elevated)", border: "1px solid var(--color-border)", borderRadius: 18, padding: "28px 20px", textAlign: "center", textDecoration: "none", transition: "all 0.3s ease" }}>
-                <div style={{ fontSize: 44, marginBottom: 10, lineHeight: 1 }}>{x.icon}</div>
+                <div aria-hidden="true" style={{ fontSize: 44, marginBottom: 10, lineHeight: 1 }}>{x.icon}</div>
                 <div className="sy" style={{ fontSize: 14, fontWeight: 700, color: "var(--color-text)", marginBottom: 6 }}>{x.name}</div>
                 <p style={{ fontSize: 11, color: "var(--color-text-subtle)", lineHeight: 1.5 }}>{x.heroTitle.slice(0, 60)}</p>
               </Link>
@@ -221,7 +221,7 @@ export function IndustryDetail({ industryId }) {
         }}
       >
         <div className="sticky-info" style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
-          <span style={{ fontSize: 28, flexShrink: 0 }}>{ind.icon}</span>
+          <span aria-hidden="true" style={{ fontSize: 28, flexShrink: 0 }}>{ind.icon}</span>
           <div style={{ minWidth: 0 }}>
             <div className="sy" style={{ fontSize: 14, fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{ind.name}</div>
             <div className="sticky-tagline" style={{ fontSize: 11, color: "var(--color-text-muted)" }}>Let's build something great</div>

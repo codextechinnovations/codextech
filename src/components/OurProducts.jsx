@@ -96,7 +96,7 @@ export function OurProducts() {
               <div style={{ height: "100%", background: `linear-gradient(180deg, ${p.color}18, ${p.accent}10)`, borderRight: `1px solid ${p.accent}30`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--space-lg)", position: "relative" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 5, background: `linear-gradient(90deg,${p.color},${p.accent})` }} />
                 <div className="product-icon" style={{ width: 72, height: 72, borderRadius: "var(--radius-lg)", background: `linear-gradient(135deg, ${p.color}44, ${p.accent}22)`, border: `1px solid ${p.accent}50`, display: "grid", placeItems: "center", fontSize: 38, transition: "all 0.35s ease", marginBottom: 12 }}>
-                  {p.emoji}
+                  <span aria-hidden="true">{p.emoji}</span>
                 </div>
                 <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: p.accent, background: `rgba(${hexToRgb(p.accent)},0.1)`, border: `1px solid rgba(${hexToRgb(p.accent)},0.25)`, padding: "4px 10px", borderRadius: "var(--radius-full)" }}>
                   {p.category}

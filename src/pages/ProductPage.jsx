@@ -43,7 +43,7 @@ export default function ProductPage() {
   if (!product) {
     return (
       <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "120px 5%" }}>
-        <div style={{ fontSize: 64, marginBottom: 20 }}>🔍</div>
+        <div aria-hidden="true" style={{ fontSize: 64, marginBottom: 20 }}>🔍</div>
         <h2 className="sy" style={{ fontSize: 32, fontWeight: 800, marginBottom: 12 }}>Product Not Found</h2>
         <p style={{ color: "var(--color-text-muted)", marginBottom: 28 }}>The product you're looking for doesn't exist.</p>
         <Link to="/" style={{ background: "linear-gradient(135deg,var(--color-accent-700),var(--color-accent-600))", color: "#fff", padding: "12px 28px", borderRadius: 9, fontSize: 14, fontWeight: 500 }}>

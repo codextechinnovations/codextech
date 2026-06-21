@@ -19,7 +19,7 @@ export function Hero() {
       }}
     >
       <MeshGradient parallaxRef={parallaxRef} />
-      <div className="hgrid" style={{ position: "absolute", inset: 0 }} />
+      <div className="hgrid" aria-hidden="true" style={{ position: "absolute", inset: 0 }} />
 
       <div
         style={{
@@ -70,7 +70,7 @@ export function Hero() {
               animation: "fadeUp 0.8s ease 0.1s both",
             }}
           >
-            India's Premium<br />Software Studio for<br /><span className="gt">Global Products.</span>
+            India's Premium<br />Software Studio for<br /><span className="gt">Indian Businesses.</span>
           </h1>
 
           <p
@@ -84,7 +84,7 @@ export function Hero() {
               animation: "fadeUp 0.8s ease 0.2s both",
             }}
           >
-            150+ apps and platforms shipped from Bengaluru to the US, UK, UAE, Singapore, Australia, Canada, and Europe. Senior engineers, fixed-price contracts, and a 6-month warranty.
+            150+ apps and platforms shipped across India from our Bengaluru studio. We also take projects from the US, UK, UAE, Singapore, Australia, and beyond. Senior engineers, fixed-price contracts, and a 6-month warranty.
           </p>
           <p
             style={{

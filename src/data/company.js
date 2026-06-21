@@ -34,6 +34,7 @@ export const TESTIMONIALS = [
 export const CASE_STUDIES = [
   {
     id: "pg-management",
+    emoji: "🏠",
     title: "PG Management System — From Paper Ledgers to Digital Operations for 500+ Properties",
     author: "Vikram Singh, Lead Product Engineer at CODEX",
     summary:
@@ -49,6 +50,7 @@ export const CASE_STUDIES = [
   },
   {
     id: "omf-food-delivery",
+    emoji: "🍔",
     title: "OMF Food Delivery — A White-Label Platform Processing 5,000+ Orders Monthly",
     author: "Arun Prasad, Senior Full-Stack Developer at CODEX",
     summary:

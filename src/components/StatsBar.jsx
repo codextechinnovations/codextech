@@ -49,7 +49,7 @@ function StatItem({ target, suffix, label, delay }) {
           lineHeight: 1,
         }}
       >
-        {target}{suffix}
+        0{suffix}
       </div>
       <div style={{ fontSize: 13, color: "var(--color-text-muted)", marginTop: 8, fontWeight: 500 }}>{label}</div>
     </div>

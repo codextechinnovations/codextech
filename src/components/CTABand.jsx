@@ -28,6 +28,7 @@ export function CTABand() {
   const [touched, setTouched] = useState({});
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null);
+  const [mailtoHref, setMailtoHref] = useState("");
 
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -46,6 +47,16 @@ export function CTABand() {
     if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       errors.email = "Please enter a valid email";
     }
+    if (form.mobile) {
+      const digits = form.mobile.replace(/\D/g, "");
+      const local = digits.length > 10 ? digits.slice(-10) : digits;
+      if (!/^[6-9]\d{9}$/.test(local)) {
+        errors.mobile = "Enter a valid 10-digit phone number";
+      }
+    }
+    if (!form.service) {
+      errors.service = "Please select a service";
+    }
     return errors;
   };
 
@@ -57,31 +68,54 @@ export function CTABand() {
 
     if (Object.keys(errors).length > 0) return;
 
-    try {
-      setLoading(true);
-      setStatus(null);
+    setLoading(true);
+    setStatus(null);
 
-      const res = await fetch("https://api.manageyourpg.com/api/pg-en/codex", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+    // 1. Submit to API for data storage (via hidden form to bypass CORS)
+    const formEl = document.createElement("form");
+    formEl.method = "POST";
+    formEl.action = "https://api.manageyourpg.com/api/pg-en/codex";
+    formEl.style.display = "none";
+    formEl.target = "pg-en-target";
 
-      const data = await res.json();
-
-      if (data.success) {
-        setStatus("success");
-        setForm({ name: "", email: "", mobile: "", projectName: "", service: "" });
-        setTouched({});
-      } else {
-        setStatus("error");
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    } finally {
-      setLoading(false);
+    let iframe = document.getElementById("pg-en-iframe");
+    if (!iframe) {
+      iframe = document.createElement("iframe");
+      iframe.id = "pg-en-iframe";
+      iframe.name = "pg-en-target";
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
     }
+
+    const fields = {
+      name: form.name,
+      email: form.email,
+      mobile: form.mobile,
+      projectName: form.projectName,
+      service: form.service,
+    };
+
+    Object.entries(fields).forEach(([key, value]) => {
+      const input = document.createElement("input");
+      input.name = key;
+      input.value = value;
+      formEl.appendChild(input);
+    });
+
+    document.body.appendChild(formEl);
+    formEl.submit();
+    setTimeout(() => {
+      if (formEl.parentNode) formEl.parentNode.removeChild(formEl);
+    }, 500);
+
+    // 2. Store mailto href for the success button
+    const mailtoHref = `mailto:codextechinnovations@gmail.com?subject=${encodeURIComponent(`New Enquiry from ${form.name}`)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.mobile}\nCompany: ${form.projectName}\nService: ${form.service}`)}`;
+    setMailtoHref(mailtoHref);
+
+    setStatus("success");
+    setForm({ name: "", email: "", mobile: "", projectName: "", service: "" });
+    setTouched({});
+    setLoading(false);
   };
 
   const contactItems = [
@@ -185,13 +219,21 @@ export function CTABand() {
                 </div>
               </div>
 
+              <div role="status" aria-live="polite">
               {status === "success" ? (
                 <div style={{ textAlign: "center", padding: "40px 20px" }}>
                   <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(29,207,186,0.15)", border: "1px solid rgba(29,207,186,0.3)", display: "grid", placeItems: "center", margin: "0 auto 20px" }}>
                     <CheckCircle size={32} color="var(--color-accent)" />
                   </div>
                   <h4 className="sy" style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Enquiry Sent!</h4>
-                  <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginBottom: 24 }}>We'll get back to you with scope, timeline, and cost shortly.</p>
+                  <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginBottom: 24 }}>We've received your enquiry. Please click the button below to send us the details via email, and we'll get back to you with scope, timeline, and cost shortly.</p>
+                  <a
+                    href={mailtoHref}
+                    className="bw"
+                    style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg,#fff,#e6fffa)", color: "var(--color-accent-700)", padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 700, textDecoration: "none", marginBottom: 16 }}
+                  >
+                    Send Email Now
+                  </a>
                   <button
                     type="button"
                     onClick={() => setStatus(null)}
@@ -245,7 +287,7 @@ export function CTABand() {
 
                   <div style={{ marginBottom: 18 }}>
                     <label htmlFor="cta-service" style={{ display: "block", fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.85)", marginBottom: 6 }}>
-                      Service Interested In
+                      Service Interested In <span style={{ color: "rgba(255,255,255,0.45)" }}>*</span>
                     </label>
                     <div style={{ position: "relative" }}>
                       <select
@@ -275,6 +317,7 @@ export function CTABand() {
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg>
                       </div>
                     </div>
+                    {touched.service && errors.service && <div style={{ fontSize: 11, color: "var(--color-error)", marginTop: 5 }}>{errors.service}</div>}
                   </div>
 
                   {status === "error" && (
@@ -324,12 +367,13 @@ export function CTABand() {
                       { label: "Fixed-Price", icon: "💰" },
                     ].map((badge, i) => (
                       <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: "0.04em" }}>
-                        <span>{badge.icon}</span> {badge.label}
+                        <span aria-hidden="true">{badge.icon}</span> {badge.label}
                       </span>
                     ))}
                   </div>
                 </>
               )}
+              </div>
             </form>
           </div>
         </div>

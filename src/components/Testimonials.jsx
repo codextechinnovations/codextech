@@ -5,7 +5,7 @@ import { Badge } from "./ui/Badge";
 
 export function Testimonials() {
   return (
-    <section style={{ background: "var(--color-surface-elevated)", padding: "var(--section-padding-y) var(--section-padding-x)" }}>
+    <section id="testimonials" style={{ background: "var(--color-surface-elevated)", padding: "var(--section-padding-y) var(--section-padding-x)" }}>
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <SectionHeader
           align="center"

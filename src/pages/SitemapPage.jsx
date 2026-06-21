@@ -72,7 +72,7 @@ export default function SitemapPage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 10 }}>
               {Object.values(INDUSTRY_PAGE_DATA).map((ind) => (
                 <Link key={ind.id} to={`/industry/${ind.id}`} className="diff-card" style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: "var(--color-surface-elevated)", border: "1px solid var(--color-border)", borderRadius: 10, textDecoration: "none" }}>
-                  <span style={{ fontSize: 28, lineHeight: 1 }}>{ind.icon}</span>
+                  <span aria-hidden="true" style={{ fontSize: 28, lineHeight: 1 }}>{ind.icon}</span>
                   <div style={{ flex: 1 }}>
                     <span className="sy" style={{ fontSize: 14, fontWeight: 700 }}>{ind.name}</span>
                     <p style={{ fontSize: 12, color: "var(--color-text-subtle)", marginTop: 2 }}>{ind.heroTitle}</p>
@@ -92,7 +92,7 @@ export default function SitemapPage() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 10 }}>
                   {prods.map((prod) => (
                     <Link key={prod.id} to={`/product/${prod.id}`} className="diff-card" style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: "var(--color-surface-elevated)", border: "1px solid var(--color-border)", borderRadius: 10, textDecoration: "none" }}>
-                      <span style={{ fontSize: 28, lineHeight: 1 }}>{prod.emoji}</span>
+                      <span aria-hidden="true" style={{ fontSize: 28, lineHeight: 1 }}>{prod.emoji}</span>
                       <div style={{ flex: 1 }}>
                         <span className="sy" style={{ fontSize: 14, fontWeight: 700 }}>{prod.name}</span>
                         <p style={{ fontSize: 12, color: "var(--color-text-subtle)", marginTop: 2 }}>{prod.tagline}</p>
@@ -116,7 +116,7 @@ export default function SitemapPage() {
                 { label: "robots.txt", href: "/robots.txt" },
               ].map((res, i) => (
                 <a key={i} href={res.href} className="diff-card" style={{ display: "flex", alignItems: "center", gap: 10, padding: "14px 20px", background: "var(--color-surface-elevated)", border: "1px solid var(--color-border)", borderRadius: 10, textDecoration: "none" }}>
-                  <span style={{ fontSize: 14, color: "var(--color-accent)" }}>📄</span>
+                  <span aria-hidden="true" style={{ fontSize: 14, color: "var(--color-accent)" }}>📄</span>
                   <span className="sy" style={{ fontSize: 14, fontWeight: 700 }}>{res.label}</span>
                 </a>
               ))}

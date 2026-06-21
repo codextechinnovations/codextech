@@ -1,13 +1,9 @@
-import { useReveal } from "../hooks/useReveal";
-
 const companies = [
   "Growfast", "TechVista", "MediCare Plus", "EduPrime",
   "FinLeap", "BuildRight", "GreenLeaf", "ShopEase",
 ];
 
 export function TrustBar() {
-  useReveal();
-
   return (
     <div className="rv" style={{ padding: "40px 5%", background: "var(--color-surface-elevated)", borderTop: "1px solid var(--color-border)", borderBottom: "1px solid var(--color-border)" }}>
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
