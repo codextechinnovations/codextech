@@ -4,7 +4,7 @@ export const INDUSTRIES = [
   { id: "fintech", icon: "💰", title: "Fintech & Payments", desc: "Secure payment gateways, digital wallets, lending platforms, and regulatory compliance" },
   { id: "edtech", icon: "📚", title: "EdTech & E-Learning", desc: "LMS platforms, live video classrooms, gamified learning, and assessment engines" },
   { id: "real-estate", icon: "🏗️", title: "Real Estate & PropTech", desc: "Property listing platforms, virtual tours, CRM systems, and investment analytics" },
-  { id: "foodtech", icon: "🚚", title: "Logistics & Supply Chain", desc: "Fleet tracking, last-mile delivery, warehouse management, and demand forecasting" },
+  { id: "foodtech", icon: "🍔", title: "Food Tech & Delivery", desc: "White-label food delivery apps, restaurant dashboards, and loyalty engines" },
   { id: "enterprise", icon: "🏢", title: "Enterprise SaaS", desc: "B2B platforms, internal tools, ERP integrations, and multi-tenant architectures" },
   { id: "gaming", icon: "🎮", title: "Gaming & Entertainment", desc: "Mobile games, streaming platforms, loyalty apps, and real-time leaderboards" },
 ];

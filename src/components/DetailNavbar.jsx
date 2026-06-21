@@ -23,7 +23,7 @@ export function DetailNavbar({ backTo, backLabel }) {
         alignItems: "center",
         justifyContent: "space-between",
         padding: "0 5%",
-        background: scrolled ? "rgba(11,25,41,0.97)" : "rgba(11,25,41,0.8)",
+        background: scrolled ? "var(--color-surface-elevated)" : "var(--color-surface)",
         backdropFilter: "blur(18px)",
         borderBottom: `1px solid rgba(14,127,114,${scrolled ? 0.25 : 0.15})`,
         transition: "all 0.3s ease",
@@ -56,7 +56,7 @@ export function DetailNavbar({ backTo, backLabel }) {
         </svg>
         <span className="sy" style={{ fontWeight: 700, fontSize: 15, letterSpacing: 0.5, textTransform: "uppercase" }}>CODEX</span>
       </Link>
-      <Link to={backTo} className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 6, border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)", padding: "8px 16px", borderRadius: 7, fontSize: 13 }}>
+      <Link to={backTo} className="bs" style={{ display: "inline-flex", alignItems: "center", gap: 6, border: "1px solid var(--color-border)", color: "var(--color-text-secondary)", padding: "8px 16px", borderRadius: 7, fontSize: 13 }}>
         ← {backLabel}
       </Link>
     </nav>

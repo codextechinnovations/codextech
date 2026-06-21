@@ -1,0 +1,52 @@
+/* Theme base */
+html {
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Smooth theme transition for surfaces and text */
+body,
+section,
+div,
+span,
+p,
+h1, h2, h3, h4, h5, h6,
+a,
+button,
+input,
+select,
+textarea,
+li,
+article,
+header,
+footer,
+nav {
+  transition-property: background-color, border-color, color;
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--ease-default);
+}
+
+/* Light mode: soften decorative mesh gradients */
+[data-theme="light"] .mesh-gradient-blob {
+  opacity: 0.6;
+}
+
+/* Disable transitions on animated/gradient/decorative elements */
+.orbit,
+.hex-bg,
+.scanline,
+.hgrid,
+[style*="animation"],
+[class*="pulse"],
+[class*="float"] {
+  transition: none !important;
+}

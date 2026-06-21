@@ -23,13 +23,13 @@ function StatItem({ target, suffix, label, delay }) {
   const value = useCounter(target, 2200, started);
 
   return (
-    <div ref={ref} style={{ textAlign: "center", padding: "0 24px" }}>
+    <div ref={ref} style={{ textAlign: "center", padding: "0 var(--space-lg)", position: "relative" }}>
       <div
         className="sy snum"
         style={{
-          fontSize: 48,
+          fontSize: "clamp(32px, 4vw, 48px)",
           fontWeight: 800,
-          color: "#1dcfba",
+          color: "var(--color-accent)",
           lineHeight: 1,
           animation: started ? "countUp 0.6s ease both" : "none",
           animationDelay: `${delay}s`,
@@ -38,7 +38,7 @@ function StatItem({ target, suffix, label, delay }) {
         {value}
         {suffix}
       </div>
-      <div style={{ fontSize: 13, color: "#6b8199", marginTop: 6 }}>{label}</div>
+      <div style={{ fontSize: 13, color: "var(--color-text-muted)", marginTop: 8, fontWeight: 500 }}>{label}</div>
     </div>
   );
 }
@@ -46,14 +46,21 @@ function StatItem({ target, suffix, label, delay }) {
 export function StatsBar() {
   const stats = [
     { target: 150, suffix: "+", label: "Projects Shipped" },
-    { target: 98, suffix: "%", label: "Client Retention Rate" },
+    { target: 98, suffix: "%", label: "Client Retention" },
     { target: 40, suffix: "+", label: "Senior Engineers" },
     { target: 8, suffix: "+", label: "Years of Excellence" },
   ];
 
   return (
-    <div style={{ background: "#1a2e45", borderTop: "1px solid rgba(14,127,114,0.18)", borderBottom: "1px solid rgba(14,127,114,0.18)", padding: "48px 5%" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 0 }}>
+    <div
+      style={{
+        background: "var(--color-surface-elevated)",
+        borderTop: "1px solid var(--color-border)",
+        borderBottom: "1px solid var(--color-border)",
+        padding: "var(--space-2xl) var(--section-padding-x)",
+      }}
+    >
+      <div className="stats-grid" style={{ maxWidth: "var(--container-max)", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 0 }}>
         {stats.map((s, i) => (
           <StatItem key={i} target={s.target} suffix={s.suffix} label={s.label} delay={i * 0.1} />
         ))}

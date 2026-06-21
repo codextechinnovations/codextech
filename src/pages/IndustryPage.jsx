@@ -44,8 +44,8 @@ export default function IndustryPage() {
       <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "120px 5%" }}>
         <div style={{ fontSize: 64, marginBottom: 20 }}>🔍</div>
         <h2 className="sy" style={{ fontSize: 32, fontWeight: 800, marginBottom: 12 }}>Industry Not Found</h2>
-        <p style={{ color: "rgba(255,255,255,0.5)", marginBottom: 28 }}>The industry page you're looking for doesn't exist.</p>
-        <Link to="/" style={{ background: "linear-gradient(135deg,#0e7f72,#12a896)", color: "#fff", padding: "12px 28px", borderRadius: 9, fontSize: 14, fontWeight: 500 }}>
+        <p style={{ color: "var(--color-text-muted)", marginBottom: 28 }}>The industry page you're looking for doesn't exist.</p>
+        <Link to="/" style={{ background: "linear-gradient(135deg,var(--color-accent-700),var(--color-accent-600))", color: "#fff", padding: "12px 28px", borderRadius: 9, fontSize: 14, fontWeight: 500 }}>
           Back to Home
         </Link>
       </section>
@@ -53,7 +53,7 @@ export default function IndustryPage() {
   }
 
   return (
-    <div style={{ background: "#0b1929", minHeight: "100vh" }}>
+    <div style={{ background: "var(--color-bg)", minHeight: "100vh" }}>
       <SEO
         title={`${ind.name} Software Development Services in India`}
         description={ind.desc}
@@ -62,20 +62,20 @@ export default function IndustryPage() {
       <DetailNavbar backTo="/" backLabel="All Industries" />
 
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" style={{ position: "fixed", top: 70, left: 0, right: 0, zIndex: 99, padding: "10px 5%", background: "rgba(11,25,41,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(14,127,114,0.12)", fontSize: 12 }}>
+      <nav aria-label="Breadcrumb" style={{ position: "fixed", top: 70, left: 0, right: 0, zIndex: 99, padding: "10px 5%", background: "var(--color-surface-elevated)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--color-border)", fontSize: 12 }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", gap: 8 }}>
-          <Link to="/" className="fl" style={{ color: "rgba(255,255,255,0.45)", display: "flex", alignItems: "center", gap: 4 }}>
+          <Link to="/" className="fl" style={{ color: "var(--color-text-subtle)", display: "flex", alignItems: "center", gap: 4 }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
             Home
           </Link>
-          <span style={{ color: "rgba(255,255,255,0.2)" }}>/</span>
-          <Link to="/?section=industries" className="fl" style={{ color: "rgba(255,255,255,0.45)" }}>
+          <span style={{ color: "var(--color-divider)" }}>/</span>
+          <Link to="/?section=industries" className="fl" style={{ color: "var(--color-text-subtle)" }}>
             Industries
           </Link>
-          <span style={{ color: "rgba(255,255,255,0.2)" }}>/</span>
+          <span style={{ color: "var(--color-divider)" }}>/</span>
           <span style={{ color: ind.accent, fontWeight: 600 }}>{ind.name}</span>
         </div>
       </nav>
