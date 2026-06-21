@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useSearchParams, Outlet } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const ProductPage = lazy(() => import("./pages/ProductPage.jsx"));
@@ -47,10 +48,12 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<PageLoader />}>
-        <AppRoutes />
-      </Suspense>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Suspense fallback={<PageLoader />}>
+          <AppRoutes />
+        </Suspense>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }

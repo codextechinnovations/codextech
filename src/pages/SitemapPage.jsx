@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { DetailNavbar } from "../components/DetailNavbar";
 import { Footer } from "../components/Footer";
+import { SEO } from "../components/SEO";
 import { PRODUCTS } from "../data/products";
 import { INDUSTRY_PAGE_DATA } from "../data/industries";
+import { useReveal } from "../hooks/useReveal";
 
 export default function SitemapPage() {
+  useReveal();
   const grouped = useMemo(() => {
     const g = {};
     PRODUCTS.forEach((p) => {
@@ -18,6 +21,11 @@ export default function SitemapPage() {
 
   return (
     <div style={{ background: "#0b1929", minHeight: "100vh" }}>
+      <SEO
+        title="Sitemap"
+        description="Browse all pages of CODEX Tech Innovations — services, products, industries, and resources."
+        canonical="/sitemap"
+      />
       <DetailNavbar backTo="/" backLabel="Back to Home" />
       <section style={{ padding: "120px 5% 80px", position: "relative", overflow: "hidden" }}>
         <div className="hgrid" style={{ position: "absolute", inset: 0 }} />

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
+import { SEO } from "../components/SEO";
 import { Hero } from "../components/Hero";
 import { StatsBar } from "../components/StatsBar";
 import { Services } from "../components/Services";
@@ -35,6 +36,11 @@ export default function HomePage() {
 
   return (
     <div style={{ background: "#0b1929", minHeight: "100vh" }}>
+      <SEO
+        title="Mobile App, Web & SaaS Development Company in Bengaluru, India"
+        description="India's premium software development studio serving clients globally. 150+ apps and platforms shipped. Fixed-price contracts, senior engineers, 6-month warranty. Based in Bengaluru."
+        canonical="/"
+      />
       <Navbar />
       <main>
         <Hero />

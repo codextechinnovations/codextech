@@ -3,7 +3,8 @@ import { useParams, Link, useSearchParams } from "react-router-dom";
 import { DetailNavbar } from "../components/DetailNavbar";
 import { ProductDetail } from "../components/ProductDetail";
 import { Footer } from "../components/Footer";
-import { PRODUCTS } from "../data/products";
+import { SEO } from "../components/SEO";
+import { PRODUCTS, PRODUCT_EXTRA } from "../data/products";
 
 export default function ProductPage() {
   const { productId } = useParams();
@@ -11,6 +12,7 @@ export default function ProductPage() {
   const legacyProduct = searchParams.get("product");
   const resolvedId = productId || legacyProduct;
   const product = useMemo(() => PRODUCTS.find((p) => p.id === resolvedId) || null, [resolvedId]);
+  const extra = useMemo(() => (product ? PRODUCT_EXTRA[product.id] : null), [product]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -53,6 +55,11 @@ export default function ProductPage() {
 
   return (
     <div style={{ background: "#0b1929", minHeight: "100vh" }}>
+      <SEO
+        title={`${product.name} — ${product.tagline}`}
+        description={extra?.longDesc || product.desc}
+        canonical={`/product/${product.id}`}
+      />
       <DetailNavbar backTo="/" backLabel="All Products" />
 
       {/* Breadcrumb */}

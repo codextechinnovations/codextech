@@ -15,18 +15,18 @@ export function Hero() {
       <div style={{ position: "relative", zIndex: 1, maxWidth: 680 }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(14,127,114,0.15)", border: "1px solid rgba(29,207,186,0.3)", padding: "6px 16px", borderRadius: 100, fontSize: 12, fontWeight: 600, color: "#1dcfba", letterSpacing: "0.09em", textTransform: "uppercase", marginBottom: 28, animation: "fadeUp 0.8s ease both" }}>
           <span style={{ width: 7, height: 7, background: "#1dcfba", borderRadius: "50%", animation: "blink 1.8s infinite" }} />
-          Premium Software Studio — Serving Clients Worldwide
+          Bengaluru-Based · Delivering Globally
         </div>
 
         <h1 className="sy" style={{ fontSize: "clamp(44px,6.5vw,82px)", fontWeight: 800, lineHeight: 1.04, letterSpacing: "-0.03em", marginBottom: 24, animation: "fadeUp 0.8s ease 0.1s both" }}>
-          We Build Digital<br />Products That<br /><span className="gt">Dominate Markets.</span>
+          India's Premium<br />Software Studio for<br /><span className="gt">Global Products.</span>
         </h1>
 
-        <p style={{ fontSize: 18, color: "rgba(255,255,255,0.62)", lineHeight: 1.75, maxWidth: 530, marginBottom: 16, fontWeight: 300, animation: "fadeUp 0.8s ease 0.2s both" }}>
-          150+ apps and platforms shipped — from startups in Bengaluru to enterprises in New York, London, and Dubai. Zero missed deadlines. Senior engineers who treat your product like it's their own.
+        <p style={{ fontSize: 18, color: "rgba(255,255,255,0.62)", lineHeight: 1.75, maxWidth: 540, marginBottom: 16, fontWeight: 300, animation: "fadeUp 0.8s ease 0.2s both" }}>
+          150+ apps and platforms shipped from Bengaluru to the US, UK, UAE, Singapore, Australia, Canada, and Europe. Senior engineers, fixed-price contracts, and a 6-month warranty.
         </p>
         <p style={{ fontSize: 14, color: "rgba(255,255,255,0.38)", marginBottom: 38, animation: "fadeUp 0.8s ease 0.25s both" }}>
-          Mobile App Development · Web Development · AI & Cloud
+          Mobile App Development · Web Development · SaaS · AI · Cloud
         </p>
 
         <div className="ha" style={{ display: "flex", gap: 14, flexWrap: "wrap", animation: "fadeUp 0.8s ease 0.3s both" }}>

@@ -26,7 +26,7 @@
 - **Employees**: 40–60
 - **Website**: https://codextechinnovations.com
 - **Email**: codextechinnovations@gmail.com
-- **Phone**: +91 99999 99999
+- **Phone**: +91 9741821179
 - **Price Range**: ₹₹₹₹ (Premium)
 - **Operating Hours**: Mon–Fri 09:00–18:00
 - **Languages Supported**: English, Hindi
@@ -257,7 +257,7 @@ Yes. We integrate with your Jira/Linear, join standups, and work with your exist
 
 ## Contact
 - **Email**: codextechinnovations@gmail.com
-- **Phone**: +91 99999 99999
+- **Phone**: +91 9741821179
 - **Location**: Bengaluru, Karnataka, India
 - **Availability**: Currently accepting new projects
 - **Response Time**: Within 24 hours for proposal requests

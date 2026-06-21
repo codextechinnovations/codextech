@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
 import { PRODUCTS, PRODUCT_EXTRA } from "../data/products";
 import { hexToRgb } from "../utils/hexToRgb";
+import { useReveal } from "../hooks/useReveal";
 
 export function ProductDetail({ productId }) {
+  useReveal();
   const p = useMemo(() => PRODUCTS.find((prod) => prod.id === productId) || null, [productId]);
   const e = useMemo(() => (p ? PRODUCT_EXTRA[p.id] : null), [p]);
   const related = useMemo(() => (p ? PRODUCTS.filter((x) => x.id !== p.id && x.category === p.category).slice(0, 3) : []), [p]);

@@ -4,8 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { INDUSTRY_PAGE_DATA } from "../data/industries";
 import { PRODUCTS } from "../data/products";
 import { hexToRgb } from "../utils/hexToRgb";
+import { useReveal } from "../hooks/useReveal";
 
 export function IndustryDetail({ industryId }) {
+  useReveal();
   const ind = useMemo(() => INDUSTRY_PAGE_DATA[industryId] || null, [industryId]);
   const indProducts = useMemo(() => (ind ? PRODUCTS.filter((p) => ind.productIds.includes(p.id)) : []), [ind]);
   const relatedInds = useMemo(() => (ind ? Object.values(INDUSTRY_PAGE_DATA).filter((x) => x.id !== ind.id).slice(0, 4) : []), [ind]);

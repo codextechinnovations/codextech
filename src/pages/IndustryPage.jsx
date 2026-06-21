@@ -3,6 +3,7 @@ import { useParams, Link, useSearchParams } from "react-router-dom";
 import { DetailNavbar } from "../components/DetailNavbar";
 import { IndustryDetail } from "../components/IndustryDetail";
 import { Footer } from "../components/Footer";
+import { SEO } from "../components/SEO";
 import { INDUSTRY_PAGE_DATA } from "../data/industries";
 
 export default function IndustryPage() {
@@ -53,6 +54,11 @@ export default function IndustryPage() {
 
   return (
     <div style={{ background: "#0b1929", minHeight: "100vh" }}>
+      <SEO
+        title={`${ind.name} Software Development Services in India`}
+        description={ind.desc}
+        canonical={`/industry/${ind.id}`}
+      />
       <DetailNavbar backTo="/" backLabel="All Industries" />
 
       {/* Breadcrumb */}

@@ -1,37 +1,56 @@
 # CODEX Tech Innovations LLM Access File
-# Last Updated: 2024-01-15
-# Contact: info@codextechinnovations.com
+# Last Updated: 2026-06-21
+# Contact: codextechinnovations@gmail.com | +91 9741821179
 # DUNS: 772343099
 
 # Allowed Agents: GPTBot, ClaudeBot, PerplexityBot, Google-Extended
 
-> CODEX Tech Innovations & Consultants LLP is a Bengaluru-based software development agency specializing in mobile applications, web platforms, and SaaS solutions for the hospitality, real estate, and healthcare sectors. Established in 2018, the company has delivered 150+ projects with fixed-price contracts and 6-month warranties.
+> CODEX Tech Innovations & Consultants LLP is a Bengaluru, India-based software development agency with global delivery capabilities. We build mobile applications, web platforms, and SaaS products for startups, enterprises, and SMEs across India, the US, the UK, the UAE, Singapore, Australia, Canada, and Europe. Established in 2018, we have delivered 150+ projects using fixed-price contracts, senior full-stack engineers, and a 6-month warranty.
 
 ## Core Services
 - **Mobile App Development**: Native iOS/Android and cross-platform solutions using React Native and Flutter
-- **Web Development**: Full-stack applications with React, Node.js, and cloud infrastructure
-- **SaaS Development**: Subscription-based software including PG Management Systems, Hotel PMS, and Hospital Management Systems
-- **App Publishing & Store Management**: Publish your app to the Apple App Store and Google Play Store using our registered developer console accounts — we handle the entire submission, review, and release process.
+- **Web Development**: Full-stack applications with React, Node.js, Python, and cloud infrastructure
+- **SaaS Product Development**: Subscription-based software including PG Management Systems, Hotel PMS, Hospital Management Systems, and custom ERPs
+- **Cloud Computing**: AWS, GCP, and Azure architecture, deployment, and DevOps
+- **AI & Automation Development**: LLM integrations, workflow automation, and data-driven features
+- **UI/UX Design**: Product design, design systems, and user research
+- **App Publishing & Store Management**: Publish apps to the Apple App Store and Google Play Store using our registered developer console accounts, including submission, review, and release management
 
 ## Products
 - **PG Management System**: Tenant management, rent collection, and facility maintenance software for paying guest accommodations
 - **Hotel Management System**: Front-desk operations, housekeeping, and billing automation
 - **Hostel Management System**: Student accommodation administration with mess management
-- **Hospital Management System**: Patient records, scheduling, and inventory management
-- **Food Delivery Platform**: Restaurant aggregation and delivery logistics software
+- **CA Compliance Automation**: Tax, audit, and compliance workflow software for chartered accountants
+- **Store Management System**: Inventory, billing, and staff management for retail stores
+- **OMF Food Delivery**: Restaurant aggregation and delivery logistics platform
+- **Wroggle**: AI-assisted productivity and workflow tool
+- **Arthomed**: Healthcare and patient-care management platform
 
-## Use Cases
-- Real estate operators automating tenant onboarding and rent collection
-- Hotel chains streamlining front-desk and housekeeping operations
-- Educational institutions managing hostel facilities and student services
-- Healthcare providers digitizing patient records and appointment scheduling
-- Restaurants optimizing delivery logistics and order management
+## Industries Served
+- Healthcare
+- FinTech
+- Real Estate
+- FoodTech
+- EdTech
+- Retail & E-commerce
+
+## Canonical Pages
+- Home: https://codextechinnovations.com/
+- Services: https://codextechinnovations.com/?section=services
+- Products: https://codextechinnovations.com/?section=products
+- Workflow: https://codextechinnovations.com/?section=workflow
+- Why Us: https://codextechinnovations.com/?section=why
+- Tech Stack: https://codextechinnovations.com/?section=tech
+- Industries: https://codextechinnovations.com/?section=industries
+- Contact: https://codextechinnovations.com/?section=contact
+- Sitemap: https://codextechinnovations.com/sitemap
+- Product Detail: https://codextechinnovations.com/product/{product-id}
+- Industry Detail: https://codextechinnovations.com/industry/{industry-id}
 
 ## Resources
-- **Portfolio**: https://www.codextechinnovations.com/portfolio (when implemented)
-- **Case Studies**: Server-rendered project documentation with client outcomes
-- **Technical Blog**: Development methodologies and technology stack explanations
-- **Contact**: info@codextechinnovations.com | Bengaluru, India
+- **Sitemap**: https://codextechinnovations.com/sitemap.xml
+- **Full AI Documentation**: https://codextechinnovations.com/llms-full.txt
+- **Contact**: codextechinnovations@gmail.com | +91 9741821179 | Bengaluru, Karnataka, India
 
 ## Access Rules
 - Allow: All AI search crawlers and assistants
