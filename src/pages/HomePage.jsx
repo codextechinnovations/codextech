@@ -16,6 +16,7 @@ import { TeamCredentials } from "../components/TeamCredentials";
 import { FAQ } from "../components/FAQ";
 import { CTABand } from "../components/CTABand";
 import { Footer } from "../components/Footer";
+import { TrustBar } from "../components/TrustBar";
 import { useReveal } from "../hooks/useReveal";
 
 export default function HomePage() {
@@ -45,6 +46,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <StatsBar />
+        <TrustBar />
         <Services />
         <WorkflowSection />
         <WhyCodeX />

@@ -2,8 +2,10 @@ import { ArrowRight, Star, Globe, Zap, Shield, Smartphone, Code2, Cloud } from "
 import { MeshGradient } from "./MeshGradient";
 import { BentoCard } from "./BentoCard";
 import { Button } from "./ui/Button";
+import { useHeroParallax } from "../hooks/useScrollAnimations";
 
 export function Hero() {
+  const parallaxRef = useHeroParallax();
   return (
     <section
       style={{
@@ -16,7 +18,7 @@ export function Hero() {
         background: "linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface-elevated) 100%)",
       }}
     >
-      <MeshGradient />
+      <MeshGradient parallaxRef={parallaxRef} />
       <div className="hgrid" style={{ position: "absolute", inset: 0 }} />
 
       <div
@@ -96,12 +98,28 @@ export function Hero() {
           </p>
 
           <div className="ha" style={{ display: "flex", gap: 14, flexWrap: "wrap", animation: "fadeUp 0.8s ease 0.3s both" }}>
-            <Button href="#contact" size="lg">
+            <Button href="#contact" size="lg" magnetic>
               Get a Free Estimate <ArrowRight size={16} />
             </Button>
             <Button href="#workflow" variant="secondary" size="lg">
               See How We Work
             </Button>
+          </div>
+
+          {/* Urgency micro-copy */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              marginTop: 12,
+              fontSize: 12,
+              color: "var(--color-text-subtle)",
+              animation: "fadeUp 0.8s ease 0.35s both",
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--color-accent)", display: "inline-block" }} />
+            Typically responds within 2 hours · Free consultation · No obligation
           </div>
 
           {/* Social proof */}

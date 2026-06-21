@@ -1,7 +1,8 @@
-export function MeshGradient({ style }) {
+export function MeshGradient({ style, parallaxRef }) {
   return (
     <div
       aria-hidden="true"
+      ref={parallaxRef}
       style={{
         position: "absolute",
         inset: 0,

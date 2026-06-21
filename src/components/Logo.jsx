@@ -8,6 +8,7 @@ export function Logo({ size = 42, className = "" }) {
       xmlns="http://www.w3.org/2000/svg"
       style={{ overflow: "visible" }}
       role="img"
+      aria-label="CODEX Tech Innovations logo"
       className={className}
     >
       <title>CODEX Tech Innovations logo</title>

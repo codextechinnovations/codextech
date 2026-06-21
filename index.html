@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <title>CODEX Tech Innovations & Consultants LLP | Mobile App, Web & SaaS Development Company in Bengaluru, India</title>
     <meta name="description" content="Premium software development studio serving clients worldwide. 150+ projects shipped — from startups in Bengaluru to enterprises in New York, London, Dubai. Mobile apps, web platforms & SaaS. Fixed-price contracts. 6-month warranty." />
@@ -12,13 +12,28 @@
     <link rel="canonical" href="https://codextechinnovations.com/" />
     <link rel="llms-txt" href="/llms.txt" />
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G46LGFDQBB"></script>
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://api.manageyourpg.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://api.manageyourpg.com" />
+    <link rel="preload" href="/logo.svg" as="image" />
+
+    <!-- Google Analytics (non-blocking) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-G46LGFDQBB');
+      // Delay GA load until after first paint
+      window.requestAnimationFrame(function() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-G46LGFDQBB';
+        s.onload = function() {
+          gtag('js', new Date());
+          gtag('config', 'G-G46LGFDQBB');
+        };
+        document.head.appendChild(s);
+      });
     </script>
 
     <!-- Fonts -->

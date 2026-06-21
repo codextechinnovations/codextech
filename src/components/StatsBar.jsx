@@ -1,42 +1,55 @@
-import { useRef, useState, useEffect } from "react";
-import { useCounter } from "../hooks/useCounter";
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function StatItem({ target, suffix, label, delay }) {
-  const ref = useRef(null);
-  const [started, setStarted] = useState(false);
+  const numRef = useRef(null);
 
-  useEffect(() => {
-    const el = ref.current;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setStarted(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.3 }
+  useGSAP(() => {
+    if (!numRef.current) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      numRef.current.textContent = target + suffix;
+      return;
+    }
+
+    gsap.fromTo(
+      numRef.current,
+      { textContent: 0 },
+      {
+        textContent: target,
+        duration: 2,
+        delay,
+        ease: "power2.out",
+        snap: { textContent: 1 },
+        scrollTrigger: {
+          trigger: numRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        onUpdate: () => {
+          numRef.current.textContent = Math.round(parseFloat(numRef.current.textContent)) + suffix;
+        },
+      }
     );
-    if (el) io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  const value = useCounter(target, 2200, started);
+  }, [target, suffix, delay]);
 
   return (
-    <div ref={ref} style={{ textAlign: "center", padding: "0 var(--space-lg)", position: "relative" }}>
+    <div style={{ textAlign: "center", padding: "0 var(--space-lg)", position: "relative" }}>
       <div
+        ref={numRef}
         className="sy snum"
         style={{
           fontSize: "clamp(32px, 4vw, 48px)",
           fontWeight: 800,
           color: "var(--color-accent)",
           lineHeight: 1,
-          animation: started ? "countUp 0.6s ease both" : "none",
-          animationDelay: `${delay}s`,
         }}
       >
-        {value}
-        {suffix}
+        {target}{suffix}
       </div>
       <div style={{ fontSize: 13, color: "var(--color-text-muted)", marginTop: 8, fontWeight: 500 }}>{label}</div>
     </div>

@@ -26,7 +26,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  // Track active section for nav highlight
   useEffect(() => {
     if (location.pathname !== "/") return;
     const observers = [];
@@ -47,12 +46,10 @@ export function Navbar() {
     return () => observers.forEach((io) => io.disconnect());
   }, [location.pathname]);
 
-  // Close mobile menu on Escape and trap focus
   useEffect(() => {
     if (!open) return;
     const firstLink = menuRef.current?.querySelector("a, button");
     firstLink?.focus();
-
     const handleKeyDown = (e) => {
       if (e.key === "Escape") setOpen(false);
     };
@@ -88,7 +85,7 @@ export function Navbar() {
       >
         <Link to="/" aria-label="CODEX Tech Innovations home" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <Logo size={42} />
-          <span className="sy" style={{ fontWeight: 700, fontSize: 17, letterSpacing: 1, textTransform: "uppercase" }}>
+          <span className="sy" style={{ fontWeight: 700, fontSize: 17, letterSpacing: 1, textTransform: "uppercase", whiteSpace: "nowrap" }}>
             CODEX <span style={{ color: "var(--color-accent)" }}>|</span>{" "}
             <span style={{ fontWeight: 300, color: "var(--color-text-subtle)", fontSize: 10, letterSpacing: 2 }}>Tech Innovations & Consultants LLP</span>
           </span>
@@ -105,18 +102,18 @@ export function Navbar() {
                   color: isHashActive(href) ? "var(--color-accent)" : "var(--color-text-secondary)",
                   position: "relative",
                   transition: "color 0.2s",
-                  paddingBottom: 4,
+                  padding: "10px 0",
                 }}
               >
                 {label}
                 {isHashActive(href) && (
-                  <span style={{ position: "absolute", bottom: -4, left: 0, right: 0, height: 2, background: "linear-gradient(90deg,var(--color-accent-700),var(--color-accent))", borderRadius: 2 }} />
+                  <span style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg,var(--color-accent-700),var(--color-accent))", borderRadius: 2 }} />
                 )}
               </a>
             </li>
           ))}
           <li>
-            <a href="#contact" className="nav-cta" style={{ background: "linear-gradient(135deg,var(--color-accent-700),var(--color-accent-600))", color: "#fff", padding: "10px 22px", borderRadius: 7, fontSize: 14, fontWeight: 500 }}>
+            <a href="#contact" className="nav-cta" style={{ background: "linear-gradient(135deg,var(--color-accent-700),var(--color-accent-600))", color: "#fff", padding: "10px 22px", borderRadius: 7, fontSize: 14, fontWeight: 500, minHeight: 44, display: "inline-flex", alignItems: "center" }}>
               Free Consultation
             </a>
           </li>
@@ -131,42 +128,77 @@ export function Navbar() {
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          style={{ display: "none", flexDirection: "column", gap: 5, background: "none", border: "none", cursor: "pointer", padding: 4 }}
+          style={{ display: "none", background: "none", border: "none", cursor: "pointer", padding: 10, minWidth: 44, minHeight: 44, alignItems: "center", justifyContent: "center" }}
         >
           {open ? <X size={22} color="var(--color-text)" /> : <Menu size={22} color="var(--color-text)" />}
         </button>
       </nav>
+
+      {/* Overlay backdrop */}
       {open && (
         <div
-          id="mobile-menu"
-          ref={menuRef}
-          style={{ position: "fixed", top: 70, left: 0, right: 0, background: "var(--color-surface-elevated)", backdropFilter: "blur(20px)", borderBottom: "1px solid var(--color-border)", zIndex: 99, padding: "16px 5% 24px", display: "flex", flexDirection: "column", gap: 2 }}
-        >
-          {links.map(([label, href]) => (
-            <a
-              key={label}
-              href={href}
-              onClick={() => setOpen(false)}
-              aria-current={isHashActive(href) ? "true" : undefined}
-              style={{
-                color: isHashActive(href) ? "var(--color-accent)" : "var(--color-text-secondary)",
-                padding: "13px 0",
-                borderBottom: "1px solid var(--color-divider)",
-                fontSize: 16,
-              }}
-            >
-              {label}
-            </a>
-          ))}
-          <a href="#contact" onClick={() => setOpen(false)} style={{ marginTop: 12, background: "linear-gradient(135deg,var(--color-accent-700),var(--color-accent-600))", color: "#fff", padding: "13px 0", borderRadius: 8, textAlign: "center", fontWeight: 500 }}>
-            Free Consultation
-          </a>
-          <div style={{ marginTop: 16, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <span style={{ fontSize: 14, color: "var(--color-text-secondary)" }}>Theme</span>
-            <ThemeToggle />
-          </div>
-        </div>
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+          style={{ position: "fixed", inset: 0, zIndex: 98, background: "rgba(0,0,0,0.5)" }}
+        />
       )}
+
+      {/* Mobile menu */}
+      <div
+        id="mobile-menu"
+        ref={menuRef}
+        style={{
+          position: "fixed", top: 70, left: 0, right: 0, zIndex: 99,
+          background: "var(--color-surface-elevated)",
+          backdropFilter: "blur(20px)",
+          borderBottom: "1px solid var(--color-border)",
+          padding: "12px 5% 20px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          transform: open ? "translateY(0)" : "translateY(-110%)",
+          opacity: open ? 1 : 0,
+          transition: "transform 0.35s ease, opacity 0.25s ease",
+          pointerEvents: open ? "auto" : "none",
+        }}
+      >
+        {links.map(([label, href]) => (
+          <a
+            key={label}
+            href={href}
+            onClick={() => setOpen(false)}
+            aria-current={isHashActive(href) ? "true" : undefined}
+            style={{
+              color: isHashActive(href) ? "var(--color-accent)" : "var(--color-text-secondary)",
+              padding: "14px 0",
+              borderBottom: "1px solid var(--color-divider)",
+              fontSize: 16,
+              minHeight: 48,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          onClick={() => setOpen(false)}
+          style={{
+            marginTop: 14,
+            background: "linear-gradient(135deg,var(--color-accent-700),var(--color-accent-600))",
+            color: "#fff", padding: "14px 0", borderRadius: 8, textAlign: "center",
+            fontWeight: 500, fontSize: 16, minHeight: 48,
+            display: "flex", alignItems: "center", justifyContent: "center",
+          }}
+        >
+          Free Consultation
+        </a>
+        <div style={{ marginTop: 16, display: "flex", alignItems: "center", justifyContent: "space-between", minHeight: 48 }}>
+          <span style={{ fontSize: 16, color: "var(--color-text-secondary)" }}>Theme</span>
+          <ThemeToggle />
+        </div>
+      </div>
     </>
   );
 }

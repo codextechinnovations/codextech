@@ -99,7 +99,7 @@ export function CTABand() {
       <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div className="cff rv" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 48, flexWrap: "wrap" }}>
           {/* Left content */}
-          <div style={{ flex: 1, minWidth: 320 }}>
+          <div style={{ flex: 1, minWidth: 0, width: "100%" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", padding: "6px 14px", borderRadius: 100, fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", marginBottom: 20, backdropFilter: "blur(8px)" }}>
               <div style={{ width: 7, height: 7, background: "#fff", borderRadius: "50%", animation: "blink 1.8s infinite" }} />
               Currently Accepting New Projects
@@ -111,7 +111,7 @@ export function CTABand() {
               We work with clients across India, US, UK, UAE, Singapore, Australia, and Europe. Tell us about your project — we'll respond with scope, timeline, and fixed cost within 24 hours. Zero obligation.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 24 }}>
               {contactItems.map((item, i) => {
                 const Wrapper = item.href ? "a" : "div";
                 return (
@@ -141,6 +141,20 @@ export function CTABand() {
                 );
               })}
             </div>
+
+            {/* Social proof strip */}
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 20 }}>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 700, marginBottom: 14 }}>Trusted By</div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 20, alignItems: "center" }}>
+                {["Growfast", "TechVista", "MediCare Plus", "EduPrime", "FinLeap"].map((name, i) => (
+                  <span key={i} style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}>{name}</span>
+                ))}
+                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", display: "inline-flex", alignItems: "center", gap: 4 }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  4.9/5
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Form card */}
@@ -148,15 +162,26 @@ export function CTABand() {
             <form
               onSubmit={handleSubmit}
               noValidate
-              style={{ background: "rgba(11,25,41,0.55)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 24, padding: "36px 32px", backdropFilter: "blur(16px)", boxShadow: "0 24px 60px rgba(0,0,0,0.25)" }}
+              style={{ background: "rgba(11,25,41,0.55)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 24, padding: "clamp(24px,4vw,36px) clamp(20px,4vw,32px)", backdropFilter: "blur(16px)", boxShadow: "0 24px 60px rgba(0,0,0,0.25)" }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
                 <div style={{ width: 40, height: 40, borderRadius: 12, background: "linear-gradient(135deg,var(--color-accent-700),var(--color-accent))", display: "grid", placeItems: "center" }}>
                   <Briefcase size={20} color="#fff" />
                 </div>
                 <div>
                   <h3 className="sy" style={{ fontSize: 20, fontWeight: 700 }}>Get Your Free Estimate</h3>
                   <p style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>Fill this form — we'll reply within 24 hours</p>
+                </div>
+              </div>
+
+              {/* Form progress */}
+              <div style={{ marginBottom: 20 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: "rgba(255,255,255,0.45)", marginBottom: 6 }}>
+                  <span>{Object.values(form).filter(v => v.trim()).length}/{FIELDS.length + 1} fields completed</span>
+                  <span>{Math.round(Object.values(form).filter(v => v.trim()).length / (FIELDS.length + 1) * 100)}%</span>
+                </div>
+                <div style={{ height: 3, background: "rgba(255,255,255,0.1)", borderRadius: 2, overflow: "hidden" }}>
+                  <div style={{ height: "100%", width: `${Object.values(form).filter(v => v.trim()).length / (FIELDS.length + 1) * 100}%`, background: "linear-gradient(90deg,var(--color-accent-700),var(--color-accent))", borderRadius: 2, transition: "width 0.35s ease" }} />
                 </div>
               </div>
 
@@ -202,11 +227,12 @@ export function CTABand() {
                             style={{
                               width: "100%",
                               padding: "12px 14px 12px 40px",
+                              minHeight: 44,
                               background: "rgba(255,255,255,0.06)",
                               border: `1px solid ${showError ? "rgba(248,113,113,0.5)" : "rgba(255,255,255,0.12)"}`,
                               borderRadius: 10,
                               color: "#fff",
-                              fontSize: 14,
+                              fontSize: 16,
                               outline: "none",
                               transition: "all 0.2s ease",
                             }}
@@ -230,11 +256,12 @@ export function CTABand() {
                         style={{
                           width: "100%",
                           padding: "12px 14px",
+                          minHeight: 44,
                           background: "rgba(255,255,255,0.06)",
                           border: "1px solid rgba(255,255,255,0.12)",
                           borderRadius: 10,
                           color: form.service ? "#fff" : "rgba(255,255,255,0.45)",
-                          fontSize: 14,
+                          fontSize: 16,
                           outline: "none",
                           cursor: "pointer",
                           appearance: "none",
@@ -288,6 +315,19 @@ export function CTABand() {
                   </button>
 
                   <p style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", textAlign: "center", marginTop: 14 }}>We respond within 24 hours · No spam · No obligation</p>
+
+                  {/* Trust badges */}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginTop: 16, flexWrap: "wrap" }}>
+                    {[
+                      { label: "D&B Registered", icon: "✓" },
+                      { label: "6-Month Warranty", icon: "🔒" },
+                      { label: "Fixed-Price", icon: "💰" },
+                    ].map((badge, i) => (
+                      <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: "0.04em" }}>
+                        <span>{badge.icon}</span> {badge.label}
+                      </span>
+                    ))}
+                  </div>
                 </>
               )}
             </form>

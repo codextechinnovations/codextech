@@ -1,4 +1,6 @@
+import { useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 
 export function Button({
   children,
@@ -9,10 +11,12 @@ export function Button({
   variant = "primary",
   size = "md",
   disabled,
+  magnetic,
   className = "",
   style,
   ...props
 }) {
+  const btnRef = useRef(null);
   const baseStyles = {
     display: "inline-flex",
     alignItems: "center",
@@ -26,6 +30,8 @@ export function Button({
     border: "none",
     fontFamily: "inherit",
     textDecoration: "none",
+    position: "relative",
+    willChange: "transform",
   };
 
   const sizeStyles = {
@@ -59,6 +65,31 @@ export function Button({
       }
     : {};
 
+  const handleMouseMove = useCallback((e) => {
+    if (!magnetic || !btnRef.current || disabled) return;
+    const rect = btnRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    gsap.to(btnRef.current, {
+      x: x * 0.25,
+      y: y * 0.25,
+      scale: 1.03,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+  }, [magnetic, disabled]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (!btnRef.current) return;
+    gsap.to(btnRef.current, {
+      x: 0,
+      y: 0,
+      scale: 1,
+      duration: 0.5,
+      ease: "elastic.out(1, 0.35)",
+    });
+  }, []);
+
   const combinedStyle = {
     ...baseStyles,
     ...sizeStyles[size],
@@ -68,8 +99,24 @@ export function Button({
 
   const Component = to ? Link : href ? "a" : "button";
 
+  const handleEnter = (e) => {
+    if (disabled) return;
+    if (magnetic) {
+      const { transform: _, ...rest } = hoverStyles[variant] || {};
+      Object.assign(e.currentTarget.style, rest);
+    } else {
+      Object.assign(e.currentTarget.style, hoverStyles[variant] || {});
+    }
+  };
+
+  const handleLeave = (e) => {
+    Object.assign(e.currentTarget.style, variantStyles[variant]);
+    handleMouseLeave();
+  };
+
   return (
     <Component
+      ref={btnRef}
       type={to || href ? undefined : type}
       to={to}
       href={href}
@@ -77,13 +124,9 @@ export function Button({
       disabled={disabled}
       className={`btn btn-${variant} btn-${size} ${className}`}
       style={combinedStyle}
-      onMouseEnter={(e) => {
-        if (!disabled) Object.assign(e.currentTarget.style, hoverStyles[variant]);
-      }}
-      onMouseLeave={(e) => {
-        Object.assign(e.currentTarget.style, variantStyles[variant]);
-        e.currentTarget.style.transform = "";
-      }}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      onMouseMove={handleMouseMove}
       {...props}
     >
       {children}
