@@ -1,0 +1,88 @@
+import { Search, Target, Palette, Code2, Shield, TrendingUp } from "lucide-react";
+
+export const WORKFLOW = [
+  {
+    num: "01",
+    icon: <Search size={22} />,
+    label: "Discovery & Audit",
+    title: "We Find the Real Problem Before We Build the Solution",
+    desc: "Most projects fail because teams skip this step. We spend dedicated time understanding your business model, user psychology, competitive landscape, and technical constraints. Our discovery process includes stakeholder interviews, technical environment audits (existing codebase, infrastructure, APIs), and a feasibility study covering budget, timeline, and risk. We document everything in a BRD (Business Requirements Document) that becomes the single source of truth for the entire engagement. The result: a crystal-clear problem definition that guides every decision forward.",
+    deliverables: [
+      "Business requirements document",
+      "User persona mapping",
+      "Competitor analysis report",
+      "Technical feasibility assessment",
+    ],
+    time: "Week 1–2",
+  },
+  {
+    num: "02",
+    icon: <Target size={22} />,
+    label: "Strategy & Blueprint",
+    title: "Architecture That's Built to Scale From Day One",
+    desc: "We design the technical architecture, choose the right stack, define APIs, and create a milestone-driven roadmap. Our architectural design process covers: system architecture (monolith vs microservices, database schema, caching strategy), API contract design (REST/GraphQL, versioning, error handling), security architecture (auth, encryption, compliance), and infrastructure planning (cloud provider, scaling strategy, cost estimation). We deliver a TAD (Technical Architecture Document) and a sprint-by-sprint roadmap with fixed pricing. You'll know exactly what gets built, when it ships, and what it costs — before we write a single line of code.",
+    deliverables: [
+      "Technical architecture document",
+      "Stack recommendation report",
+      "Sprint-by-sprint roadmap",
+      "Fixed-price contract",
+    ],
+    time: "Week 2–3",
+  },
+  {
+    num: "03",
+    icon: <Palette size={22} />,
+    label: "UI/UX Design",
+    title: "Designs Your Users Actually Want to Use",
+    desc: "Beautiful is only half the goal. We build interactive prototypes grounded in UX research, validate them with real users, and iterate until conversion metrics prove the design works. Our design process follows a structured methodology: (1) user research — interviews, surveys, and behavioral analytics to understand user needs, (2) information architecture — sitemaps, user flows, and wireframes mapping every interaction, (3) visual design — high-fidelity mockups in Figma with a complete design system (colors, typography, components, spacing), (4) usability testing — prototype testing with 5–10 users per round to validate assumptions before development begins. Then — and only then — we hand it to developers.",
+    deliverables: [
+      "User journey maps",
+      "Wireframes & hi-fi mockups",
+      "Interactive Figma prototype",
+      "Design system & component library",
+    ],
+    time: "Week 3–6",
+  },
+  {
+    num: "04",
+    icon: <Code2 size={22} />,
+    label: "Agile Development",
+    title: "Two-Week Sprints. Zero Surprises. Full Visibility.",
+    desc: "You're never left wondering what's happening. We follow a disciplined Scrum process: daily async standups (via Slack/Discord), bi-weekly sprint planning with story point estimation, weekly live demo calls showing working software, and a shared project board (Jira/Linear) with real-time status. Our engineering standards include: Git-based workflow with code review for every PR (minimum 2 approvals), automated CI/CD pipelines (GitHub Actions/CircleCI), unit testing (Jest/Vitest) and integration testing coverage, linting and formatting enforcement (ESLint/Prettier), and security scanning (npm audit, Snyk). Every commit is tested, reviewed, and documented. Senior engineers own the code like it's their own product.",
+    deliverables: [
+      "Working software every 2 weeks",
+      "CI/CD pipeline",
+      "Automated test suite",
+      "Weekly video demo calls",
+    ],
+    time: "Week 6–16",
+  },
+  {
+    num: "05",
+    icon: <Shield size={22} />,
+    label: "QA & Performance",
+    title: "Shipped Means Tested. On Every Device. At Every Edge.",
+    desc: "Our QA team runs a multi-layered testing process: (1) functional testing — manual and automated verification of all user flows and edge cases, (2) cross-device testing — real device testing on iOS (iPhone 12–16) and Android (Samsung, Pixel, OnePlus) across 20+ device/browser combinations, (3) performance testing — load testing at 10× expected traffic using k6/Artillery, Lighthouse audits targeting 95+ scores, and Core Web Vitals optimization (LCP < 2.5s, FID < 100ms, CLS < 0.1), (4) security testing — OWASP Top 10 vulnerability scanning, dependency audits, and penetration testing for payment/auth flows, (5) UAT — client sign-off on staging before production deployment. We don't push to production until the numbers prove it's ready.",
+    deliverables: [
+      "Cross-device test reports",
+      "Security vulnerability scan",
+      "Performance audit (Lighthouse 95+)",
+      "UAT sign-off",
+    ],
+    time: "Week 14–16",
+  },
+  {
+    num: "06",
+    icon: <TrendingUp size={22} />,
+    label: "Launch & Scale",
+    title: "Launch Day Is the Beginning, Not the End",
+    desc: "Zero-downtime deployment using blue-green or canary release strategies. Our launch process includes: production environment setup with auto-scaling and CDN configuration, real-time monitoring and alerting (Datadog/Sentry/Prometheus + PagerDuty), error tracking with source maps and automatic issue grouping, performance monitoring (Lighthouse CI, Web Vitals), and 6-month free bug-fix warranty. Post-launch, we deliver monthly analytics reports with actionable growth recommendations — because your success directly fuels ours. We also offer ongoing retainer options starting at ₹40K/month for maintenance, monitoring, and new feature development.",
+    deliverables: [
+      "Production deployment",
+      "Monitoring & alerting setup",
+      "6-month free warranty",
+      "Monthly growth reports",
+    ],
+    time: "Week 16+",
+  },
+];

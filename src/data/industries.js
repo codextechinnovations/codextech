@@ -1,0 +1,151 @@
+export const INDUSTRIES = [
+  { id: "retail", icon: "🛒", title: "E-Commerce & Retail", desc: "High-conversion storefronts, marketplace platforms, and omnichannel commerce solutions" },
+  { id: "healthcare", icon: "🏥", title: "Healthcare & MedTech", desc: "HIPAA-compliant patient portals, telehealth apps, and clinical workflow automation" },
+  { id: "fintech", icon: "💰", title: "Fintech & Payments", desc: "Secure payment gateways, digital wallets, lending platforms, and regulatory compliance" },
+  { id: "edtech", icon: "📚", title: "EdTech & E-Learning", desc: "LMS platforms, live video classrooms, gamified learning, and assessment engines" },
+  { id: "real-estate", icon: "🏗️", title: "Real Estate & PropTech", desc: "Property listing platforms, virtual tours, CRM systems, and investment analytics" },
+  { id: "foodtech", icon: "🚚", title: "Logistics & Supply Chain", desc: "Fleet tracking, last-mile delivery, warehouse management, and demand forecasting" },
+  { id: "enterprise", icon: "🏢", title: "Enterprise SaaS", desc: "B2B platforms, internal tools, ERP integrations, and multi-tenant architectures" },
+  { id: "gaming", icon: "🎮", title: "Gaming & Entertainment", desc: "Mobile games, streaming platforms, loyalty apps, and real-time leaderboards" },
+];
+
+export const INDUSTRY_PAGE_DATA = {
+  healthcare: {
+    id: "healthcare",
+    name: "Healthcare & MedTech",
+    icon: "🏥",
+    color: "#0e4f6b",
+    accent: "#38bdf8",
+    heroTitle: "Healthcare Technology Solutions for Modern India",
+    heroDesc:
+      "ABDM-aligned hospital management systems, telemedicine platforms, patient portals, and clinical workflow automation — purpose-built for hospitals, clinics, labs, and health-tech startups.",
+    stats: [
+      { value: "15+", label: "Healthcare solutions" },
+      { value: "20K+", label: "Daily patients managed" },
+      { value: "99.9%", label: "System uptime" },
+    ],
+    benefits: [
+      { icon: "🩺", title: "ABDM-Aligned", desc: "All products meet Ayushman Bharat Digital Mandate standards for interoperability." },
+      { icon: "🔒", title: "HIPAA-Compliant Security", desc: "Enterprise data protection, role-based access, and full audit trails built-in." },
+      { icon: "⚡", title: "60% Faster OPD", desc: "Queue management and digital registration cuts patient wait times dramatically." },
+      { icon: "📱", title: "Multi-Platform", desc: "Web dashboards, patient mobile apps, and tablet-optimized clinic interfaces." },
+    ],
+    productIds: ["arthomed"],
+    audience: "Multi-speciality hospitals, diagnostic chains, pharmacy networks, telemedicine platforms, and health-tech enterprises across India.",
+  },
+  fintech: {
+    id: "fintech",
+    name: "FinTech & Payments",
+    icon: "💰",
+    color: "#b45309",
+    accent: "#fbbf24",
+    heroTitle: "FinTech Software That Handles Compliance & Growth",
+    heroDesc:
+      "Secure payment gateways, GST/ITR automation platforms, lending systems, and regulatory compliance tools — engineered for trust at scale.",
+    stats: [
+      { value: "10+", label: "FinTech products" },
+      { value: "₹50Cr+", label: "Transactions processed" },
+      { value: "99.97%", label: "Uptime SLA" },
+    ],
+    benefits: [
+      { icon: "🔐", title: "Bank-Grade Security", desc: "End-to-end encryption, PCI-DSS level compliance, and multi-factor auth." },
+      { icon: "📊", title: "Regulatory Automation", desc: "Automated GST filing, ITR tracking, and compliance calendar — saves 15+ hrs/week." },
+      { icon: "🚀", title: "Scalable Architecture", desc: "Built to handle 10× traffic spikes during tax season without degradation." },
+      { icon: "📱", title: "Mobile-First Design", desc: "Client apps, partner dashboards, and admin panels all mobile-optimized." },
+    ],
+    productIds: ["ca-compliance"],
+    audience: "CA firms, tax consultancies, fintech startups, NBFCs, payment aggregators, and BFSI enterprises.",
+  },
+  "real-estate": {
+    id: "real-estate",
+    name: "Real Estate & PropTech",
+    icon: "🏗️",
+    color: "#0e7f72",
+    accent: "#1dcfba",
+    heroTitle: "Property Technology That Drives Revenue",
+    heroDesc:
+      "PG management, hotel PMS, property listing platforms, and investment analytics — built for property owners, managers, and real estate businesses of every size.",
+    stats: [
+      { value: "50+", label: "Properties managed" },
+      { value: "500+", label: "Active tenants" },
+      { value: "70%", label: "Admin time saved" },
+    ],
+    benefits: [
+      { icon: "🏠", title: "Unified Dashboard", desc: "Manage all properties — PG, hotel, hostel — from a single control panel." },
+      { icon: "💳", title: "Automated Collections", desc: "Rent reminders, auto-pay via UPI/cards, and late fee automation." },
+      { icon: "📈", title: "Revenue Analytics", desc: "Occupancy trends, RevPAR, average daily rate — real-time and historical." },
+      { icon: "🔗", title: "Channel Management", desc: "Sync inventory across Booking.com, Expedia, and direct booking engine." },
+    ],
+    productIds: ["pg-management", "hotel-management", "hostel-management"],
+    audience: "PG owners, hoteliers, hostel operators, real estate investors, property managers, and hospitality chains.",
+  },
+  foodtech: {
+    id: "foodtech",
+    name: "Food Tech & Delivery",
+    icon: "🍔",
+    color: "#b91c1c",
+    accent: "#f87171",
+    heroTitle: "White-Label Food Delivery & Restaurant Tech",
+    heroDesc:
+      "Your own food delivery ecosystem — consumer app, restaurant dashboard, and delivery partner app — all under your brand. Live GPS tracking, real-time order management, and loyalty rewards.",
+    stats: [
+      { value: "3", label: "Apps in ecosystem" },
+      { value: "18+", label: "Restaurant partners" },
+      { value: "28%", label: "Commission saved vs Swiggy/Zomato" },
+    ],
+    benefits: [
+      { icon: "🏷️", title: "Your Brand, Your Rules", desc: "No commission to third parties. Keep 100% of revenue and own your customer data." },
+      { icon: "📍", title: "Live GPS Tracking", desc: "Real-time delivery tracking with ETAs, route optimization, and geofencing." },
+      { icon: "📊", title: "Restaurant Dashboard", desc: "Menu management, real-time order alerts, sales analytics, and rating insights." },
+      { icon: "❤️", title: "Loyalty Engine", desc: "Wallet, referral rewards, promo codes, and repeat customer analytics built-in." },
+    ],
+    productIds: ["omf-food-delivery"],
+    audience: "Restaurant chains, cloud kitchens, food delivery startups, and hospitality brands looking to own their delivery channel.",
+  },
+  edtech: {
+    id: "edtech",
+    name: "EdTech & E-Learning",
+    icon: "📚",
+    color: "#1565c0",
+    accent: "#42a5f5",
+    heroTitle: "Education Technology for Schools & Beyond",
+    heroDesc:
+      "Hostel management, LMS platforms, live video classrooms, gamified learning, and assessment engines — purpose-built for educational institutions and edtech startups.",
+    stats: [
+      { value: "25+", label: "Institutions served" },
+      { value: "10K+", label: "Students on platform" },
+      { value: "40%", label: "Admin efficiency gain" },
+    ],
+    benefits: [
+      { icon: "🏫", title: "Institution-First Design", desc: "Room allocation, mess management, fee collection — everything in one system." },
+      { icon: "👨‍👩‍👧", title: "Parent Portal", desc: "Real-time updates on student attendance, fees, meals, and conduct reports." },
+      { icon: "📱", title: "Multi-Platform Access", desc: "Admin web dashboard, student mobile app, and parent communication portal." },
+      { icon: "📈", title: "Analytics Dashboard", desc: "Enrollment trends, fee default tracking, and performance metrics at a glance." },
+    ],
+    productIds: ["hostel-management"],
+    audience: "Schools, colleges, universities, hostel wardens, edtech startups, and training institutions across India.",
+  },
+  retail: {
+    id: "retail",
+    name: "E-Commerce & Retail",
+    icon: "🛒",
+    color: "#155e2e",
+    accent: "#4ade80",
+    heroTitle: "Retail & E-Commerce Technology for Modern Commerce",
+    heroDesc:
+      "POS systems, inventory management, D2C e-commerce platforms, and omnichannel retail solutions — built for single stores and multi-branch chains alike.",
+    stats: [
+      { value: "30+", label: "Retail deployments" },
+      { value: "15K+", label: "Daily transactions" },
+      { value: "99.5%", label: "POS uptime" },
+    ],
+    benefits: [
+      { icon: "🛍️", title: "Omnichannel Ready", desc: "Sell in-store, online, and via mobile — with unified inventory across channels." },
+      { icon: "📦", title: "Smart Inventory", desc: "Real-time stock tracking, auto reorder alerts, and supplier management." },
+      { icon: "📊", title: "Sales Intelligence", desc: "Profitability reports, top-selling SKUs, and customer purchase patterns." },
+      { icon: "🧠", title: "AI Recommendations", desc: "AI-powered size/style suggestions and look-builder tools for fashion retail." },
+    ],
+    productIds: ["store-management", "wroggle"],
+    audience: "Retail chains, D2C brands, fashion boutiques, general stores, and e-commerce startups scaling their operations.",
+  },
+};

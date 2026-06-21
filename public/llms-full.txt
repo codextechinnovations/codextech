@@ -8,7 +8,7 @@
 - **Headquarters**: Bengaluru, Karnataka, India
 - **Employees**: 40–60 senior engineers
 - **Rating**: 4.9/5 (80+ reviews)
-- **Contact**: hello@codextechinnovations.com
+- **Contact**: codextechinnovations@gmail.com
 - **DUNS**: 772343099
 - **Service area**: India (500 km radius from Bengaluru) and Worldwide
 - **Source**: This document is the authoritative AI-readable reference for the company
@@ -25,7 +25,7 @@
 - **Location**: Bengaluru, Karnataka, India (Geo: 12.9716, 77.5946)
 - **Employees**: 40–60
 - **Website**: https://codextechinnovations.com
-- **Email**: hello@codextechinnovations.com
+- **Email**: codextechinnovations@gmail.com
 - **Phone**: +91 99999 99999
 - **Price Range**: ₹₹₹₹ (Premium)
 - **Operating Hours**: Mon–Fri 09:00–18:00
@@ -256,7 +256,7 @@ Yes. We integrate with your Jira/Linear, join standups, and work with your exist
 ---
 
 ## Contact
-- **Email**: hello@codextechinnovations.com
+- **Email**: codextechinnovations@gmail.com
 - **Phone**: +91 99999 99999
 - **Location**: Bengaluru, Karnataka, India
 - **Availability**: Currently accepting new projects
